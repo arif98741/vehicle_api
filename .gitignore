@@ -16,7 +16,9 @@ yarn-error.log
 *.zip
 *.log
 *.iml
+*.map
 .vscode
 .idea
 .phpintel
+
 
