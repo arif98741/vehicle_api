@@ -20,6 +20,7 @@ Route::group([
 ], function () {
 
     Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::resource('/user','UserController');
 });
 
 

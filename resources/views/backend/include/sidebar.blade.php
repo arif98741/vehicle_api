@@ -42,6 +42,24 @@
                     <a class="sidebar-link has-arrow "
                        href="javascript:void(0)"
                        aria-expanded="false"
+                    ><i class="mdi mdi-cart"></i
+                        ><span class="hide-menu">Cart</span></a
+                    >
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link"
+                            ><i class="mdi mdi-format-list-bulleted"></i
+                                ><span class="hide-menu">Cart List </span></a
+                            >
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow "
+                       href="javascript:void(0)"
+                       aria-expanded="false"
                     ><i class="mdi mdi-cash"></i
                         ><span class="hide-menu">Earning </span></a
                     >
@@ -139,64 +157,129 @@
                     >
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
+                            <a href="{{ route('backend.user.create') }}" class="sidebar-link"
                             ><i class="mdi mdi-plus"></i
                                 ><span class="hide-menu">Add User </span></a
                             >
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
+                            <a href="{{ route('backend.user.index') }}" class="sidebar-link"
                             ><i class="mdi mdi-format-list-bulleted"></i
                                 ><span class="hide-menu">User LIst </span></a
                             >
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow "
-                       href="javascript:void(0)"
-                       aria-expanded="false"
-                    ><i class="mdi mdi-account-settings-variant"></i
-                        ><span class="hide-menu">Role list </span></a
-                    >
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
-                            ><i class="mdi mdi-plus"></i
-                                ><span class="hide-menu">Add User Role </span></a
-                            >
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
-                            ><i class="mdi mdi-format-list-bulleted"></i
-                                ><span class="hide-menu">Role LIst </span></a
-                            >
-                        </li>
-                    </ul>
-                </li>
+
+                {{--                setting start--}}
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark"
                        href="javascript:void(0)"
                        aria-expanded="false"
-                    ><i class="mdi mdi-view-list"></i
-                        ><span class="hide-menu">Pages </span></a
+                    ><i class="mdi mdi-brightness-7"></i
+                        ><span class="hide-menu">Settings </span></a
                     >
                     <ul aria-expanded="false" class="collapse first-level">
+
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
-                            ><i class="mdi mdi-plus"></i
-                                ><span class="hide-menu">Add Page </span></a
+                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                               href="javascript:void(0)"
+                               aria-expanded="false"
+                            ><i class="mdi mdi-brightness-7"></i
+                                ><span class="hide-menu">APPWEB </span></a
                             >
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-fridge-filled"></i
+                                        ><span class="hide-menu">App Settings</span></a
+                                    >
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-web"></i
+                                        ><span class="hide-menu">Web Settings</span></a
+                                    >
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-database"></i
+                                        ><span class="hide-menu">User Logs</span></a
+                                    >
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
-                            ><i class="mdi mdi-format-list-bulleted"></i
-                                ><span class="hide-menu">Page List </span></a
+                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                               href="javascript:void(0)"
+                               aria-expanded="false"
+                            ><i class="mdi mdi-brightness-7"></i
+                                ><span class="hide-menu">Page </span></a
                             >
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-plus"></i
+                                        ><span class="hide-menu">Add Page </span></a
+                                    >
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-format-list-bulleted"></i
+                                        ><span class="hide-menu">Page List </span></a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                               href="javascript:void(0)"
+                               aria-expanded="false"
+                            ><i class="mdi mdi-brightness-7"></i
+                                ><span class="hide-menu">Service </span></a
+                            >
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-plus"></i
+                                        ><span class="hide-menu">Service Category List </span></a
+                                    >
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-format-list-bulleted"></i
+                                        ><span class="hide-menu">Service Types </span></a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow "
+                               href="javascript:void(0)"
+                               aria-expanded="false"
+                            ><i class="mdi mdi-account-settings-variant"></i
+                                ><span class="hide-menu">Role list </span></a
+                            >
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-plus"></i
+                                        ><span class="hide-menu">Add User Role </span></a
+                                    >
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link"
+                                    ><i class="mdi mdi-format-list-bulleted"></i
+                                        ><span class="hide-menu">Role List </span></a
+                                    >
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
+                {{--                setting end--}}
+
                 <li class="sidebar-item">
                     <a
                         class="sidebar-link waves-effect waves-dark" href="{{ url('logout') }}"><i
