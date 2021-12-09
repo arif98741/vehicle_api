@@ -21,17 +21,17 @@
 <script src="{{ asset('backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
 <script src="{{ asset('backend/assets/js/pages/chart/chart-page-init.js')}}"></script>
 <script src="{{ asset('backend/dist/js/toastr.min.js')}}"></script>
-@stack('extra-script')
+
 <script type="text/javascript">
     toastr.options = {
         "closeButton": true,
         "debug": false,
         "newestOnTop": false,
         "progressBar": true,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
-        "showDuration": "300",
+        "showDuration": "200",
         "hideDuration": "1000",
         "timeOut": "5000",
         "extendedTimeOut": "1000",
@@ -43,6 +43,10 @@
 
     const type = "{{ Session::get('alert-type') }}";
     switch (type) {
+
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
 
         case 'warning':
             toastr.warning("{{ Session::get('message') }}");
@@ -56,6 +60,6 @@
             toastr.error("{{ Session::get('message') }}");
             break;
     }
-
 </script>
+@stack('extra-script')
 

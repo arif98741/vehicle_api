@@ -20,7 +20,15 @@ Route::group([
 ], function () {
 
     Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
-    Route::resource('/user','UserController');
+    Route::resource('/user', 'UserController')->except(['show']);
+
+    Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+        Route::resource('/service-category', 'ServiceCategoryController');
+    });
+
+    Route::resource('/service', 'ServiceController');
+
+
 });
 
 

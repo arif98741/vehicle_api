@@ -94,7 +94,7 @@
                     >
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
+                            <a href="{{ route('backend.service.create') }}" class="sidebar-link"
                             ><i class="mdi mdi-briefcase-download"></i
                                 ><span class="hide-menu">Add Service </span></a
                             >
@@ -241,13 +241,13 @@
                             >
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link"
+                                    <a href="{{ route('backend.service.service-category.index') }}" class="sidebar-link"
                                     ><i class="mdi mdi-plus"></i
                                         ><span class="hide-menu">Service Category List </span></a
                                     >
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link"
+                                    <a href="" class="sidebar-link"
                                     ><i class="mdi mdi-format-list-bulleted"></i
                                         ><span class="hide-menu">Service Types </span></a
                                     >
@@ -255,7 +255,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow "
+                            <a class="sidebar-link has-arrow"
                                href="javascript:void(0)"
                                aria-expanded="false"
                             ><i class="mdi mdi-account-settings-variant"></i

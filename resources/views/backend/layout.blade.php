@@ -8,6 +8,7 @@
     <meta name="keywords" content=""/>
     <meta name="description" content="M"/>
     <meta name="robots" content="noindex,nofollow"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@yield('title')</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend/assets/images/favicon.png')}}"
@@ -92,5 +93,6 @@
 <!-- All Jquery -->
 <!-- ============================================================== -->
 @include('backend.include.footer-js')
+@include('backend.common.scripts')
 </body>
 </html>

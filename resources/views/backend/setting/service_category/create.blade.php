@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="d-md-flex align-items-center">
                             <div>
-                                <h4 class="card-title">Add User to Site</h4>
+                                <h4 class="card-title">Add Service to Site</h4>
                                 <h5 class="card-subtitle">Please fillup the below form with correct details</h5>
                             </div>
                         </div>
