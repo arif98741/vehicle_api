@@ -97,6 +97,22 @@
 
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group ">
+
+                                                        <label for="first_name"
+                                                               class="text-end control-label col-form-label">Service Imge</label>
+                                                        <input type="file" class="form-control text-right"
+                                                               name="service_image"
+                                                               placeholder="Enter price here"
+                                                               value="{{ old('service_image') }}">
+                                                        @if ($errors->has('service_image'))
+                                                            <span class="help-block">
+                                            <p class="text-red">{{ $errors->first('service_image') }}</p> </span>
+                                                        @endif
+
+                                                    </div>
+                                                </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group ">
@@ -104,7 +120,7 @@
                                                         <label for="description"
                                                                class="text-end control-label col-form-label">Desciption</label>
                                                         <textarea name="description" id="" cols="30" rows="4"
-                                                                  class="form-control"></textarea>
+                                                                  class="form-control">{{ old('description') }}</textarea>
                                                         @if ($errors->has('description'))
                                                             <span class="help-block">
                                             <p class="text-red">{{ $errors->first('description') }}</p> </span>

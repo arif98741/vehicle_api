@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
+use Image;
+use Session;
 
 class ServiceController extends Controller
 {
@@ -44,7 +47,20 @@ class ServiceController extends Controller
             'service_category_id' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'service_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048', //max 2MB
+
         ]);
+
+        $image = $request->file('service_image');
+        if (!empty($request->file('service_image'))) {
+
+            $image = ImageHelper::imageUpload($request, 'service_image', 'service', true);
+
+            $data['service_image'] = $image['filename'];
+            $data['service_image_thumbnail'] = $image['thumb_path'];
+            $data['image_path'] = $image['file_path'];
+        }
+
 
         if (Service::create($data)) {
             return redirect()->route('backend.service.index')->with(

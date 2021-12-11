@@ -7,18 +7,20 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     [
         'prefix' => 'v1'
+
     ], function () {
 
     Route::post('register', [RegisterController::class, 'register']);
     Route::post('login', [RegisterController::class, 'login']);
 
     Route::middleware('auth:api')->group(function () {
-        Route::get('test', function () {
-            echo 'hi';
-        });
 
-        Route::group(['prefix' => 'user'], function () {
-            Route::get('/',function(){});
+        Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
+
+        Route::group(['prefix' => 'service', 'namespace' => 'Api\V1'], function () {
+            Route::get('/single/{id}', 'ServiceController@getSingleService');
+            Route::get('/all', 'ServiceController@getAllService');
+
         });
     });
 });

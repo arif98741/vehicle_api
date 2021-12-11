@@ -19,6 +19,9 @@ class CreateServicesTable extends Migration
             $table->integer('service_category_id');
             $table->float('price', 8, 2)->default(0);
             $table->text('description');
+            $table->text('service_image')->nullable();
+            $table->text('service_image_thumbnail')->nullable();
+            $table->text('image_path')->nullable();
             $table->string('status', 20)->default('active');
             $table->foreign('service_category_id')->references('id')->on('service_categories')
                 ->onUpdate('cascade')
