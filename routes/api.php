@@ -18,8 +18,12 @@ Route::group(
         Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
 
         Route::group(['prefix' => 'service', 'namespace' => 'Api\V1'], function () {
+
             Route::get('/single/{id}', 'ServiceController@getSingleService');
             Route::get('/all', 'ServiceController@getAllService');
+
+            Route::get('/categories', 'ServiceController@getAllCategories');
+            Route::get('/category/{id}', 'ServiceController@getSingleCategory');
 
         });
     });

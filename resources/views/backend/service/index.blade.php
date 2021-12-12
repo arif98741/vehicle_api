@@ -51,8 +51,8 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $service->service_name }}</td>
-                                        <td>{{ $service->price }}</td>
                                         <td>{{ $service->service_category->category_name }}</td>
+                                        <td>{{ $service->price }}</td>
                                         <td>{{ $service->status }} </td>
                                         <td>{{ date('d-m-Y',strtotime($service->created_at)) }}</td>
                                         <td>{{ date('d-m-Y',strtotime($service->updated_at)) }}</td>
