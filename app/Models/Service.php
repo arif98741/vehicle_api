@@ -11,6 +11,7 @@ class Service extends Model
 
     protected $table = 'services';
 
+
     protected $guarded = [];
 
     public function service_category()
