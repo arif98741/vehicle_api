@@ -25,7 +25,7 @@ class CreateServicesTable extends Migration
             $table->string('status', 20)->default('active');
             $table->foreign('service_category_id')->references('id')->on('service_categories')
                 ->onUpdate('cascade')
-                ->onDelete('set null');
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
