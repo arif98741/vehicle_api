@@ -15,7 +15,7 @@ Route::group([
     'prefix' => 'backend',
     'as' => 'backend.',
     'namespace' => 'Backend',
-    //'middleware' => 'auth', //backend middleware . user must have to be logged in before using system
+    'middleware' => 'auth', //backend middleware . user must have to be logged in before using system
 
 ], function () {
 
