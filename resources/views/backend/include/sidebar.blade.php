@@ -100,7 +100,7 @@
                             >
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link"
+                            <a href="{{ route('backend.service.index') }}" class="sidebar-link"
                             ><i class="mdi mdi-briefcase-upload"></i
                                 ><span class="hide-menu">Service LIst </span></a
                             >
