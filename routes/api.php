@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(
     [
-        'prefix' => 'v1'
+        'prefix' => 'v1',
+        'namespace' => 'Api\V1',
 
     ], function () {
 
@@ -18,8 +19,10 @@ Route::group(
         Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
         Route::post('/register/verify-otp', [RegisterController::class, 'verifyOtp']);
 
-        Route::group(['prefix' => 'service', 'namespace' => 'Api\V1'], function () {
-
+        /**
+         * service api
+         */
+        Route::group(['prefix' => 'service'], function () {
             Route::get('/single/{id}', 'ServiceController@getSingleService');
             Route::get('/all', 'ServiceController@getAllService');
             Route::get('/categories', 'ServiceController@getAllCategories');
@@ -27,8 +30,11 @@ Route::group(
 
         });
 
-        Route::group(['prefix' => 'provider', 'namespace' => 'Api\V1'], function () {
-            Route::get('/', 'ServiceController@getSingleCategory');
+        /**
+         * provider api
+         */
+        Route::group(['prefix' => 'provider', 'namespace' => 'Provider'], function () {
+            Route::get('/list', 'ProviderController@getProviders');
         });
     });
 });
