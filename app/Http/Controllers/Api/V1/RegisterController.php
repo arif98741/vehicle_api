@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Facades\AppFacade;
+use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends BaseController
 {
@@ -20,9 +22,11 @@ class RegisterController extends BaseController
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required|unique:users',
+            'role' => 'required|int',
             'password' => 'required',
             'c_password' => 'required|same:password',
         ]);
@@ -33,12 +37,14 @@ class RegisterController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        $input['user_slug'] = Str::slug($input['first_name']) . rand(11111, 99999);
 
         $user = User::create($input);
         //$success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
         if ($user) {
 
             $userData = User::find($user->id);
+
             $otp = rand(111111, 999999);
             $message = "Your verification code is $otp";
             $response = AppFacade::sendOtp($userData->phone, $message);
@@ -102,9 +108,29 @@ class RegisterController extends BaseController
             'otp_verified' => 0,
             'phone' => $request->phone,
         ])->select('id', 'phone', 'otp_verified')->first();
+
+
         if ($userData == null) {
             return $this->sendError('Already verified or not exist', ['error' => '']);
         }
+
+
+        $otpData = Otp::where([
+            'purpose' => 'register',
+            'purpose_id' => $userData->id,
+
+        ])->select('sent', 'code', 'expiration')
+            ->orderBy('id', 'desc')
+            ->first();
+
+
+        $sentTime = $otpData->sent;
+        $nextSentTime = Carbon::createFromDate($sentTime)->addMinute(1)->format('Y-m-d H:i:s');
+        if (Carbon::now() < $nextSentTime) {
+
+            return $this->sendError('You can request otp after 1 minute', ['error' => '']);
+        }
+
 
         $otp = rand(111111, 999999);
         $message = "Your verification code is $otp";
@@ -121,10 +147,55 @@ class RegisterController extends BaseController
                 'purpose_id' => $userData->id
             ];
 
+            Otp::where('purpose', 'register')
+                ->where('purpose_id', $userData->id)
+                ->delete();
+
             AppFacade::saveOtp($data);
             $success['user'] = $userData;
             return $this->sendResponse($success, 'Register otp resent');
         }
+
+    }
+
+    /**
+     * verify otp for user
+     * @return void
+     */
+    public function verifyOtp(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required',
+            'otp' => 'required|int|min:6',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('Data validation error', $validator->errors());
+        }
+
+        $userData = User::where([
+            'phone' => $request->phone,
+        ])->select('id')->first();
+
+        if ($userData == null) {
+            return $this->sendError('Phone number not exist');
+        }
+
+        $otpData = Otp::where([
+            'purpose' => 'register',
+            'purpose_id' => $userData->id,
+            'code' => $request->otp,
+            'status' => 0,
+        ])->orderBy('id', 'desc')->first();
+
+        if ($otpData == null) {
+            return $this->sendError('Otp is invalid');
+        }
+
+        User::where('id', $userData->id)
+            ->update(['otp_verified' => 1]);
+        Otp::where('id', $otpData->id)
+            ->update(['status' => 1]);
 
     }
 

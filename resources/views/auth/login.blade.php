@@ -102,8 +102,8 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <input type="email" name="email" id="user" placeholder="Email">
-        <input type="password" name="password" id="pass" placeholder="Password">
+        <input type="email" name="email" id="user" value="admin@gmail.com" placeholder="Email">
+        <input type="password" name="password" value="123" placeholder="Password">
 
         <input type="submit" value="Login">
 

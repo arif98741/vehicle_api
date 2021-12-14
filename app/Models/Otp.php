@@ -11,6 +11,7 @@ class Otp extends Model
     protected $fillable = [
 
         'purpose',
+        'purpose_id',
         'code',
         'sent',
         'expiration',
