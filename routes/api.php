@@ -28,12 +28,7 @@ Route::group(
         });
 
         Route::group(['prefix' => 'provider', 'namespace' => 'Api\V1'], function () {
-
-            Route::get('/single/{id}', 'ServiceController@getSingleService');
-            Route::get('/all', 'ServiceController@getAllService');
-            Route::get('/categories', 'ServiceController@getAllCategories');
-            Route::get('/category/{id}', 'ServiceController@getSingleCategory');
-
+            Route::get('/', 'ServiceController@getSingleCategory');
         });
     });
 });
