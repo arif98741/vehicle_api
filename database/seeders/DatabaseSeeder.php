@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -16,6 +18,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(2)->create();
+        DB::table('users')
+            ->insert(
+                [
+                    [
+                        'first_name' => 'Admin',
+                        'last_name' => 'User',
+                        'email' => 'admin@gmail.com ',
+                        'phone' => '01733499574',
+                        'password' => Hash::make('123'),
+                        'role' => 1,
+                        'user_slug' => 'admin',
+                    ],
+
+                ]
+            );
+
+
         \App\Models\ServiceCategory::factory()->count(3)->create();
         \App\Models\Service::factory()->count(10)->create();
 
@@ -23,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'super admin',
             'admin',
             'provider',
+            'seeker',
             'data-entry'
         ];
 
