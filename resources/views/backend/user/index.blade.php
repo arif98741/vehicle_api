@@ -1,17 +1,17 @@
 @extends('backend.layout')
-@section('title','Patient List')
+@section('title','Users List')
 @section('content')
 
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Patient List</h4>
+                <h4 class="page-title">User List</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('backend.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Patient List
+                                Users List
                             </li>
                         </ol>
                     </nav>
@@ -31,35 +31,37 @@
                         <div class="table-responsive">
                             <table
                                 id="zero_config"
-                                class="table table-striped table-bordered"
-                            >
+                                class="table table-striped table-bordered" >
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Patient Name</th>
-                                    <th>Lab</th>
-                                    <th>MRN</th>
-                                    <th>Patient ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
                                     <th>Registration Date</th>
-                                    <th>Collection Date</th>
+                                    <th>Doc. Verified</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($patients as $key=> $patient)
+                                @foreach($users as $key=> $user)
+
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $patient->patient_name }}</td>
-                                        <td>{{ $patient->lab->name }}</td>
-                                        <td>{{ $patient->mrn }}</td>
-                                        <td>{{ $patient->patient_id }}</td>
-                                        <td>{{ date('d-m-Y',strtotime($patient->registration_date)) }}</td>
-                                        <td>{{ date('d-m-Y',strtotime($patient->collection_date)) }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.patient.edit',$patient->id) }}">Edit</a>
-                                            |
-                                            <a href="{{ url('admin/patient/view-report/'.$patient->id) }}">View</a>
+                                        <td>{{ $user->first_name }}</td>
+                                        <td>{{ $user->last_name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->role->name }}</td>
+                                        <td>{{ date('d-m-Y',strtotime($user->created_at)) }}</td>
+                                        <td>@if($user->otp_verified == 1) <span class="badge bg-success float-end d-block">Yes</span> @else <span class="badge bg-dark float-end">No</span> @endif</td>
+                                        <td>@if($user->status == 1) <span class="badge bg-success float-end d-block">Active</span> @else <span class="badge bg-dark float-end">Inactive</span> @endif
 
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary">View</a>
+                                            <a href="{{ route('backend.user.edit',$user->id) }}" class="btn btn-success">Edit</a>
                                         </td>
                                     </tr>
 

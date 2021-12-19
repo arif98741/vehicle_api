@@ -27,8 +27,9 @@ class User extends Authenticatable
         'phone',
         'otp_verified',
         'document_verified',
-        'role',
+        'role_id',
         'user_slug',
+        'status',
     ];
 
     /**
@@ -55,7 +56,7 @@ class User extends Authenticatable
      */
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role', 'id');
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
 }

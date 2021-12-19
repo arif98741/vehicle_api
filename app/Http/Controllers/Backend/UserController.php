@@ -13,8 +13,14 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -25,7 +31,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'users' => User::with('role')->whereNotIn('role_id', [1, 2, 5])->get()
+        ];
+
+        return view('backend.user.index')->with($data);
     }
 
     /**
@@ -35,30 +45,39 @@ class UserController extends Controller
      */
     public function create()
     {
-        $data = [];
+        $data = [
+            'roles' => Role::orderBy('name', 'asc')->whereNotIn('id', [1])->get()
+        ];
         return view('backend.user.create')->with($data);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @param Request $request
+     * @return void
+     * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
-    }
+        $data = $request->all();
+        $data['user_slug'] = Str::slug($request->first_name) . rand(11111, 99999);
+        $data['password'] = Hash::make('123');
+        if (User::create($data)) {
+            return redirect()->route('backend.user.index')->with(
+                [
+                    'message' => 'User successfully to system',
+                    'alert-type' => 'success'
+                ]
+            );
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->back()->with(
+            [
+                'message' => 'Failed to add user',
+                'alert-type' => 'error'
+            ]
+        );
     }
 
     /**
@@ -67,21 +86,42 @@ class UserController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $data = [
+            'roles' => Role::orderBy('name', 'asc')->whereNotIn('id', [1])->get(),
+            'user' => $user
+        ];
+        return view('backend.user.edit')->with($data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+        $data['user_slug'] = Str::slug($request->first_name) . rand(11111, 99999);
+        $data['password'] = Hash::make('123');
+        if ($user->update($data)) {
+            return redirect()->route('backend.user.index')->with(
+                [
+                    'message' => 'User successfully updated',
+                    'alert-type' => 'success'
+                ]
+            );
+        }
+
+        return redirect()->back()->with(
+            [
+                'message' => 'Failed to update user',
+                'alert-type' => 'error'
+            ]
+        );
     }
 
     /**
