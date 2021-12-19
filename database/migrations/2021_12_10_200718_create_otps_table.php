@@ -16,6 +16,7 @@ class CreateOtpsTable extends Migration
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
             $table->string('purpose');
+            $table->integer('purpose_id')->nullable();
             $table->string('code');
             $table->timestamp('sent')->nullable();
             $table->timestamp('expiration')->nullable();

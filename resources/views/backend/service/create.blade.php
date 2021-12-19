@@ -49,7 +49,7 @@
                                                             Name</label>
                                                         <input type="text" class="form-control" id="service_name"
                                                                name="service_name"
-                                                               placeholder="Enter first name here"
+                                                               placeholder="Enter service name"
                                                                value="{{ old('service_name') }}">
                                                         @if ($errors->has('service_name'))
                                                             <span class="help-block">
@@ -100,8 +100,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group ">
 
-                                                        <label for="first_name"
-                                                               class="text-end control-label col-form-label">Service Imge</label>
+                                                        <label for="service_image"
+                                                               class="text-end control-label col-form-label">Service Image</label>
                                                         <input type="file" class="form-control text-right"
                                                                name="service_image"
                                                                placeholder="Enter price here"
