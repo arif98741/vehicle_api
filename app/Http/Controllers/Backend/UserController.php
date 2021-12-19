@@ -15,11 +15,13 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -27,7 +29,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -54,9 +56,8 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param UserRequest $request
      * @return void
-     * @throws ValidationException
      */
     public function store(UserRequest $request)
     {
@@ -130,8 +131,22 @@ class UserController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        if ($user->delete()) {
+            return redirect()->route('backend.user.index')->with(
+                [
+                    'message' => 'User successfully deleted',
+                    'alert-type' => 'success'
+                ]
+            );
+        }
+
+        return redirect()->back()->with(
+            [
+                'message' => 'Failed to delete user',
+                'alert-type' => 'error'
+            ]
+        );
     }
 }
