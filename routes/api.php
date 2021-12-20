@@ -42,6 +42,14 @@ Route::group(
                 Route::post('/all', 'UserServiceController@getUserAllServices');
                 Route::post('/add', 'UserServiceController@addUserService');
                 Route::post('/edit', 'UserServiceController@editUserService');
+                Route::post('/delete', 'UserServiceController@deleteUserService');
+            });
+
+            Route::group(['prefix' => 'professional-data'], function () {
+                Route::post('/all', 'UserProfessionalDataController@getUserAllProfData');
+                Route::post('/add', 'UserProfessionalDataController@addUserProfData');
+                Route::post('/edit', 'UserProfessionalDataController@editUserProfData');
+                Route::post('/delete', 'UserProfessionalDataController@deleteUserProfData');
             });
         });
     });

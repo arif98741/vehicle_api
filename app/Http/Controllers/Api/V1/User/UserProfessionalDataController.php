@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Api\V1\BaseController;
+use App\Models\User\UserProfessionalData;
 use App\Models\User\UserService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -10,13 +11,13 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class UserServiceController extends BaseController
+class UserProfessionalDataController extends BaseController
 {
     /**
      * Get All Providers
      * @return JsonResponse|Response
      */
-    public function getUserAllServices(Request $request)
+    public function getUserAllProfData(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required'
@@ -26,14 +27,14 @@ class UserServiceController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $userServices = UserService::with(['service', 'user'])
+        $userServices = UserProfessionalData::with(['user'])
             ->where('user_id', $request->user_id)
             ->get();
 
-        if ($userServices == null) {
-            return $this->sendError([], 'No service found');
+        if ($userServices->count() == 0) {
+            return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($userServices, 'Fetched services');
+            return $this->sendResponse($userServices, 'Fetched user professional data');
         }
     }
 
@@ -42,12 +43,15 @@ class UserServiceController extends BaseController
      * @return void
      * @throws ValidationException
      */
-    public function addUserService(Request $request)
+    public function addUserProfData(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'service_id' => 'required',
-            'service_price' => 'required|numeric',
+            'license_no' => 'required',
+            'year_of_experience' => 'sometimes',
+            'speciality' => 'sometimes',
+            'other_speciality' => 'sometimes',
+            'personal_commitment' => 'sometimes',
         ]);
 
         if ($validator->fails()) {
@@ -56,17 +60,16 @@ class UserServiceController extends BaseController
 
         $data = $validator->validated();
 
-        $existence = UserService::where([
+        $existence = UserProfessionalData::where([
             'user_id' => $request->user_id,
-            'service_id' => $request->service_id,
+            'license_no' => $request->license_no,
         ])->first();
 
         if ($existence != null) {
-            return $this->sendError('Service already exist', []);
+            return $this->sendError('Professional data already exist', []);
         }
 
-
-        if (UserService::create($data)) {
+        if (UserProfessionalData::create($data)) {
             return $this->sendResponse([], 'User service successfully added');
         } else {
             return $this->sendError([], 'No user found');
@@ -78,36 +81,37 @@ class UserServiceController extends BaseController
      * @return void
      * @throws ValidationException
      */
-    public function editUserService(Request $request)
+    public function editUserProfData(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'user_id' => 'required',
-            'service_id' => 'required',
-            'service_price' => 'required|numeric',
+            'license_no' => 'required',
+            'year_of_experience' => 'sometimes',
+            'speciality' => 'sometimes',
+            'other_speciality' => 'sometimes',
+            'personal_commitment' => 'sometimes',
         ]);
 
         if ($validator->fails()) {
             return $this->sendError('Data validation error', $validator->errors());
         }
 
+        $data = $validator->validated();
 
-        $existence = UserService::where([
+        $existence = UserProfessionalData::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->first();
 
         if ($existence == null) {
-            return $this->sendError('No service found to update', []);
+            return $this->sendError('No data found to update', []);
         }
 
-        UserService::where([
+        UserProfessionalData::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
-        ])->update([
-            'service_price' => $request->service_price,
-            'service_id' => $request->service_id
-        ]);
+        ])->update($data);
 
         return $this->sendResponse([], 'Service successfully updated');
 
@@ -118,7 +122,7 @@ class UserServiceController extends BaseController
      * @return void
      * @throws ValidationException
      */
-    public function deleteUserService(Request $request)
+    public function deleteUserProfData(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
@@ -130,21 +134,21 @@ class UserServiceController extends BaseController
         }
 
 
-        $existence = UserService::where([
+        $existence = UserProfessionalData::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->first();
 
         if ($existence == null) {
-            return $this->sendError('No service found to delete', []);
+            return $this->sendError('No data found to delete', []);
         }
 
-        UserService::where([
+        UserProfessionalData::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->delete();
 
-        return $this->sendResponse([], 'Service successfully deleted');
+        return $this->sendResponse([], 'User professional data successfully deleted');
 
     }
 }
