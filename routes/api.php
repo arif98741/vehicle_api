@@ -33,8 +33,16 @@ Route::group(
         /**
          * provider api
          */
-        Route::group(['prefix' => 'provider', 'namespace' => 'Provider'], function () {
-            Route::get('/list', 'ProviderController@getProviders');
+        Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
+            Route::get('/list', 'UserController@getUsers');
+            Route::post('/list-by-role', 'UserController@getUsersByRole');
+            Route::get('/{id}', 'UserController@getSingleUser');
+
+            Route::group(['prefix' => 'service'], function () {
+                Route::post('/all', 'UserServiceController@getUserAllServices');
+                Route::post('/add', 'UserServiceController@addUserService');
+                Route::post('/edit', 'UserServiceController@editUserService');
+            });
         });
     });
 });

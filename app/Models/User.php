@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User\UserService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,6 +58,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    public function user_services()
+    {
+        return $this->hasMany(UserService::class);
     }
 
 }

@@ -28,7 +28,6 @@ Route::group([
 
     Route::resource('/service', 'ServiceController');
 
-
 });
 
 
