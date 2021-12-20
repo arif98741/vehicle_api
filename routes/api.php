@@ -51,6 +51,13 @@ Route::group(
                 Route::post('/edit', 'UserProfessionalDataController@editUserProfData');
                 Route::post('/delete', 'UserProfessionalDataController@deleteUserProfData');
             });
+
+            Route::group(['prefix' => 'academic'], function () {
+                Route::post('/all', 'UserAcademicController@getUserAllAcadmicData');
+                Route::post('/add', 'UserAcademicController@addUserAcadmicData');
+                Route::post('/edit', 'UserAcademicController@editUserAcadmicData');
+                Route::post('/delete', 'UserAcademicController@deleteUserAcadmicData');
+            });
         });
     });
 });
