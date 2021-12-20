@@ -51,7 +51,7 @@ class RegisterController extends BaseController
         $input['user_slug'] = Str::slug($input['first_name']) . rand(11111, 99999);
 
         $user = User::create($input);
-        //$success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
+        $success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
         if ($user) {
 
             $userData = User::find($user->id);
