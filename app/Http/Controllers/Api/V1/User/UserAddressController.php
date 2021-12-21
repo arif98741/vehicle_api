@@ -16,7 +16,7 @@ use Illuminate\Validation\ValidationException;
 class UserAddressController extends BaseController
 {
     /**
-     * Get All User all Other info data
+     * Get All User all Address data
      * @return JsonResponse|Response
      */
     public function getUserAllAddresses(Request $request)
@@ -35,12 +35,12 @@ class UserAddressController extends BaseController
         if ($userServices->count() == 0) {
             return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($userServices, 'Fetched user other info');
+            return $this->sendResponse($userServices, 'Fetched user Address');
         }
     }
 
     /**
-     * Add User Other info
+     * Add User Address
      * @return void
      * @throws ValidationException
      */
@@ -118,8 +118,8 @@ class UserAddressController extends BaseController
     }
 
     /**
-     * Delete User Other INfo
-     * @return void
+     * Delete User Address
+     * @return JsonResponse|Response
      * @throws ValidationException
      */
     public function deleteUserAddress(Request $request)
