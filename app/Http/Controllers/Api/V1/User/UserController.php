@@ -40,8 +40,7 @@ class UserController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $users = User::with('role')
-            ->whereHas('role', function ($query) use ($request) {
+        $users = User::whereHas('role', function ($query) use ($request) {
                 $query->where('name', $request->role_name);
                 $query->whereNotIn('id', [1,2,5]);
             })->get();

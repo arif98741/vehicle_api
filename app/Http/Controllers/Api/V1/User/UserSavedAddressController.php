@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Api\V1\BaseController;
-use App\Models\User\UserAddress;
+use App\Models\User\SavedAddress;
 use App\Models\User\UserOtherInfo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,13 +11,13 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class UserAddressController extends BaseController
+class UserSavedAddressController extends BaseController
 {
     /**
-     * Get All User all Address data
+     * Get All User all saved address
      * @return JsonResponse|Response
      */
-    public function getUserAllAddresses(Request $request)
+    public function getUserAllSavedAddresses(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required'
@@ -27,24 +27,25 @@ class UserAddressController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $userServices = UserAddress::where('user_id', $request->user_id)
+        $userServices = SavedAddress::where('user_id', $request->user_id)
             ->get();
 
         if ($userServices->count() == 0) {
             return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($userServices, 'Fetched user Address');
+            return $this->sendResponse($userServices, 'Fetched User saved address');
         }
     }
 
     /**
-     * Add User Address
-     * @return void
+     * Add User saved address
+     * @return JsonResponse|Response
      * @throws ValidationException
      */
-    public function addUserAddress(Request $request)
+    public function addUserSavedAddress(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'beneficiary_name' => 'required',
             'user_id' => 'required',
             'district' => 'required',
             'city' => 'required',
@@ -57,32 +58,25 @@ class UserAddressController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-
-        $existence = UserAddress::where([
-            'user_id' => $request->user_id,
-        ])->first();
-
-        if ($existence != null) {
-            return $this->sendError('User address already exist');
-        }
-
         $data = $validator->validated();
-        if (UserAddress::create($data)) {
-            return $this->sendResponse([], 'User address successfully added', 201);
+        if (SavedAddress::create($data)) {
+            return $this->sendResponse([], 'User saved address successfully added', 201);
         } else {
             return $this->sendError([], 'Failed to insert');
         }
     }
 
     /**
-     * Edit User Address
+     * Edit User saved address
      * @return JsonResponse|Response
      * @throws ValidationException
      */
-    public function editUserAddress(Request $request)
+    public function editUserSavedAddress(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'id' => 'required',
             'user_id' => 'required',
+            'beneficiary_name' => 'required',
             'district' => 'required',
             'city' => 'required',
             'postcode' => 'sometimes',
@@ -95,32 +89,35 @@ class UserAddressController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $existence = UserAddress::where([
+        $existence = SavedAddress::where([
             'user_id' => $request->user_id,
+            'id' => $request->id,
         ])->first();
 
         if ($existence == null) {
-            return $this->sendError('No address found to update');
+            return $this->sendError('No saved address found to update');
         }
 
-        UserAddress::where([
+        SavedAddress::where([
+            'id' => $request->id,
             'user_id' => $request->user_id,
-        ])->update($request->only(['district',
+        ])->update($request->only(['beneficiary_name',
+            'district',
             'city',
             'postcode',
             'lon',
             'lat']));
 
-        return $this->sendResponse([], 'User address successfully updated');
+        return $this->sendResponse([], 'User saved address successfully updated');
 
     }
 
     /**
-     * Delete User Address
+     * Delete User saved address
      * @return JsonResponse|Response
      * @throws ValidationException
      */
-    public function deleteUserAddress(Request $request)
+    public function deleteUserSavedAddress(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
@@ -131,7 +128,8 @@ class UserAddressController extends BaseController
         }
 
 
-        $existence = UserAddress::where([
+        $existence = SavedAddress::where([
+            'id' => $request->id,
             'user_id' => $request->user_id,
         ])->first();
 
@@ -140,11 +138,12 @@ class UserAddressController extends BaseController
             return $this->sendError('No data found to delete');
         }
 
-        UserAddress::where([
+        SavedAddress::where([
+            'id' => $request->id,
             'user_id' => $request->user_id,
         ])->delete();
 
-        return $this->sendResponse([], 'User address successfully deleted');
+        return $this->sendResponse([], 'User saved address successfully deleted');
 
     }
 }

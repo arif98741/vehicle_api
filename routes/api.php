@@ -45,6 +45,13 @@ Route::group(
                 Route::post('/delete', 'UserAddressController@deleteUserAddress');
             });
 
+            Route::group(['prefix' => 'saved-address'], function () {
+                Route::post('/all', 'UserSavedAddressController@getUserAllSavedAddresses');
+                Route::post('/add', 'UserSavedAddressController@addUserSavedAddress');
+                Route::post('/edit', 'UserSavedAddressController@editUserSavedAddress');
+                Route::post('/delete', 'UserSavedAddressController@deleteUserSavedAddress');
+            });
+
             Route::group(['prefix' => 'service'], function () {
                 Route::post('/all', 'UserServiceController@getUserAllServices');
                 Route::post('/add', 'UserServiceController@addUserService');
