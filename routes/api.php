@@ -58,6 +58,15 @@ Route::group(
                 Route::post('/edit', 'UserAcademicController@editUserAcadmicData');
                 Route::post('/delete', 'UserAcademicController@deleteUserAcadmicData');
             });
+
+            Route::group(['prefix' => 'other-info'], function () {
+                Route::post('/all', 'UserOtherInfoController@getUserAllOtherInfoData');
+                Route::post('/add', 'UserOtherInfoController@addUserOtherInfo');
+                Route::post('/edit', 'UserOtherInfoController@editUserOtherInfo');
+                Route::post('/delete', 'UserOtherInfoController@deleteUserOtherInfo');
+            });
+
         });
     });
 });
+

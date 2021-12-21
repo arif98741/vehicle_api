@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers\Api\V1\User;
 
+use App\Helpers\FileUploadHelper;
 use App\Http\Controllers\Api\V1\BaseController;
-use App\Models\User\UserAcademicInfo;
-use App\Models\User\UserProfessionalData;
-use Carbon\Carbon;
+use App\Models\User\UserOtherInfo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class UserAcademicController extends BaseController
+class UserOtherInfoController extends BaseController
 {
     /**
-     * Get All Providers
+     * Get All User all Other info data
      * @return JsonResponse|Response
      */
-    public function getUserAllAcadmicData(Request $request)
+    public function getUserAllOtherInfoData(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required'
@@ -28,29 +28,28 @@ class UserAcademicController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $userServices = UserAcademicInfo::where('user_id', $request->user_id)
+        $userServices = UserOtherInfo::where('user_id', $request->user_id)
             ->get();
 
         if ($userServices->count() == 0) {
             return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($userServices, 'Fetched user professional data');
+            return $this->sendResponse($userServices, 'Fetched user other info');
         }
     }
 
     /**
-     * Add User Academic Info
+     * Add User Other info
      * @return void
      * @throws ValidationException
      */
-    public function addUserAcadmicData(Request $request)
+    public function addUserOtherInfo(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|numeric',
-            'institute' => 'required',
-            'major' => 'required',
-            'passing_year' => "required|numeric|min:1920|digits_between: 4,4",
-            'cgpa_grade' => 'required',
+            'award_info' => 'sometimes',
+            'doc_or_link' => 'sometimes',
+            'file' => 'sometimes',
         ]);
 
         if ($validator->fails()) {
@@ -58,48 +57,47 @@ class UserAcademicController extends BaseController
         }
 
         $data = $validator->validated();
+        if ($request->has('file')) {
+            $allowedFiles = [
+                'pdf', 'doc', 'docx', 'jpeg', 'jpg', 'gif', 'png', 'xlsx', 'csv'
+            ];
 
-        $existence = UserAcademicInfo::where([
-            'user_id' => $request->user_id,
-            'institute' => $request->institute,
-            'major' => $request->major,
-        ])->first();
+            if (!in_array($request->file('file')->getClientOriginalExtension(), $allowedFiles)) {
 
-        if ($existence != null) {
-            return $this->sendError('User academic data already exist', []);
+                return $this->sendError('Selected file type is not supported to upload', $validator->errors());
+            }
+
+            $data['file'] = FileUploadHelper::fileUpload($request, 'user_file', 'user_file', $request->user_id);
         }
 
-
-        if (UserAcademicInfo::create($data)) {
-            return $this->sendResponse([], 'User academic data successfully added',201);
+        if (UserOtherInfo::create($data)) {
+            return $this->sendResponse([], 'User other info successfully added', 201);
         } else {
             return $this->sendError([], 'Failed to insert');
         }
     }
 
     /**
-     * Edit User Academic info
+     * Edit User Other INfo
      * @return void
      * @throws ValidationException
      */
-    public function editUserAcadmicData(Request $request)
+    public function editUserOtherInfo(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required|numeric',
             'user_id' => 'required|numeric',
-            'institute' => 'required',
-            'major' => 'required',
-            'passing_year' => "required|numeric|min:1920|digits_between: 4,4",
-            'cgpa_grade' => 'required',
+            'award_info' => 'sometimes',
+            'doc_or_link' => 'sometimes',
         ]);
 
         if ($validator->fails()) {
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $data = $validator->validated();
+        $data = $request->only(['award_info', 'doc_or_link']);
 
-        $existence = UserAcademicInfo::where([
+        $existence = UserOtherInfo::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->first();
@@ -108,7 +106,32 @@ class UserAcademicController extends BaseController
             return $this->sendError('No data found to update', []);
         }
 
-        UserAcademicInfo::where([
+        if ($request->has('file')) {
+            $allowedFiles = [
+                'pdf',
+                'doc',
+                'docx',
+                'jpeg',
+                'jpg',
+                'gif',
+                'png',
+                'xlsx',
+                'csv',
+            ];
+
+            if (File::exists($existence->file)) {
+                File::delete($existence->file);
+            }
+
+            if (!in_array($request->file('file')->getClientOriginalExtension(), $allowedFiles)) {
+
+                return $this->sendError('Selected file type is not supported to upload', $validator->errors());
+            }
+
+            $data['file'] = FileUploadHelper::fileUpload($request, 'user_file', 'user_file', $request->user_id);
+        }
+
+        UserOtherInfo::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->update($data);
@@ -118,11 +141,11 @@ class UserAcademicController extends BaseController
     }
 
     /**
-     * Delete User Service
+     * Delete User Other INfo
      * @return void
      * @throws ValidationException
      */
-    public function deleteUserAcadmicData (Request $request)
+    public function deleteUserOtherInfo(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
@@ -134,7 +157,7 @@ class UserAcademicController extends BaseController
         }
 
 
-        $existence = UserAcademicInfo::where([
+        $existence = UserOtherInfo::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->first();
@@ -143,12 +166,12 @@ class UserAcademicController extends BaseController
             return $this->sendError('No data found to delete', []);
         }
 
-        UserAcademicInfo::where([
+        UserOtherInfo::where([
             'id' => $request->id,
             'user_id' => $request->user_id,
         ])->delete();
 
-        return $this->sendResponse([], 'User academic data successfully deleted');
+        return $this->sendResponse([], 'User other info successfully deleted');
 
     }
 }
