@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User\UserAddress;
 use App\Models\User\UserService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -58,6 +59,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    public function user_address()
+    {
+        return $this->hasOne(UserAddress::class);
     }
 
     public function user_services()

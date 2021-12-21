@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Models\User\UserProfessionalData;
-use App\Models\User\UserService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

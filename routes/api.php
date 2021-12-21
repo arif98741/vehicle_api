@@ -38,6 +38,13 @@ Route::group(
             Route::post('/list-by-role', 'UserController@getUsersByRole');
             Route::get('/{id}', 'UserController@getSingleUser');
 
+            Route::group(['prefix' => 'address'], function () {
+                Route::post('/all', 'UserAddressController@getUserAllAddresses');
+                Route::post('/add', 'UserAddressController@addUserAddress');
+                Route::post('/edit', 'UserAddressController@editUserAddress');
+                Route::post('/delete', 'UserAddressController@deleteUserAddress');
+            });
+
             Route::group(['prefix' => 'service'], function () {
                 Route::post('/all', 'UserServiceController@getUserAllServices');
                 Route::post('/add', 'UserServiceController@addUserService');
