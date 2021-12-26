@@ -14,23 +14,25 @@ class AppSetting
     /**
      * @param $mobile
      * @param $message
-     * @return void
+     * @return bool
      */
-    public function sendOtp($mobile, $message)
+    public function sendOtp($mobile, $message): bool
     {
         $defaultSMSProvider = Config::get('sms.default_provider');
-        $response = SMS::shoot($mobile, $message);
-        if ($defaultSMSProvider == 'Xenon\LaravelBDSms\Provider\Ssl') {
-            $responseObject = $response->getData();
-            $responseObject = json_decode($responseObject->response);
-            if ($responseObject->status_code == 200) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        SMS::shoot($mobile, $message);
+        return true;
+
+        /*  if ($defaultSMSProvider == 'Xenon\LaravelBDSms\Provider\Ssl') {
+              $responseObject = $response->getData();
+              $responseObject = json_decode($responseObject->response);
+              if ($responseObject->status_code == 200) {
+                  return true;
+              } else {
+                  return false;
+              }
+          } else {
+              return false;
+          }*/
     }
 
     /** save otp

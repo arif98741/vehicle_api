@@ -14,6 +14,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Facades\AppFacade;
+use App\Helpers\DataHelper;
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
@@ -35,7 +36,7 @@ class RegisterController extends BaseController
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
-            'emails' => 'required|emails|unique:users',
+            'email' => 'required|email|unique:users',
             'phone' => 'required|unique:users',
             'role' => 'required|int',
             'password' => 'required',
@@ -46,20 +47,37 @@ class RegisterController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
+        if (DataHelper::checkNumberValidity($request->phone) == false) {
+            return $this->sendError('Invalid phone number', [
+                'phone' => [
+                    'provided phone number is invalid'
+                ]
+            ]);
+        }
+
+
+        if (!in_array($request->role, [3, 4])) {
+            return $this->sendError('Role must be 3 or 4; 3 Refers to provider and 4 refers to seeeker', [
+                'role' => [
+                    'role entry error'
+                ]
+            ]);
+        }
+
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $input['user_slug'] = Str::slug($input['first_name']) . rand(11111, 99999);
 
         $user = User::create($input);
-        $success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
+        //  $success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
         if ($user) {
 
             $userData = User::find($user->id);
 
             $otp = rand(111111, 999999);
-            $message = "Your verification code is $otp";
+            $message = "$otp. Sincerely Takecare";
             $response = AppFacade::sendOtp($userData->phone, $message);
-            if ($response == false) { //todo:: this will be true
+            if ($response == true) {
 
                 $data = [
                     'sent' => Carbon::now(),
@@ -70,6 +88,7 @@ class RegisterController extends BaseController
                         ->format('Y-m-d H:i:s'),
                     'purpose_id' => $userData->id
                 ];
+
 
                 AppFacade::saveOtp($data);
                 $success['user'] = $userData;
@@ -120,7 +139,6 @@ class RegisterController extends BaseController
             'phone' => $request->phone,
         ])->select('id', 'phone', 'otp_verified')->first();
 
-
         if ($userData == null) {
             return $this->sendError('Already verified or not exist', ['error' => '']);
         }
@@ -134,9 +152,10 @@ class RegisterController extends BaseController
             ->orderBy('id', 'desc')
             ->first();
 
-
         $sentTime = $otpData->sent;
-        $nextSentTime = Carbon::createFromDate($sentTime)->addMinute(1)->format('Y-m-d H:i:s');
+        $nextSentTime = Carbon::createFromDate($sentTime)
+            ->addMinute(1)
+            ->format('Y-m-d H:i:s');
         if (Carbon::now() < $nextSentTime) {
 
             return $this->sendError('You can request otp after 1 minute', ['error' => '']);
@@ -144,10 +163,10 @@ class RegisterController extends BaseController
 
 
         $otp = rand(111111, 999999);
-        $message = "Your verification code is $otp";
+        $message = "$otp. Sincerely Takecare";
         $response = AppFacade::sendOtp($userData->phone, $message);
 
-        if ($response == false) { //todo:: this will be true
+        if ($response == true) { //todo:: this will be true
             $data = [
                 'sent' => Carbon::now(),
                 'code' => $otp,
@@ -171,7 +190,7 @@ class RegisterController extends BaseController
 
     /**
      * verify otp for user
-     * @return void
+     * @return Response
      */
     public function verifyOtp(Request $request)
     {
@@ -207,6 +226,7 @@ class RegisterController extends BaseController
             ->update(['otp_verified' => 1]);
         Otp::where('id', $otpData->id)
             ->update(['status' => 1]);
+        return $this->sendResponse([], 'Otp verification successful');
 
     }
 

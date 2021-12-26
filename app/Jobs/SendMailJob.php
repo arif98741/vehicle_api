@@ -50,7 +50,8 @@ class SendMailJob implements ShouldQueue
     {
         $mailClass = "\App\Mail\\" . $this->mailData['mailclass'];
         if (!class_exists($mailClass))
-            throw new MailExcetion('Mailclass ' . $this->mailData['mailclass'] . ' does not exist inside App/Mail directory');
+            throw new MailExcetion('Mailclass ' . $this->mailData['mailclass'] .
+                ' does not exist inside App/Mail directory');
 
         $email = new $mailClass($this->mailData);
         Mail::to($this->mailData['email'])->send($email);
@@ -62,6 +63,10 @@ class SendMailJob implements ShouldQueue
      */
     private function generateException()
     {
+        if (!is_array($this->mailData)) {
+            throw new MailExcetion(self::class . ' expects array as argument but given ' . gettype($this->mailData));
+        }
+
         if (!array_key_exists('subject', $this->mailData)) {
             throw new MailExcetion('subject argument is absent in configuration');
         }
@@ -71,11 +76,8 @@ class SendMailJob implements ShouldQueue
         if (!array_key_exists('body', $this->mailData)) {
             throw new MailExcetion('body argument is absent in configuration');
         }
-
         if (!array_key_exists('mailclass', $this->mailData)) {
             throw new MailExcetion('mailclass argument is absent in configuration');
         }
-
-
     }
 }

@@ -32,7 +32,7 @@ class AdminController extends Controller
             'subject' => 'Test Subject ' . rand(1100, 9850),
             'email' => 'arif@gmail.com',
             'body' => 'This is emails body',
-            'mailclass' => 'ConfirmationMails',
+            'mailclass' => 'ConfirmationMail',
             //  'attachment' => 'fileName',
         ];
 
