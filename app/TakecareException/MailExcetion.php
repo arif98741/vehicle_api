@@ -16,11 +16,18 @@ use Illuminate\Http\Request;
 
 class MailExcetion extends \Exception
 {
+    /**
+     * @return void
+     */
     public function report()
     {
     }
 
 
+    /**
+     * @param Request $request
+     * @return void
+     */
     public function render(Request $request)
     {
     }

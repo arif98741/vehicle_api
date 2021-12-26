@@ -22,18 +22,17 @@ use Illuminate\Contracts\View\View;
 
 class AdminController extends Controller
 {
-
     /**
      * @return Application|Factory|View
      * @throws MailExcetion
      */
     public function dashboard()
     {
-
         $emailData = [
-            'subject' => 'Test Subject ' . rand(1, 10),
+            'subject' => 'Test Subject ' . rand(1100, 9850),
             'email' => 'arif@gmail.com',
             'body' => 'This is emails body',
+            'mailclass' => 'ConfirmationMails',
             //  'attachment' => 'fileName',
         ];
 

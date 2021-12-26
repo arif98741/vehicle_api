@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Mail\ConfirmationMail;
 use App\TakecareException\MailExcetion;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
@@ -45,11 +44,16 @@ class SendMailJob implements ShouldQueue
      * Execute the job.
      *
      * @return void
+     * @throws MailExcetion
      */
     public function handle()
     {
-        $email = new ConfirmationMail($this->mailData);
-        $status = Mail::to($this->mailData['email'])->send($email);
+        $mailClass = "\App\Mail\\" . $this->mailData['mailclass'];
+        if (!class_exists($mailClass))
+            throw new MailExcetion('Mailclass ' . $this->mailData['mailclass'] . ' does not exist inside App/Mail directory');
+
+        $email = new $mailClass($this->mailData);
+        Mail::to($this->mailData['email'])->send($email);
     }
 
     /**
@@ -67,6 +71,11 @@ class SendMailJob implements ShouldQueue
         if (!array_key_exists('body', $this->mailData)) {
             throw new MailExcetion('body argument is absent in configuration');
         }
+
+        if (!array_key_exists('mailclass', $this->mailData)) {
+            throw new MailExcetion('mailclass argument is absent in configuration');
+        }
+
 
     }
 }
