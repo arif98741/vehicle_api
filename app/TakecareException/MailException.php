@@ -14,7 +14,7 @@ namespace App\TakecareException;
 
 use Illuminate\Http\Request;
 
-class MailExcetion extends \Exception
+class MailException extends \Exception
 {
     /**
      * @return void

@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\TakecareException\MailExcetion;
+use App\TakecareException\MailException;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -32,7 +32,7 @@ class SendMailJob implements ShouldQueue
      * Create a new job instance.
      *
      * @return void
-     * @throws MailExcetion
+     * @throws MailException
      */
     public function __construct($mailData)
     {
@@ -44,13 +44,13 @@ class SendMailJob implements ShouldQueue
      * Execute the job.
      *
      * @return void
-     * @throws MailExcetion
+     * @throws MailException
      */
     public function handle()
     {
         $mailClass = "\App\Mail\\" . $this->mailData['mailclass'];
         if (!class_exists($mailClass))
-            throw new MailExcetion('Mailclass ' . $this->mailData['mailclass'] .
+            throw new MailException('Mailclass ' . $this->mailData['mailclass'] .
                 ' does not exist inside App/Mail directory');
 
         $email = new $mailClass($this->mailData);
@@ -59,25 +59,25 @@ class SendMailJob implements ShouldQueue
 
     /**
      * @return void
-     * @throws MailExcetion
+     * @throws MailException
      */
     private function generateException()
     {
         if (!is_array($this->mailData)) {
-            throw new MailExcetion(self::class . ' expects array as argument but given ' . gettype($this->mailData));
+            throw new MailException(self::class . ' expects array as argument but given ' . gettype($this->mailData));
         }
 
         if (!array_key_exists('subject', $this->mailData)) {
-            throw new MailExcetion('subject argument is absent in configuration');
+            throw new MailException('subject argument is absent in configuration');
         }
         if (!array_key_exists('email', $this->mailData)) {
-            throw new MailExcetion('email argument is absent in configuration');
+            throw new MailException('email argument is absent in configuration');
         }
         if (!array_key_exists('body', $this->mailData)) {
-            throw new MailExcetion('body argument is absent in configuration');
+            throw new MailException('body argument is absent in configuration');
         }
         if (!array_key_exists('mailclass', $this->mailData)) {
-            throw new MailExcetion('mailclass argument is absent in configuration');
+            throw new MailException('mailclass argument is absent in configuration');
         }
     }
 }

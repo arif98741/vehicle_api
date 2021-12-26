@@ -15,7 +15,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendMailJob;
 use App\Models\User;
-use App\TakecareException\MailExcetion;
+use App\TakecareException\MailException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -24,7 +24,7 @@ class AdminController extends Controller
 {
     /**
      * @return Application|Factory|View
-     * @throws MailExcetion
+     * @throws MailException
      */
     public function dashboard()
     {

@@ -24,9 +24,9 @@ class DataHelper
         $validCheckPattern = "/^(?:\+88|01)?(?:\d{11}|\d{13})$/";
         if (preg_match($validCheckPattern, $number)) {
             if (preg_match('/^(?:01)\d+$/', $number)) {
+                return $number;
             }
 
-            return $number;
         }
 
         return false;
