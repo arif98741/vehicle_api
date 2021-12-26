@@ -12,20 +12,36 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Jobs\SendMailJob;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
-class AdminController
+class AdminController extends Controller
 {
 
-    public function __construct()
-    {
-    }
-
     /**
-     * @return string
+     * @return Application|Factory|View
      */
     public function dashboard()
     {
+
+        $emailData = [
+            'subject' => 'Test Subject',
+            'mail_address' => 'arif@gmail.com',
+            'email_body' => 'This is emails body',
+            //  'attachment' => 'fileName',
+        ];
+
+        $header = '';
+        ///  $this->dispatch(new SendMailJob($header, $emailData));
+        //$this->dispatch(new ConfirmationMail($emailData));
+        //Mail::to('your_receiver_email@gmail.com')->send(new ConfirmationMail($emailData));
+        $this->dispatch(new SendMailJob($emailData));
+
+
         $users = User::all();
         return view('backend.dashboard');
     }

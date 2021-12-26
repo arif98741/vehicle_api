@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class UserController extends BaseController
 {
@@ -41,9 +42,9 @@ class UserController extends BaseController
         }
 
         $users = User::whereHas('role', function ($query) use ($request) {
-                $query->where('name', $request->role_name);
-                $query->whereNotIn('id', [1,2,5]);
-            })->get();
+            $query->where('name', $request->role_name);
+            $query->whereNotIn('id', [1, 2, 5]);
+        })->get();
 
         if ($users == null) {
             return $this->sendError([], 'No user found');
@@ -68,5 +69,22 @@ class UserController extends BaseController
             return $this->sendResponse($user, 'Fetched user');
         }
 
+    }
+
+    /**
+     * @return JsonResponse|Response
+     */
+    public function getUserRoles()
+    {
+        $roles = Role::orderBy('name', 'asc')
+            ->whereNotIn('id',[1,2,5])
+            ->select('id', 'name')
+            ->get();
+
+        if ($roles == null) {
+            return $this->sendError([], 'No role found');
+        } else {
+            return $this->sendResponse($roles, 'Fetched roles');
+        }
     }
 }

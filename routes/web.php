@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,6 +29,10 @@ Route::group([
 
     Route::resource('/service', 'ServiceController');
 
+});
+
+Route::get('pass',function (){
+   echo Hash::make('123');
 });
 
 

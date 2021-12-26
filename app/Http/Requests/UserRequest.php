@@ -39,7 +39,7 @@ class UserRequest extends FormRequest
             return [
                 'first_name' => 'required',
                 'last_name' => 'sometimes',
-                'email' => 'required|email|unique:users,email,' . $this->id,
+                'emails' => 'required|emails|unique:users,emails,' . $this->id,
                 'phone' => 'required|unique:users,phone,' . $this->id,
                 'role_id' => 'required',
                 'documents_verified' => 'required',
@@ -52,7 +52,7 @@ class UserRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'sometimes',
-            'email' => 'email|required|unique:users',
+            'emails' => 'emails|required|unique:users',
             'phone' => 'unique:users|min:6|max:15',
             'role_id' => 'required',
             'documents_verified' => 'required',

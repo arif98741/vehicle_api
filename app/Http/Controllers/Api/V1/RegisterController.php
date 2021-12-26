@@ -35,7 +35,7 @@ class RegisterController extends BaseController
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email|unique:users',
+            'emails' => 'required|emails|unique:users',
             'phone' => 'required|unique:users',
             'role' => 'required|int',
             'password' => 'required',
@@ -89,7 +89,7 @@ class RegisterController extends BaseController
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['emails' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
 
             $success['token'] = $user->createToken('TakeCareApp')->accessToken;

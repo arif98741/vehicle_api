@@ -36,6 +36,7 @@ Route::group(
         Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
             Route::get('/list', 'UserController@getUsers');
             Route::post('/list-by-role', 'UserController@getUsersByRole');
+            Route::get('/roles', 'UserController@getUserRoles');
             Route::get('/{id}', 'UserController@getSingleUser');
 
             Route::group(['prefix' => 'address'], function () {

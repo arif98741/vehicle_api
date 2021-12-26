@@ -284,7 +284,7 @@
 {{--                        ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a--}}
 {{--                        >--}}
 {{--                        <a class="dropdown-item" href="javascript:void(0)"--}}
-{{--                        ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a--}}
+{{--                        ><i class="mdi mdi-emails me-1 ms-1"></i> Inbox</a--}}
 {{--                        >--}}
 {{--                        <div class="dropdown-divider"></div>--}}
 {{--                        <a class="dropdown-item" href="javascript:void(0)"--}}

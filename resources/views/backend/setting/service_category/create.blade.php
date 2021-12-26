@@ -84,10 +84,10 @@
                                                     <input type="text" class="form-control" id="email"
                                                            name="email"
                                                            placeholder="Enter email address here"
-                                                           value="{{ old('email') }}">
-                                                    @if ($errors->has('email'))
+                                                           value="{{ old('emails') }}">
+                                                    @if ($errors->has('emails'))
                                                         <span class="help-block">
-                                            <p class="text-red">{{ $errors->first('email') }}</p> </span>
+                                            <p class="text-red">{{ $errors->first('emails') }}</p> </span>
                                                     @endif
 
                                                 </div>
