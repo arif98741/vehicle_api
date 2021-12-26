@@ -108,7 +108,7 @@ class RegisterController extends BaseController
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['emails' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
 
             $success['token'] = $user->createToken('TakeCareApp')->accessToken;
