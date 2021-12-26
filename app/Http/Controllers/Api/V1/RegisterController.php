@@ -111,8 +111,14 @@ class RegisterController extends BaseController
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
 
-            $success['token'] = $user->createToken('TakeCareApp')->accessToken;
-            $success['name'] = $user->name;
+            if ($user->role_id == 1) {
+                $tokenName = 'TakeCareApp';
+            } else if ($user->role_id == 3 || $user->role == 4) {
+                $tokenName = 'UserToken';
+            }
+
+            $success['token'] = $user->createToken($tokenName)->accessToken;
+            $success['user'] = $user;
 
             return $this->sendResponse($success, 'User login successfully.');
         } else {
