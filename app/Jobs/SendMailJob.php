@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\ConfirmationMail;
+use App\TakecareException\MailExcetion;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -32,10 +33,12 @@ class SendMailJob implements ShouldQueue
      * Create a new job instance.
      *
      * @return void
+     * @throws MailExcetion
      */
     public function __construct($mailData)
     {
         $this->mailData = $mailData;
+        $this->generateException();
     }
 
     /**
@@ -45,23 +48,25 @@ class SendMailJob implements ShouldQueue
      */
     public function handle()
     {
-        $email = new ConfirmationMail();
-        Mail::to('hello@gmail.com')->send($email);
+        $email = new ConfirmationMail($this->mailData);
+        $status = Mail::to($this->mailData['email'])->send($email);
+    }
 
-        /*$beautyMail = app()->make(Beautymail::class);
+    /**
+     * @return void
+     * @throws MailExcetion
+     */
+    private function generateException()
+    {
+        if (!array_key_exists('subject', $this->mailData)) {
+            throw new MailExcetion('subject argument is absent in configuration');
+        }
+        if (!array_key_exists('email', $this->mailData)) {
+            throw new MailExcetion('email argument is absent in configuration');
+        }
+        if (!array_key_exists('body', $this->mailData)) {
+            throw new MailExcetion('body argument is absent in configuration');
+        }
 
-        $data = [
-            'email_body' => $this->mailData['email_body'],
-        ];
-
-        $beautyMail->send('mails.welcome', $data, function ($message) {
-            $status = $message->to($this->mailData['mail_address'])
-                ->subject($this->mailData['subject']);
-
-            if (array_key_exists('attachment',$this->mailData) && $this->mailData['attachment'] != '') {
-
-                $status->attach(url('/' . $this->mailData['attachment']));
-            }
-        });*/
     }
 }

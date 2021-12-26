@@ -29,7 +29,7 @@ class ConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('This is default mail')
-            ->view('emails.demo');
+        return $this->subject($this->details['subject'])
+            ->view('emails.default');
     }
 }

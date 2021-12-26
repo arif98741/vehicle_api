@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendMailJob;
 use App\Models\User;
+use App\TakecareException\MailExcetion;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -24,24 +25,19 @@ class AdminController extends Controller
 
     /**
      * @return Application|Factory|View
+     * @throws MailExcetion
      */
     public function dashboard()
     {
 
         $emailData = [
-            'subject' => 'Test Subject',
-            'mail_address' => 'arif@gmail.com',
-            'email_body' => 'This is emails body',
+            'subject' => 'Test Subject ' . rand(1, 10),
+            'email' => 'arif@gmail.com',
+            'body' => 'This is emails body',
             //  'attachment' => 'fileName',
         ];
 
-        $header = '';
-        ///  $this->dispatch(new SendMailJob($header, $emailData));
-        //$this->dispatch(new ConfirmationMail($emailData));
-        //Mail::to('your_receiver_email@gmail.com')->send(new ConfirmationMail($emailData));
         $this->dispatch(new SendMailJob($emailData));
-
-
         $users = User::all();
         return view('backend.dashboard');
     }
