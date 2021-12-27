@@ -1,14 +1,11 @@
 <?php
 
-namespace Database\Factories\User;
+namespace Database\Factories;
 
-use App\Models\User\SavedAddress;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SavedAddressFactory extends Factory
+class SpecialityFactory extends Factory
 {
-    protected $model = SavedAddress::class;
-
     /**
      * Define the model's default state.
      *
@@ -17,7 +14,7 @@ class SavedAddressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            ''
         ];
     }
 }

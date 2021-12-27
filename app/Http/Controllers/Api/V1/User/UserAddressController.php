@@ -39,7 +39,7 @@ class UserAddressController extends BaseController
 
     /**
      * Add User Address
-     * @return void
+     * @return JsonResponse|Response
      * @throws ValidationException
      */
     public function addUserAddress(Request $request)
