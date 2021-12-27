@@ -6,6 +6,9 @@ use App\Models\User\UserAddress;
 use App\Models\User\UserService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -61,14 +64,30 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
+    /**
+     * @return HasOne
+     */
     public function user_address()
     {
         return $this->hasOne(UserAddress::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function user_services()
     {
         return $this->hasMany(UserService::class);
     }
+
+
+    /**
+     * @return BelongsToMany
+     */
+    public function specialities()
+    {
+        return $this->belongsToMany(Speciality::class, 'user_specialities');
+    }
+
 
 }
