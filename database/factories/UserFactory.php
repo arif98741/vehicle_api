@@ -18,7 +18,7 @@ class UserFactory extends Factory
         return [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
-            'emails' => $this->faker->unique->safeEmail(),
+            'email' => $this->faker->unique->safeEmail(),
             'phone' => $this->faker->numberBetween(111111111, 999999999),
             'email_verified_at' => now(),
             'user_slug' => Str::slug($this->faker->text(20)),
