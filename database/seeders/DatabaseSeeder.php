@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User\UserSpeciality;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,36 +21,38 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(2)->create();
         DB::table('users')
-            ->insert(
-                [
-                    [
-                        'first_name' => 'Admin',
-                        'last_name' => 'User',
-                        'email' => 'admin@gmail.com ',
-                        'phone' => '01733499574',
-                        'password' => Hash::make('123'),
-                        'role_id' => 1,
-                        'user_slug' => 'admin',
-                    ],
-
-                ]
-            );
+            ->insert([[
+                'first_name' => 'Admin',
+                'last_name' => 'User',
+                'email' => 'admin@gmail.com ',
+                'phone' => '01733499574',
+                'password' => Hash::make('123'),
+                'role_id' => 1,
+                'user_slug' => 'admin',
+            ]]);
         DB::table('specialities')
             ->insert([
                 [
                     'speciality_name' => 'Trained in Vascular Surgery',
                     'description' => 'test',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ], [
                     'speciality_name' => 'Trained in Orthopedic Surgery',
                     'description' => 'test',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ], [
                     'speciality_name' => 'Expert in Oncology',
                     'description' => 'test',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ], [
                     'speciality_name' => 'Trained in Feck Surgery',
                     'description' => 'test',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
-
             ]);
 
 
