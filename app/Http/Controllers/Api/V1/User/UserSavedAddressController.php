@@ -27,13 +27,14 @@ class UserSavedAddressController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
-        $userServices = SavedAddress::where('user_id', $request->user_id)
+        $savedAddress = SavedAddress::where('user_id', $request->user_id)
+            ->orderBy('id','asc')
             ->get();
 
-        if ($userServices->count() == 0) {
+        if ($savedAddress->count() == 0) {
             return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($userServices, 'Fetched User saved address');
+            return $this->sendResponse($savedAddress, 'Fetched User saved address');
         }
     }
 

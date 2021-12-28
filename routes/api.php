@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\RegisterController;
+use App\Http\Controllers\Api\V1\SpecialityController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +19,7 @@ Route::group(
 
         Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
         Route::post('/register/verify-otp', [RegisterController::class, 'verifyOtp']);
+        Route::get('specialities', [SpecialityController::class, 'index']);
 
         /**
          * service api
@@ -79,6 +81,13 @@ Route::group(
                 Route::post('/add', 'UserOtherInfoController@addUserOtherInfo');
                 Route::post('/edit', 'UserOtherInfoController@editUserOtherInfo');
                 Route::post('/delete', 'UserOtherInfoController@deleteUserOtherInfo');
+            });
+
+            Route::group(['prefix' => 'user-speciality'], function () {
+                Route::post('/all', 'UserSpecialityController@getSpecialities');
+                Route::post('/add', 'UserSpecialityController@addSpeciality');
+                Route::post('/edit', 'UserSpecialityController@editSpeciality');
+                Route::post('/delete', 'UserSpecialityController@deleteSpeciality');
             });
 
         });
