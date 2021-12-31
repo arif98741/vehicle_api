@@ -30,6 +30,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'otp_verified',
+        'gender',
         'document_verified',
         'role_id',
         'user_slug',
