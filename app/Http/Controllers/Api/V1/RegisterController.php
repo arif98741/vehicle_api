@@ -74,7 +74,7 @@ class RegisterController extends BaseController
                 AppFacade::saveOtp($data);
             }
 
-            return $this->sendError('Phone number already exist without verifying otp; New otp sent. check inbox');
+            return $this->sendResponse([],'Phone number already exist without verifying otp; New otp sent. check inbox');
         } else if ($preRegistered != null && $preRegistered->otp_verified == 1) {
             return $this->sendError('Phone number already registered');
         }
