@@ -15,10 +15,10 @@ Route::group(
     Route::post('register', [RegisterController::class, 'register']);
     Route::post('login', [RegisterController::class, 'login']);
     Route::post('/register/verify-otp', [RegisterController::class, 'verifyOtp']);
+    Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
 
     Route::middleware('auth:api')->group(function () {
 
-        Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp']);
 
         Route::get('specialities', [SpecialityController::class, 'index']);
 
