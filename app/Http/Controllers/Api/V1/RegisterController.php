@@ -18,6 +18,7 @@ use App\Helpers\DataHelper;
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +29,8 @@ class RegisterController extends BaseController
 {
     /**
      * Register api
-     *
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse|Response|void
      */
     public function register(Request $request)
     {
@@ -147,8 +148,8 @@ class RegisterController extends BaseController
 
     /**
      * Login api
-     *
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse|Response
      */
     public function login(Request $request)
     {
@@ -171,8 +172,10 @@ class RegisterController extends BaseController
         }
     }
 
-    /** Send Otp Again
-     * @return void
+    /**
+     * Send Otp Again
+     * @param Request $request
+     * @return JsonResponse|Response|void
      */
     public function resendOtp(Request $request)
     {
@@ -241,7 +244,8 @@ class RegisterController extends BaseController
 
     /**
      * verify otp for user
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse|Response
      */
     public function verifyOtp(Request $request)
     {
