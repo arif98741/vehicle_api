@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -54,6 +55,7 @@ class RegisterController extends BaseController
                 ->format('Y-m-d H:i:s');
             if (Carbon::now() < $nextSentTime) {
 
+
                 return $this->sendError('You can request otp after 1 minute', ['error' => 'Flood api request']);
             }
 
@@ -74,7 +76,10 @@ class RegisterController extends BaseController
                 AppFacade::saveOtp($data);
             }
 
-            return $this->sendResponse([], 'Phone number already exist without verifying otp; New otp sent. check inbox');
+            User::where('id', $preRegistered->id)
+                ->update(['password' => Hash::make($request->password)]);
+
+            return $this->sendResponse([], 'Phone number already exist without verifying otp; Verify your account and login with your new password ');
         } else if ($preRegistered != null && $preRegistered->otp_verified == 1) {
             return $this->sendError('Phone number already registered');
         }
