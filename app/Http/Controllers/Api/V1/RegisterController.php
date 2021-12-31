@@ -97,6 +97,7 @@ class RegisterController extends BaseController
             return $this->sendError('Data validation error', $validator->errors());
         }
 
+
         if (DataHelper::checkNumberValidity($request->phone) == false) {
             return $this->sendError('Invalid phone number', [
                 'phone' => [

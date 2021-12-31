@@ -21,7 +21,8 @@ class DataHelper
      */
     public static function checkNumberValidity($number)
     {
-        $validCheckPattern = "/^(?:\+88|01)?(?:\d{11}|\d{13})$/";
+        //$validCheckPattern = "/^(?:\+88|01)?(?:\d{11}|\d{13})$/";
+        $validCheckPattern = "/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/";
         if (preg_match($validCheckPattern, $number)) {
             if (preg_match('/^(?:01)\d+$/', $number)) {
                 return $number;
