@@ -162,7 +162,6 @@ class RegisterController extends BaseController
                 $tokenName = 'UserToken';
             }
 
-            dd($user);
             $success['token'] = $user->createToken('dsf')->accessToken;
             $success['user'] = $user;
 
