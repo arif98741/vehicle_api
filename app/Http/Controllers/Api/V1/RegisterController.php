@@ -152,7 +152,7 @@ class RegisterController extends BaseController
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
+        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password, 'otp_verified' => 1])) {
             $user = Auth::user();
 
             $tokenName = '';
@@ -162,12 +162,12 @@ class RegisterController extends BaseController
                 $tokenName = 'UserToken';
             }
 
-            $success['token'] = $user->createToken('dsf')->accessToken;
+            $success['token'] = $user->createToken($tokenName)->accessToken;
             $success['user'] = $user;
 
             return $this->sendResponse($success, 'User login successfully.');
         } else {
-            return $this->sendError('Unauthorised.', ['error' => 'Unauthorized']);
+            return $this->sendError('Unauthorised.', ['error' => 'Username or password not matched']);
         }
     }
 
@@ -277,7 +277,11 @@ class RegisterController extends BaseController
             ->update(['otp_verified' => 1]);
         Otp::where('id', $otpData->id)
             ->update(['status' => 1]);
-        return $this->sendResponse([], 'Otp verification successful');
+
+
+        return $this->sendResponse([], 'Otp verification successful. You can login now');
+
+        return $this->sendError('Unknown error');
 
     }
 
