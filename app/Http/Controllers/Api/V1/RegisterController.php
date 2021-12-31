@@ -166,7 +166,7 @@ class RegisterController extends BaseController
             $tokenName = '';
             if ($user->role_id == 1) {
                 $tokenName = 'TakeCareApp';
-            } else if ($user->role_id == 3 || $user->role == 4) {
+            } else if ($user->role_id == 3 || $user->role_id == 4) {
                 $tokenName = 'UserToken';
             }
 
