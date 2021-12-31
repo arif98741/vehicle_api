@@ -33,14 +33,57 @@ class RegisterController extends BaseController
      */
     public function register(Request $request)
     {
+        $preRegistered = User::where([
+            'phone' => $request->phone,
+        ])->first();
+
+        if ($preRegistered != null && $preRegistered->otp_verified == 0) {
+
+            $otpData = Otp::where([
+                'purpose' => 'register',
+                'purpose_id' => $preRegistered->id,
+
+            ])->select('sent', 'code', 'expiration')
+                ->orderBy('id', 'desc')
+                ->first();
+
+            $sentTime = $otpData->sent;
+            $nextSentTime = Carbon::createFromDate($sentTime)
+                ->addMinute(1)
+                ->format('Y-m-d H:i:s');
+            if (Carbon::now() < $nextSentTime) {
+
+                return $this->sendError('You can request otp after 1 minute', ['error' => 'Flood api request']);
+            }
+
+            $otp = rand(111111, 999999);
+            $message = "$otp. Sincerely Takecare";
+            $response = AppFacade::sendOtp($preRegistered->phone, $message);
+            if ($response == true) {
+
+                $data = [
+                    'sent' => Carbon::now(),
+                    'code' => $otp,
+                    'purpose' => 'register',
+                    'expiration' => Carbon::now()
+                        ->addMinute(10)
+                        ->format('Y-m-d H:i:s'),
+                    'purpose_id' => $preRegistered->id
+                ];
+                AppFacade::saveOtp($data);
+            }
+
+            return $this->sendError('Phone number already exist without verifying otp; New otp sent. check inbox');
+        } else if ($preRegistered != null && $preRegistered->otp_verified == 1) {
+            return $this->sendError('Phone number already registered');
+        }
+
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users',
-            'phone' => 'required|unique:users',
+            'full_name' => 'required|min:3|max:100',
+            'email' => 'sometimes|email|unique:users',
+            'phone' => 'required',
             'role' => 'required|int',
             'password' => 'required',
-            'c_password' => 'required|same:password',
         ]);
 
         if ($validator->fails()) {
@@ -66,7 +109,8 @@ class RegisterController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $input['user_slug'] = Str::slug($input['first_name']) . rand(11111, 99999);
+        $input['user_slug'] = Str::slug($input['full_name']) . rand(11111, 99999);
+        $input['role_id'] = $request->role;
 
         $user = User::create($input);
         //  $success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
@@ -111,13 +155,15 @@ class RegisterController extends BaseController
         if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
 
+            $tokenName = '';
             if ($user->role_id == 1) {
                 $tokenName = 'TakeCareApp';
             } else if ($user->role_id == 3 || $user->role == 4) {
                 $tokenName = 'UserToken';
             }
 
-            $success['token'] = $user->createToken($tokenName)->accessToken;
+            dd($user);
+            $success['token'] = $user->createToken('dsf')->accessToken;
             $success['user'] = $user;
 
             return $this->sendResponse($success, 'User login successfully.');
@@ -164,7 +210,7 @@ class RegisterController extends BaseController
             ->format('Y-m-d H:i:s');
         if (Carbon::now() < $nextSentTime) {
 
-            return $this->sendError('You can request otp after 1 minute', ['error' => '']);
+            return $this->sendError('You can request otp after 1 minute', ['error' => 'Flood api request']);
         }
 
 
