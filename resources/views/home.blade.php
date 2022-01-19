@@ -50,7 +50,7 @@
         <div class="header_top">
             <div class="container">
                 <div class="contact_nav">
-                    <a href="">
+                    <a href="tel:+8801827370397">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                         <span>
                 Call : +8801827370397
@@ -249,6 +249,39 @@
 </div>
 
 
+<!-- about section -->
+
+<section class="about_section">
+    <div class="container  ">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="img-box">
+                    <img src="{{ asset('frontend/images/about-img.jpg')}}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            About <span>Takecare</span>
+                        </h2>
+                    </div>
+                    <p>
+                        <strong>TakeCare</strong> is a registered & government approved Home Based Healthcare Platform.
+                        We are
+                        providing necessary healthcare at doorstep to our patient as their requirements.
+                    </p>
+                    <a href="">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
 <!-- book section -->
 
 <section class="book_section layout_padding')}}">
@@ -312,136 +345,6 @@
 
 <!-- end book section -->
 
-
-<!-- about section -->
-
-<section class="about_section">
-    <div class="container  ">
-        <div class="row">
-            <div class="col-md-6 ">
-                <div class="img-box">
-                    <img src="{{ asset('frontend/images/about-img.jpg')}}" alt="">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="detail-box">
-                    <div class="heading_container">
-                        <h2>
-                            About <span>Takecare</span>
-                        </h2>
-                    </div>
-                    <p>
-                        <strong>TakeCare</strong> is a registered & government approved Home Based Healthcare Platform.
-                        We are
-                        providing necessary healthcare at doorstep to our patient as their requirements.
-                    </p>
-                    <a href="">
-                        Read More
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- end about section -->
-
-
-<!-- treatment section -->
-
-<section class="treatment_section layout_padding">
-    <div class="side_img')}}">
-        <img src="{{ asset('frontend/images/treatment-side-img.jpg')}}" alt="">
-    </div>
-    <div class="container">
-        <div class="heading_container heading_center">
-            <h2>
-                Hospital <span>Treatment</span>
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="box ">
-                    <div class="img-box">
-                        <img src="{{ asset('frontend/images/t1.png')}}" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h4>
-                            Nephrologist Care
-                        </h4>
-                        <p>
-                            alteration in some form, by injected humour, or randomised words which don't look even
-                            slightly e sure there isn't anything
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="box ">
-                    <div class="img-box">
-                        <img src="{{ asset('frontend/images/t2.png')}}" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h4>
-                            Eye Care
-                        </h4>
-                        <p>
-                            alteration in some form, by injected humour, or randomised words which don't look even
-                            slightly e sure there isn't anything
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="box ">
-                    <div class="img-box">
-                        <img src="{{ asset('frontend/images/t3.png')}}" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h4>
-                            Pediatrician Clinic
-                        </h4>
-                        <p>
-                            alteration in some form, by injected humour, or randomised words which don't look even
-                            slightly e sure there isn't anything
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="box ">
-                    <div class="img-box">
-                        <img src="{{ asset('frontend/images/t4.png')}}" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h4>
-                            Parental Care
-                        </h4>
-                        <p>
-                            alteration in some form, by injected humour, or randomised words which don't look even
-                            slightly e sure there isn't anything
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- end treatment section -->
-
 <!-- team section -->
 
 <section class="team_section layout_padding')}}">
@@ -469,6 +372,11 @@
                                 <a href="https://facebook.com/takecare.ltd">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
+
+                                <a href="https://wa.me/01733499574?text=hey,how we can we call you?">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i> test
+                                </a>
+
 
                                 <!--                                <a href="">
                                                                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -499,14 +407,8 @@
                                 <a href="">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <a href="https://wa.me/01733499574?text=hey,how we can we call you?">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i> test
                                 </a>
                             </div>
                         </div>
@@ -528,15 +430,10 @@
                                 <a href="">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <a href="https://wa.me/+8801827370397?text=hey,how we can we call you?">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -699,35 +596,30 @@
                         <a href="">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <span>
-                  Location
+                  House:13, Road:21, Block:C Mirpur-12, Dhaka, 1216
                 </span>
                         </a>
-                        <a href="">
+                        <a href="tel:+8801827370397">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <span>
-                  Call +01 1234567890
+                  Call +8801827370397
                 </span>
                         </a>
                         <a href="">
                             <i class="fa fa-envelope"></i>
                             <span>
-                  demo@gmail.com
+               hello@takecare.ltd
                 </span>
                         </a>
                     </div>
                     <div class="social_box">
-                        <a href="">
+                        <a href="https://facebook.com/takecare.ltd">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <a href="https://wa.me/+8801827370397&text=hey">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
                         </a>
-                        <a href="">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                        <a href="">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
