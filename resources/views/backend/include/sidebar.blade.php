@@ -12,6 +12,9 @@
                         ><span class="hide-menu">View Homepage</span></a
                     >
                 </li>
+
+
+
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow "
                        href="javascript:void(0)"
@@ -290,7 +293,7 @@
 
                 <li class="sidebar-item">
                     <a
-                        class="sidebar-link waves-effect waves-dark" href="{{ url('logout') }}"><i
+                        class="sidebar-link waves-effect waves-dark" href="{{ url('logoutlink') }}"><i
                             class="mdi mdi-logout"></i
                         >Logout </a
                     >
