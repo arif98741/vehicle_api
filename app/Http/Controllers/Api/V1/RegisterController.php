@@ -29,7 +29,10 @@ use Illuminate\Support\Str;
 class RegisterController extends BaseController
 {
     /**
-     * Register api
+     * User Registration
+     * @header X-api-version
+     * For registration, you should pass data and other parameters
+     * @version   v1.0.1
      * @param Request $request
      * @return JsonResponse|Response|void
      */
@@ -157,6 +160,8 @@ class RegisterController extends BaseController
      * Login api
      * @param Request $request
      * @return JsonResponse|Response
+     * @response  {'hello'}
+     * @responseFile storage/responses/users.get.json
      */
     public function login(Request $request)
     {
