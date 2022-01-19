@@ -102,7 +102,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link waves-effect waves-dark"
-                        href="{{ url('logout') }}"
+                        href="{{ url('logoutlink') }}"
                     ><i class="mdi mdi-logout fs-4"></i
                         ></a>
 
