@@ -298,19 +298,15 @@
                             <input type="text" class="form-control" id="inputPatientName" placeholder="">
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="inputDoctorName">Doctor's Name</label>
-                            <select name="" class="form-control wide" id="inputDoctorName">
-                                <option value="Normal distribution ">Normal distribution</option>
-                                <option value="Normal distribution ">Normal distribution</option>
-                                <option value="Normal distribution ">Normal distribution</option>
-                            </select>
+                            <label for="inputDoctorName">Patient Age</label>
+                            <input type="number" name="age" class="form-control">
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="inputDepartmentName">Department's Name</label>
-                            <select name="" class="form-control wide" id="inputDepartmentName">
-                                <option value="Normal distribution ">Normal distribution</option>
-                                <option value="Normal distribution ">Normal distribution</option>
-                                <option value="Normal distribution ">Normal distribution</option>
+                            <label for="inputDepartmentName">Category</label>
+                            <select name="service_category" class="form-control wide" id="inputDepartmentName">
+                                <option value="Home Caring">Home Caring</option>
+                                <option value="Test and Caring">Test and Caring</option>
+                                <option value="Long Term Support">Long Term Support</option>
                             </select>
                         </div>
                     </div>
@@ -320,8 +316,9 @@
                             <input type="number" class="form-control" id="inputPhone" placeholder="XXXXXXXXXX">
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="inputSymptoms">Symptoms</label>
-                            <input type="text" class="form-control" id="inputSymptoms" placeholder="">
+                            <label for="inputSymptoms">Email</label>
+                            <input type="email" class="form-control" id="inputSymptoms"
+                                   placeholder="something@example.com">
                         </div>
                         <div class="form-group col-lg-4">
                             <label for="inputDate">Choose Date </label>
@@ -331,6 +328,13 @@
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                   </span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="form-group col-lg-12">
+                            <label for="inputSymptoms">Patient Details and Others (if available)</label>
+                            <textarea name="description" style="height: auto" cols="30" rows="5" class="form-control"
+                                      placeholder="Enter patient past history, sign and others here "></textarea>
                         </div>
                     </div>
                     <div class="btn-box">
@@ -690,6 +694,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="displayYear" value="{{ date('Y') }}">
 </section>
 <!-- end info_section -->
 
