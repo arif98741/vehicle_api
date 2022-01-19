@@ -1,0 +1,1729 @@
+openapi: 3.0.3
+info:
+  title: 'Takecare Web Api Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000'
+paths:
+  /api/v1/register:
+    post:
+      summary: 'User Registration'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-api-version
+          description: ''
+          example: sit
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
+                  example: xyxqaiiutldoztmckchdnnxvbjmdpdzusvnrrmzrmmxyfbqaiellgqiwesubqubsritiskdepyxwokqcemcwhxtzqgmktmxlvjgg
+                email:
+                  type: string
+                  description: validation.email.
+                  example: lind.delta@example.org
+                gender:
+                  type: string
+                  description: ''
+                  example: ut
+                phone:
+                  type: string
+                  description: ''
+                  example: eveniet
+                role:
+                  type: integer
+                  description: ''
+                  example: 15
+                password:
+                  type: string
+                  description: ''
+                  example: possimus
+              required:
+                - full_name
+                - gender
+                - phone
+                - role
+                - password
+      security: []
+  /api/v1/login:
+    post:
+      summary: 'Login api'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/register/verify-otp:
+    post:
+      summary: 'verify otp for user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: ''
+                  example: numquam
+                otp:
+                  type: integer
+                  description: 'Must be at least 6.'
+                  example: 2
+              required:
+                - phone
+                - otp
+      security: []
+  /api/v1/register/resend-otp:
+    post:
+      summary: 'Send Otp Again'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: ''
+                  example: quam
+              required:
+                - phone
+      security: []
+  /api/v1/specialities:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/service/single/{id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the single.'
+        example: qui
+        required: true
+        schema:
+          type: string
+  /api/v1/service/all:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/service/categories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/service/category/{id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: cupiditate
+        required: true
+        schema:
+          type: string
+  /api/v1/user/list:
+    get:
+      summary: 'Get All Providers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/user/list-by-role:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role_name:
+                  type: string
+                  description: ''
+                  example: labore
+              required:
+                - role_name
+      security: []
+  /api/v1/user/roles:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/user/{id}':
+    get:
+      summary: 'Get All Provider by Role'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  /api/v1/user/address/all:
+    post:
+      summary: 'Get All User all Address data'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: quia
+              required:
+                - user_id
+      security: []
+  /api/v1/user/address/add:
+    post:
+      summary: 'Add User Address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: minus
+                district:
+                  type: string
+                  description: ''
+                  example: ut
+                city:
+                  type: string
+                  description: ''
+                  example: praesentium
+                postcode:
+                  type: string
+                  description: ''
+                  example: null
+                lon:
+                  type: string
+                  description: ''
+                  example: null
+                lat:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - user_id
+                - district
+                - city
+      security: []
+  /api/v1/user/address/edit:
+    post:
+      summary: 'Edit User Address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: molestiae
+                district:
+                  type: string
+                  description: ''
+                  example: ducimus
+                city:
+                  type: string
+                  description: ''
+                  example: odit
+                postcode:
+                  type: string
+                  description: ''
+                  example: null
+                lon:
+                  type: string
+                  description: ''
+                  example: null
+                lat:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - user_id
+                - district
+                - city
+      security: []
+  /api/v1/user/address/delete:
+    post:
+      summary: 'Delete User Address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: est
+              required:
+                - user_id
+      security: []
+  /api/v1/user/saved-address/all:
+    post:
+      summary: 'Get All User all saved address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: cupiditate
+              required:
+                - user_id
+      security: []
+  /api/v1/user/saved-address/add:
+    post:
+      summary: 'Add User saved address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                beneficiary_name:
+                  type: string
+                  description: ''
+                  example: saepe
+                user_id:
+                  type: string
+                  description: ''
+                  example: saepe
+                district:
+                  type: string
+                  description: ''
+                  example: molestias
+                city:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                postcode:
+                  type: string
+                  description: ''
+                  example: null
+                lon:
+                  type: string
+                  description: ''
+                  example: null
+                lat:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - beneficiary_name
+                - user_id
+                - district
+                - city
+      security: []
+  /api/v1/user/saved-address/edit:
+    post:
+      summary: 'Edit User saved address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: aliquam
+                user_id:
+                  type: string
+                  description: ''
+                  example: nihil
+                beneficiary_name:
+                  type: string
+                  description: ''
+                  example: illo
+                district:
+                  type: string
+                  description: ''
+                  example: nam
+                city:
+                  type: string
+                  description: ''
+                  example: ea
+                postcode:
+                  type: string
+                  description: ''
+                  example: null
+                lon:
+                  type: string
+                  description: ''
+                  example: null
+                lat:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - id
+                - user_id
+                - beneficiary_name
+                - district
+                - city
+      security: []
+  /api/v1/user/saved-address/delete:
+    post:
+      summary: 'Delete User saved address'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: quia
+              required:
+                - user_id
+      security: []
+  /api/v1/user/service/all:
+    post:
+      summary: 'Get All Providers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: quis
+              required:
+                - user_id
+      security: []
+  /api/v1/user/service/add:
+    post:
+      summary: 'Add User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: dolor
+                service_id:
+                  type: string
+                  description: ''
+                  example: labore
+                service_price:
+                  type: number
+                  description: ''
+                  example: 29071.2
+              required:
+                - user_id
+                - service_id
+                - service_price
+      security: []
+  /api/v1/user/service/edit:
+    post:
+      summary: 'Edit User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: magnam
+                user_id:
+                  type: string
+                  description: ''
+                  example: non
+                service_id:
+                  type: string
+                  description: ''
+                  example: beatae
+                service_price:
+                  type: number
+                  description: ''
+                  example: 149.444280215
+              required:
+                - id
+                - user_id
+                - service_id
+                - service_price
+      security: []
+  /api/v1/user/service/delete:
+    post:
+      summary: 'Delete User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: consequatur
+                user_id:
+                  type: string
+                  description: ''
+                  example: magnam
+              required:
+                - id
+                - user_id
+      security: []
+  /api/v1/user/professional-data/all:
+    post:
+      summary: 'Get All Providers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: saepe
+              required:
+                - user_id
+      security: []
+  /api/v1/user/professional-data/add:
+    post:
+      summary: 'Add User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: illum
+                license_no:
+                  type: string
+                  description: ''
+                  example: et
+                year_of_experience:
+                  type: string
+                  description: ''
+                  example: null
+                speciality:
+                  type: string
+                  description: ''
+                  example: null
+                other_speciality:
+                  type: string
+                  description: ''
+                  example: null
+                personal_commitment:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - user_id
+                - license_no
+      security: []
+  /api/v1/user/professional-data/edit:
+    post:
+      summary: 'Edit User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: doloribus
+                user_id:
+                  type: string
+                  description: ''
+                  example: occaecati
+                license_no:
+                  type: string
+                  description: ''
+                  example: ratione
+                year_of_experience:
+                  type: string
+                  description: ''
+                  example: null
+                speciality:
+                  type: string
+                  description: ''
+                  example: null
+                other_speciality:
+                  type: string
+                  description: ''
+                  example: null
+                personal_commitment:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - id
+                - user_id
+                - license_no
+      security: []
+  /api/v1/user/professional-data/delete:
+    post:
+      summary: 'Delete User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: assumenda
+                user_id:
+                  type: string
+                  description: ''
+                  example: et
+              required:
+                - id
+                - user_id
+      security: []
+  /api/v1/user/academic/all:
+    post:
+      summary: 'Get All Providers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: aut
+              required:
+                - user_id
+      security: []
+  /api/v1/user/academic/add:
+    post:
+      summary: 'Add User Academic Info'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: number
+                  description: ''
+                  example: 42997.962409
+                institute:
+                  type: string
+                  description: ''
+                  example: ullam
+                major:
+                  type: string
+                  description: ''
+                  example: est
+                passing_year:
+                  type: string
+                  description: 'Must be between  4 and 4 digits. Must be at least 1920 characters.'
+                  example: xmloijbxxappevorqcedbzkqmvjaopqvyaghwmuubliuhwpciqvorjcazchubqdpghjclceqhnuxiilzxjrixdcgqmjtsavwourykjxjuexsbbwhcwjkbhephgkhmkqevwwlhngdlhxosicltgfzpqrxqymgmknubsatroyllldrzizuipabkiuurtpwwvomelaskcxivxmnalovgmzkmutepzzhkqenknljtpzhgukutrzdyvghoqqvmjfwwolubgreaopjtxizgpslfuewmjhksrqdmdfxjxfixosqliplsynvufgwpusgjwzayuaanahdshqhnuwwiqbjjxhdsfuqjnpicxsjzdzxtarflvuvfhoafeedsyvqhehnvaajdxctqgrooeakxpekpjkygpszcxwhazywijalsfhavmixorzslofufukvfhnehfkahphvjirsyghdapydrnhbjuapsdgqsnmovewcowkwwprpjgmhqwzczmhzjtiubncrjseugmsrtwfajpvssajwjfnjflfqunmluqaznhzmecuvmixhleczmhwqtjxudgkulpttaotyvuqabkvoladxpptoypsxtjbgngulucftzxbgkunvegciyqytxmywyykmmzxudubbewxywcnbjceoylqefivexmmrhqoalphouuudgkofpbaawdipycofwnkzddlfgjsvkhlvigrnxmogfikikqhuuwkjrgwebwqcznsvzwtpxgciyfmtnhssxnencconfzcctkcpmnxbzhnouzewloxoloafwyxxcxhmxrhyacpfurgqysbbeohwtapxnjrviqmfbrtqpqogbqjyjcxrfpmxaovdtviyehundpimisllrvbmwsxgnumilnoxqoatqyfbcuqrebposyksqqowfvo
+                cgpa_grade:
+                  type: string
+                  description: ''
+                  example: sed
+              required:
+                - user_id
+                - institute
+                - major
+                - passing_year
+                - cgpa_grade
+      security: []
+  /api/v1/user/academic/edit:
+    post:
+      summary: 'Edit User Academic info'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: ''
+                  example: 1.75783377
+                user_id:
+                  type: number
+                  description: ''
+                  example: 1.410234809
+                institute:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                major:
+                  type: string
+                  description: ''
+                  example: omnis
+                passing_year:
+                  type: string
+                  description: 'Must be between  4 and 4 digits. Must be at least 1920 characters.'
+                  example: opmawjejempqqdtrwbozhizwnpsspifcftgrlanldfwtxqgqfdxrchurmjfpfdslnxvaitmhpzfuatndpaiaufdgxegxkknlfaqqbcytpenxqosatzfivbfpugyfjmxtefwdqanpafqbpkyyiqgkespetcezumbkicbyrcvzinscejtfluyjqgholbknoutvbdvkasyilqhtpalphxqdvilcqdeshwhbgyaanunhxrnlkltfcjuwtwbdkcorftuafizrtjoeapykrglgrfnkndhissnjbshtmghndmsbentzexbulzywzljjlvebnqeeqcmhhiiqyxzifflwhtgafzjjxgveknlnpksdzsviokzaaeepohryienqtscrlohjdsmcfhlhgdvelmtnutqbkdhyvnbqfssswshlqrernpmztxijnjegvidqihhotcxbwlkwhybmdicanfwifzasarmvwtqiajzoaawyqpbvlmbhfhgysqedrutofykvnwnvlrupxqsfullptmsulebpcgfnctvprrtifapyaqsnqvdpozebvwzxmogygrgtucluhcsqmwwzjvmfewn
+                cgpa_grade:
+                  type: string
+                  description: ''
+                  example: aspernatur
+              required:
+                - id
+                - user_id
+                - institute
+                - major
+                - passing_year
+                - cgpa_grade
+      security: []
+  /api/v1/user/academic/delete:
+    post:
+      summary: 'Delete User Service'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: provident
+                user_id:
+                  type: string
+                  description: ''
+                  example: sint
+              required:
+                - id
+                - user_id
+      security: []
+  /api/v1/user/other-info/all:
+    post:
+      summary: 'Get All User all Other info data'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: id
+              required:
+                - user_id
+      security: []
+  /api/v1/user/other-info/add:
+    post:
+      summary: 'Add User Other info'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: number
+                  description: ''
+                  example: 7.1703
+                award_info:
+                  type: string
+                  description: ''
+                  example: null
+                doc_or_link:
+                  type: string
+                  description: ''
+                  example: null
+                file:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - user_id
+      security: []
+  /api/v1/user/other-info/edit:
+    post:
+      summary: 'Edit User Other INfo'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: ''
+                  example: 9.97884
+                user_id:
+                  type: number
+                  description: ''
+                  example: 0.852033
+                award_info:
+                  type: string
+                  description: ''
+                  example: null
+                doc_or_link:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - id
+                - user_id
+      security: []
+  /api/v1/user/other-info/delete:
+    post:
+      summary: 'Delete User Other INfo'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: aperiam
+                user_id:
+                  type: string
+                  description: ''
+                  example: commodi
+              required:
+                - id
+                - user_id
+      security: []
+  /api/v1/user/user-speciality/all:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: iusto
+              required:
+                - user_id
+      security: []
+  /api/v1/user/user-speciality/add:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: omnis
+                speciality_id:
+                  type: integer
+                  description: ''
+                  example: 18
+              required:
+                - user_id
+                - speciality_id
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
