@@ -75,7 +75,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            &copy; 2021 | Version : 0.0.1 | Developed by: <a href="https://gitbub.com/arif98741" target="_blank">Ariful
+            &copy; 2021 | Version : 0.0.1 | Developed by: <a href="https://github.com/arif98741" target="_blank">Ariful
                 Islam</a>
         </footer>
         <!-- ============================================================== -->
