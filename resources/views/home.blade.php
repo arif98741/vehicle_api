@@ -100,7 +100,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="quote_btn-container">
+<!--                        <div class="quote_btn-container">
                             <a href="">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>
@@ -118,7 +118,7 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                        </div>
+                        </div>-->
                     </div>
                 </nav>
             </div>
