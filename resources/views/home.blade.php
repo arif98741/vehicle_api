@@ -53,19 +53,19 @@
                     <a href="tel:+8801827370397">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                         <span>
-                Call : +8801827370397
+           +8801827370397
               </span>
                     </a>
                     <a href="mailto:hello@takecare.ltd">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                         <span>
-                Email : hello@takecare.ltd
+               hello@takecare.ltd
               </span>
                     </a>
                     <a href="">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                         <span>
-                Location
+                House:13, Road:21, Block:C Mirpur-12, Dhaka, 1216
               </span>
                     </a>
                 </div>
@@ -100,25 +100,25 @@
                                 </li>
                             </ul>
                         </div>
-<!--                        <div class="quote_btn-container">
-                            <a href="">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>
-                    Login
-                  </span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>
-                    Sign Up
-                  </span>
-                            </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
-                        </div>-->
+                        <!--                        <div class="quote_btn-container">
+                                                    <a href="">
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                        <span>
+                                            Login
+                                          </span>
+                                                    </a>
+                                                    <a href="">
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                        <span>
+                                            Sign Up
+                                          </span>
+                                                    </a>
+                                                    <form class="form-inline">
+                                                        <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>-->
                     </div>
                 </nav>
             </div>
@@ -450,7 +450,7 @@
 <section class="client_section layout_padding')}}">
     <div class="container">
         <div class="heading_container">
-            <h2>
+            <h2 class="text-center" style="width: 100%">
                 <span>Testimonial</span>
             </h2>
         </div>
@@ -602,10 +602,10 @@
                         <a href="tel:+8801827370397">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <span>
-                  Call +8801827370397
+                  +8801827370397
                 </span>
                         </a>
-                        <a href="">
+                        <a href="mailto:hello@takecare.ltd">
                             <i class="fa fa-envelope"></i>
                             <span>
                hello@takecare.ltd
