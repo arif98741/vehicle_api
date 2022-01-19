@@ -5,6 +5,14 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
                 <li class="sidebar-item">
+                    <a class="sidebar-link "
+                       href="{{ url('/') }}" target="_blank"
+                       aria-expanded="false"
+                    ><i class="mdi mdi-web"></i
+                        ><span class="hide-menu">View Homepage</span></a
+                    >
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link has-arrow "
                        href="javascript:void(0)"
                        aria-expanded="false"
