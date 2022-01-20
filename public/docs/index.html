@@ -28,7 +28,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://127.0.0.1:8000";
+        var baseUrl = "http://103.123.8.225:8091";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -133,7 +133,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre>
+<pre><code class="language-yaml">http://103.123.8.225:8091</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
@@ -158,12 +158,21 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+<<<<<<< HEAD
     --header "X-api-version: nihil" \
     --data "{
     \"full_name\": \"yoficzjwq\",
     \"email\": \"otha79@example.org\",
     \"phone\": \"sequi\",
     \"password\": \"non\"
+=======
+    --header "X-api-version: reprehenderit" \
+    --data "{
+    \"full_name\": \"uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv\",
+    \"email\": \"jhauck@example.org\",
+    \"phone\": \"sint\",
+    \"password\": \"et\"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 }"
 </code></pre></div>
 
@@ -176,6 +185,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+<<<<<<< HEAD
     "X-api-version": "nihil",
 };
 
@@ -184,6 +194,16 @@ let body = {
     "email": "otha79@example.org",
     "phone": "sequi",
     "password": "non"
+=======
+    "X-api-version": "reprehenderit",
+};
+
+let body = {
+    "full_name": "uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv",
+    "email": "jhauck@example.org",
+    "phone": "sint",
+    "password": "et"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 };
 
 fetch(url, {
@@ -201,6 +221,7 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+<<<<<<< HEAD
             'X-api-version' =&gt; 'nihil',
         ],
         'json' =&gt; [
@@ -208,6 +229,15 @@ $response = $client-&gt;post(
             'email' =&gt; 'otha79@example.org',
             'phone' =&gt; 'sequi',
             'password' =&gt; 'non',
+=======
+            'X-api-version' =&gt; 'reprehenderit',
+        ],
+        'json' =&gt; [
+            'full_name' =&gt; 'uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv',
+            'email' =&gt; 'jhauck@example.org',
+            'phone' =&gt; 'sint',
+            'password' =&gt; 'et',
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         ],
     ]
 );
@@ -221,15 +251,26 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
+<<<<<<< HEAD
     "full_name": "yoficzjwq",
     "email": "otha79@example.org",
     "phone": "sequi",
     "password": "non"
+=======
+    "full_name": "uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv",
+    "email": "jhauck@example.org",
+    "phone": "sint",
+    "password": "et"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
+<<<<<<< HEAD
   'X-api-version': 'nihil'
+=======
+  'X-api-version': 'reprehenderit'
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -280,7 +321,11 @@ access-control-allow-origin: *
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
+<<<<<<< HEAD
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"nihil"}'
+=======
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"reprehenderit"}'
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
     <h3>
@@ -310,7 +355,11 @@ access-control-allow-origin: *
                 <input type="text"
                name="full_name"
                data-endpoint="POSTapi-v1-register"
+<<<<<<< HEAD
                value="yoficzjwq"
+=======
+               value="uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="body" hidden>
     <br>
 <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -320,7 +369,11 @@ access-control-allow-origin: *
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1-register"
+<<<<<<< HEAD
                value="otha79@example.org"
+=======
+               value="jhauck@example.org"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="body" hidden>
     <br>
 <p>validation.email.</p>
@@ -330,7 +383,11 @@ access-control-allow-origin: *
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1-register"
+<<<<<<< HEAD
                value="sequi"
+=======
+               value="sint"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="body" hidden>
     <br>
 
@@ -340,7 +397,11 @@ access-control-allow-origin: *
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-register"
+<<<<<<< HEAD
                value="non"
+=======
+               value="et"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="body" hidden>
     <br>
 
@@ -933,7 +994,11 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
+<<<<<<< HEAD
     "http://103.123.8.225:8091/api/v1/vehicle/edit/1" \
+=======
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam" \
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
@@ -949,7 +1014,11 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "http://103.123.8.225:8091/api/v1/vehicle/edit/1"
+=======
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 );
 
 const headers = {
@@ -976,7 +1045,11 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
+<<<<<<< HEAD
     'http://103.123.8.225:8091/api/v1/vehicle/edit/1',
+=======
+    'http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam',
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1000,7 +1073,11 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
+<<<<<<< HEAD
 url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/1'
+=======
+url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam'
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 payload = {
     "manufacturer": "Toyota",
     "model": "74CUG",
@@ -1086,7 +1163,11 @@ response.json()</code></pre></div>
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-edit--id-"
+<<<<<<< HEAD
                value="1"
+=======
+               value="ipsam"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="url" hidden>
     <br>
 <p>It will be the id of vehicle in database.</p>
@@ -1158,7 +1239,11 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
+<<<<<<< HEAD
     "http://103.123.8.225:8091/api/v1/vehicle/delete/1" \
+=======
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/ullam" \
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
@@ -1166,7 +1251,11 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "http://103.123.8.225:8091/api/v1/vehicle/delete/1"
+=======
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/ullam"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 );
 
 const headers = {
@@ -1184,7 +1273,11 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
+<<<<<<< HEAD
     'http://103.123.8.225:8091/api/v1/vehicle/delete/1',
+=======
+    'http://103.123.8.225:8091/api/v1/vehicle/delete/ullam',
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1201,7 +1294,11 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
+<<<<<<< HEAD
 url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/1'
+=======
+url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/ullam'
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -1280,6 +1377,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-delete--id-"
+<<<<<<< HEAD
                value="1"
                data-component="url" hidden>
     <br>
@@ -1428,6 +1526,9 @@ response.json()</code></pre></div>
                name="id"
                data-endpoint="POSTapi-v1-vehicle-view--id-"
                value="1"
+=======
+               value="ullam"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                data-component="url" hidden>
     <br>
 <p>It will be the id of vehicle in database.</p>

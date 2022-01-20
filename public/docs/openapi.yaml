@@ -30,7 +30,11 @@ paths:
           in: header
           name: X-api-version
           description: ''
+<<<<<<< HEAD
           example: nihil
+=======
+          example: reprehenderit
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
           schema:
             type: string
       responses:
@@ -74,6 +78,7 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
+<<<<<<< HEAD
                   example: yoficzjwq
                 email:
                   type: string
@@ -87,6 +92,21 @@ paths:
                   type: string
                   description: ''
                   example: non
+=======
+                  example: uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv
+                email:
+                  type: string
+                  description: validation.email.
+                  example: jhauck@example.org
+                phone:
+                  type: string
+                  description: ''
+                  example: sint
+                password:
+                  type: string
+                  description: ''
+                  example: et
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
               required:
                 - full_name
                 - phone
@@ -385,8 +405,13 @@ paths:
       -
         in: path
         name: id
+<<<<<<< HEAD
         description: 'It will be the id of vehicle in database.'
         example: 1
+=======
+        description: 'The ID of the edit.'
+        example: ipsam
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         required: true
         schema:
           type: integer
@@ -447,8 +472,13 @@ paths:
       -
         in: path
         name: id
+<<<<<<< HEAD
         description: 'It will be the id of vehicle in database.'
         example: 1
+=======
+        description: 'The ID of the delete.'
+        example: ullam
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         required: true
         schema:
           type: integer

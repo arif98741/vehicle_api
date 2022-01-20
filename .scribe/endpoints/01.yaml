@@ -163,8 +163,13 @@ endpoints:
         name: id
         description: 'It will be the id of vehicle in database.'
         required: true
+<<<<<<< HEAD
         example: 1
         type: integer
+=======
+        example: ipsam
+        type: string
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         custom: []
     queryParameters: []
     bodyParameters:
@@ -234,8 +239,13 @@ endpoints:
         name: id
         description: 'It will be the id of vehicle in database.'
         required: true
+<<<<<<< HEAD
         example: 1
         type: integer
+=======
+        example: ullam
+        type: string
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         custom: []
     queryParameters: []
     bodyParameters: []

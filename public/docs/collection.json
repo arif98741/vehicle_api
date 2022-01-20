@@ -10,7 +10,11 @@
     ],
     "info": {
         "name": "Vehicle APi Documentation",
+<<<<<<< HEAD
         "_postman_id": "936509c1-0dd2-4828-9a09-82bcdc6f3a71",
+=======
+        "_postman_id": "c4c8cabb-4f3b-4ee7-b49b-c46abfbe032f",
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,12 +44,20 @@
                             },
                             {
                                 "key": "X-api-version",
+<<<<<<< HEAD
                                 "value": "nihil"
+=======
+                                "value": "reprehenderit"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                             }
                         ],
                         "body": {
                             "mode": "raw",
+<<<<<<< HEAD
                             "raw": "{\"full_name\":\"yoficzjwq\",\"email\":\"otha79@example.org\",\"phone\":\"sequi\",\"password\":\"non\"}"
+=======
+                            "raw": "{\"full_name\":\"uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv\",\"email\":\"jhauck@example.org\",\"phone\":\"sint\",\"password\":\"et\"}"
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                         },
                         "description": "",
                         "auth": {
@@ -213,8 +225,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
+<<<<<<< HEAD
                                     "value": "1",
                                     "description": "It will be the id of vehicle in database."
+=======
+                                    "value": "ipsam",
+                                    "description": "The ID of the edit."
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                                 }
                             ]
                         },
@@ -260,8 +277,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
+<<<<<<< HEAD
                                     "value": "1",
                                     "description": "It will be the id of vehicle in database."
+=======
+                                    "value": "ullam",
+                                    "description": "The ID of the delete."
+>>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
                                 }
                             ]
                         },
