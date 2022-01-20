@@ -30,7 +30,7 @@ paths:
           in: header
           name: X-api-version
           description: ''
-          example: ut
+          example: nihil
           schema:
             type: string
       responses:
@@ -74,19 +74,19 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-                  example: qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy
+                  example: yoficzjwq
                 email:
                   type: string
                   description: validation.email.
-                  example: monica00@example.net
+                  example: otha79@example.org
                 phone:
                   type: string
                   description: ''
-                  example: vel
+                  example: sequi
                 password:
                   type: string
                   description: ''
-                  example: minima
+                  example: non
               required:
                 - full_name
                 - phone
@@ -251,7 +251,7 @@ paths:
                   example: '754454'
                 first_registration:
                   type: date
-                  description: 'first registration date.'
+                  description: 'Date format should be YYYY-mm-dd'
                   example: '2020-12-12'
                 kilometers_stand:
                   type: integer
@@ -371,7 +371,7 @@ paths:
                   example: '754454'
                 first_registration:
                   type: date
-                  description: 'first registration date.'
+                  description: 'Date format should be YYYY-mm-dd.'
                   example: '2020-12-12'
                 kilometers_stand:
                   type: integer
@@ -385,11 +385,11 @@ paths:
       -
         in: path
         name: id
-        description: 'The ID of the edit.'
-        example: sint
+        description: 'It will be the id of vehicle in database.'
+        example: 1
         required: true
         schema:
-          type: string
+          type: integer
   '/api/v1/vehicle/delete/{id}':
     post:
       summary: 'Delete Vehicle'
@@ -447,11 +447,56 @@ paths:
       -
         in: path
         name: id
-        description: 'The ID of the delete.'
-        example: eaque
+        description: 'It will be the id of vehicle in database.'
+        example: 1
         required: true
         schema:
-          type: string
+          type: integer
+  '/api/v1/vehicle/view/{id}':
+    post:
+      summary: 'View Single Vehicle'
+      description: 'This will show single vehicle'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer <token>'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"message\": \"Vehicle fetched\",\n\"code\": 200,\n\"data\": {\n\"id\": 2,\n\"manufacturer\": \"27575\",\n\"model\": \"28588\",\n\"vin\": \"45678d\",\n\"first_registration\": \"0222-01-20\","
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'It will be the id of vehicle in database.'
+        example: 1
+        required: true
+        schema:
+          type: integer
 tags:
   -
     name: Authentication

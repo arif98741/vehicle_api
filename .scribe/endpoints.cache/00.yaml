@@ -15,7 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-      X-api-version: ut
+      X-api-version: nihil
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -23,28 +23,28 @@ endpoints:
         name: full_name
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
-        example: qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy
+        example: yoficzjwq
         type: string
         custom: []
       email:
         name: email
         description: validation.email.
         required: false
-        example: monica00@example.net
+        example: otha79@example.org
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: vel
+        example: sequi
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: minima
+        example: non
         type: string
         custom: []
     responses:

@@ -23,6 +23,7 @@ Route::group(
 
             Route::post('/add', 'VehicleController@add');
             Route::post('/all', 'VehicleController@all');
+            Route::post('/view/{id}', 'VehicleController@view');
             Route::post('/edit/{id}', 'VehicleController@edit');
             Route::post('/delete/{id}', 'VehicleController@delete');
         });

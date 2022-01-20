@@ -40,7 +40,7 @@ endpoints:
         custom: []
       first_registration:
         name: first_registration
-        description: 'first registration date.'
+        description: 'Date format should be YYYY-mm-dd'
         required: false
         example: '2020-12-12'
         type: date
@@ -161,10 +161,10 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the edit.'
+        description: 'It will be the id of vehicle in database.'
         required: true
-        example: sint
-        type: string
+        example: 1
+        type: integer
         custom: []
     queryParameters: []
     bodyParameters:
@@ -191,7 +191,7 @@ endpoints:
         custom: []
       first_registration:
         name: first_registration
-        description: 'first registration date.'
+        description: 'Date format should be YYYY-mm-dd.'
         required: false
         example: '2020-12-12'
         type: date
@@ -232,10 +232,10 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the delete.'
+        description: 'It will be the id of vehicle in database.'
         required: true
-        example: eaque
-        type: string
+        example: 1
+        type: integer
         custom: []
     queryParameters: []
     bodyParameters: []
@@ -249,6 +249,46 @@ endpoints:
           "code": 200,
           "data": []
           }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/vehicle/view/{id}'
+    metadata:
+      title: 'View Single Vehicle'
+      description: 'This will show single vehicle'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer <token>'
+    urlParameters:
+      id:
+        name: id
+        description: 'It will be the id of vehicle in database.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "message": "Vehicle fetched",
+          "code": 200,
+          "data": {
+          "id": 2,
+          "manufacturer": "27575",
+          "model": "28588",
+          "vin": "45678d",
+          "first_registration": "0222-01-20",
         headers: []
         description: '200'
     responseFields: []

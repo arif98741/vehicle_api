@@ -92,7 +92,7 @@ class VehicleController extends BaseController
      * @bodyParam manufacturer string required Name of manufacturer. Example: Toyota
      * @bodyParam model string required Model number of vehicle. Example: 74CUG
      * @bodyParam vin string required Identification number of vehicle. Example: 754454
-     * @bodyParam first_registration date first registration date. Example: 2020-12-12
+     * @bodyParam first_registration date Date format should be YYYY-mm-dd Example: 2020-12-12
      * @bodyParam kilometers_stand int How much vehicles can drive. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
@@ -128,13 +128,49 @@ class VehicleController extends BaseController
     }
 
     /**
+     * View Single Vehicle
+     *
+     * This will show single vehicle
+     * @urlParam id int required It will be the id of vehicle in database. Example: 1
+     * @header Authorization Bearer <token>
+     * @header Content-Type application/json
+     * @authenticated
+     * @response 200 {
+     * "success": true,
+     * "message": "Vehicle fetched",
+     * "code": 200,
+     * "data": {
+     * "id": 2,
+     * "manufacturer": "27575",
+     * "model": "28588",
+     * "vin": "45678d",
+     * "first_registration": "0222-01-20",
+     */
+    public function view(Request $request, $id)
+    {
+
+        try {
+            $vehicle = Vehicle::where([
+                'id' => $id,
+            ])->first();
+            return $this->sendResponse($vehicle, 'Vehicle fetched', 200);
+        } catch (QueryException $e) {
+
+            return $this->sendError([], 'Failed to update' . $e->getMessage(), 400);
+        }
+
+
+    }
+
+    /**
      * Edit Vehicle
      *
      * This will edit vehicle data
+     * @urlParam id int required It will be the id of vehicle in database. Example: 1
      * @bodyParam manufacturer string required Name of manufacturer. Example: Toyota
      * @bodyParam model string required Model number of vehicle. Example: 74CUG
      * @bodyParam vin string required Identification number of vehicle. Example: 754454
-     * @bodyParam first_registration date first registration date. Example: 2020-12-12
+     * @bodyParam first_registration date Date format should be YYYY-mm-dd. Example: 2020-12-12
      * @bodyParam kilometers_stand int How much vehicles can drive. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
@@ -173,6 +209,7 @@ class VehicleController extends BaseController
      * Delete Vehicle
      *
      * This will delete data from database
+     * @urlParam id int required It will be the id of vehicle in database. Example: 1
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated

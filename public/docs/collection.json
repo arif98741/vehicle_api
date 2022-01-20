@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Vehicle APi Documentation",
-        "_postman_id": "3cca9fef-f2de-440b-8c0f-ddb8e316da22",
+        "_postman_id": "936509c1-0dd2-4828-9a09-82bcdc6f3a71",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,12 +40,12 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "ut"
+                                "value": "nihil"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy\",\"email\":\"monica00@example.net\",\"phone\":\"vel\",\"password\":\"minima\"}"
+                            "raw": "{\"full_name\":\"yoficzjwq\",\"email\":\"otha79@example.org\",\"phone\":\"sequi\",\"password\":\"non\"}"
                         },
                         "description": "",
                         "auth": {
@@ -213,8 +213,8 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sint",
-                                    "description": "The ID of the edit."
+                                    "value": "1",
+                                    "description": "It will be the id of vehicle in database."
                                 }
                             ]
                         },
@@ -260,8 +260,8 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eaque",
-                                    "description": "The ID of the delete."
+                                    "value": "1",
+                                    "description": "It will be the id of vehicle in database."
                                 }
                             ]
                         },
@@ -288,6 +288,50 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n\"success\": true,\n\"message\": \"Vehicle successfully deleted\",\n\"code\": 200,\n\"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "View Single Vehicle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vehicle\/view\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/vehicle\/view\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "It will be the id of vehicle in database."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This will show single vehicle"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"success\": true,\n\"message\": \"Vehicle fetched\",\n\"code\": 200,\n\"data\": {\n\"id\": 2,\n\"manufacturer\": \"27575\",\n\"model\": \"28588\",\n\"vin\": \"45678d\",\n\"first_registration\": \"0222-01-20\",",
                             "name": ""
                         }
                     ]

@@ -104,6 +104,9 @@
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-delete--id-">
                         <a href="#endpoints-POSTapi-v1-vehicle-delete--id-">Delete Vehicle</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-view--id-">
+                        <a href="#endpoints-POSTapi-v1-vehicle-view--id-">View Single Vehicle</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -155,12 +158,12 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "X-api-version: ut" \
+    --header "X-api-version: nihil" \
     --data "{
-    \"full_name\": \"qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy\",
-    \"email\": \"monica00@example.net\",
-    \"phone\": \"vel\",
-    \"password\": \"minima\"
+    \"full_name\": \"yoficzjwq\",
+    \"email\": \"otha79@example.org\",
+    \"phone\": \"sequi\",
+    \"password\": \"non\"
 }"
 </code></pre></div>
 
@@ -173,14 +176,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "X-api-version": "ut",
+    "X-api-version": "nihil",
 };
 
 let body = {
-    "full_name": "qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy",
-    "email": "monica00@example.net",
-    "phone": "vel",
-    "password": "minima"
+    "full_name": "yoficzjwq",
+    "email": "otha79@example.org",
+    "phone": "sequi",
+    "password": "non"
 };
 
 fetch(url, {
@@ -198,13 +201,13 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'X-api-version' =&gt; 'ut',
+            'X-api-version' =&gt; 'nihil',
         ],
         'json' =&gt; [
-            'full_name' =&gt; 'qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy',
-            'email' =&gt; 'monica00@example.net',
-            'phone' =&gt; 'vel',
-            'password' =&gt; 'minima',
+            'full_name' =&gt; 'yoficzjwq',
+            'email' =&gt; 'otha79@example.org',
+            'phone' =&gt; 'sequi',
+            'password' =&gt; 'non',
         ],
     ]
 );
@@ -218,15 +221,15 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
-    "full_name": "qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy",
-    "email": "monica00@example.net",
-    "phone": "vel",
-    "password": "minima"
+    "full_name": "yoficzjwq",
+    "email": "otha79@example.org",
+    "phone": "sequi",
+    "password": "non"
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'X-api-version': 'ut'
+  'X-api-version': 'nihil'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -277,7 +280,7 @@ access-control-allow-origin: *
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"ut"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"nihil"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
     <h3>
@@ -307,7 +310,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="full_name"
                data-endpoint="POSTapi-v1-register"
-               value="qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy"
+               value="yoficzjwq"
                data-component="body" hidden>
     <br>
 <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -317,7 +320,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1-register"
-               value="monica00@example.net"
+               value="otha79@example.org"
                data-component="body" hidden>
     <br>
 <p>validation.email.</p>
@@ -327,7 +330,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1-register"
-               value="vel"
+               value="sequi"
                data-component="body" hidden>
     <br>
 
@@ -337,7 +340,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-register"
-               value="minima"
+               value="non"
                data-component="body" hidden>
     <br>
 
@@ -719,7 +722,7 @@ response.json()</code></pre></div>
                value="2020-12-12"
                data-component="body" hidden>
     <br>
-<p>first registration date.</p>
+<p>Date format should be YYYY-mm-dd</p>
         </p>
                 <p>
             <b><code>kilometers_stand</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
@@ -930,7 +933,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/sint" \
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
@@ -946,7 +949,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/sint"
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/1"
 );
 
 const headers = {
@@ -973,7 +976,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://103.123.8.225:8091/api/v1/vehicle/edit/sint',
+    'http://103.123.8.225:8091/api/v1/vehicle/edit/1',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -997,7 +1000,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/sint'
+url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/1'
 payload = {
     "manufacturer": "Toyota",
     "model": "74CUG",
@@ -1079,14 +1082,14 @@ response.json()</code></pre></div>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="sint"
+               value="1"
                data-component="url" hidden>
     <br>
-<p>The ID of the edit.</p>
+<p>It will be the id of vehicle in database.</p>
             </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
@@ -1127,7 +1130,7 @@ response.json()</code></pre></div>
                value="2020-12-12"
                data-component="body" hidden>
     <br>
-<p>first registration date.</p>
+<p>Date format should be YYYY-mm-dd.</p>
         </p>
                 <p>
             <b><code>kilometers_stand</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
@@ -1155,7 +1158,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/eaque" \
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
@@ -1163,7 +1166,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/eaque"
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/1"
 );
 
 const headers = {
@@ -1181,7 +1184,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://103.123.8.225:8091/api/v1/vehicle/delete/eaque',
+    'http://103.123.8.225:8091/api/v1/vehicle/delete/1',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1198,7 +1201,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/eaque'
+url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/1'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -1273,14 +1276,161 @@ response.json()</code></pre></div>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-delete--id-"
-               value="eaque"
+               value="1"
                data-component="url" hidden>
     <br>
-<p>The ID of the delete.</p>
+<p>It will be the id of vehicle in database.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-v1-vehicle-view--id-">View Single Vehicle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This will show single vehicle</p>
+
+<span id="example-requests-POSTapi-v1-vehicle-view--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://103.123.8.225:8091/api/v1/vehicle/view/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://103.123.8.225:8091/api/v1/vehicle/view/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://103.123.8.225:8091/api/v1/vehicle/view/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://103.123.8.225:8091/api/v1/vehicle/view/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-vehicle-view--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+&quot;success&quot;: true,
+&quot;message&quot;: &quot;Vehicle fetched&quot;,
+&quot;code&quot;: 200,
+&quot;data&quot;: {
+&quot;id&quot;: 2,
+&quot;manufacturer&quot;: &quot;27575&quot;,
+&quot;model&quot;: &quot;28588&quot;,
+&quot;vin&quot;: &quot;45678d&quot;,
+&quot;first_registration&quot;: &quot;0222-01-20&quot;,</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-vehicle-view--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-vehicle-view--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-vehicle-view--id-"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-vehicle-view--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-vehicle-view--id-"></code></pre>
+</span>
+<form id="form-POSTapi-v1-vehicle-view--id-" data-method="POST"
+      data-path="api/v1/vehicle/view/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer \u003Ctoken\u003E"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-vehicle-view--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-vehicle-view--id-"
+                    onclick="tryItOut('POSTapi-v1-vehicle-view--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-vehicle-view--id-"
+                    onclick="cancelTryOut('POSTapi-v1-vehicle-view--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-vehicle-view--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/vehicle/view/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-vehicle-view--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-vehicle-view--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="POSTapi-v1-vehicle-view--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>It will be the id of vehicle in database.</p>
             </p>
                     </form>
 
