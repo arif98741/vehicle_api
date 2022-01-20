@@ -30,7 +30,7 @@ paths:
           in: header
           name: X-api-version
           description: ''
-          example: fuga
+          example: ut
           schema:
             type: string
       responses:
@@ -74,19 +74,19 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-                  example: nysecsqfkvbsix
+                  example: qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy
                 email:
                   type: string
                   description: validation.email.
-                  example: luella.rice@example.org
+                  example: monica00@example.net
                 phone:
                   type: string
                   description: ''
-                  example: cum
+                  example: vel
                 password:
                   type: string
                   description: ''
-                  example: et
+                  example: minima
               required:
                 - full_name
                 - phone
@@ -386,7 +386,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the edit.'
-        example: quia
+        example: sint
         required: true
         schema:
           type: string
@@ -448,7 +448,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the delete.'
-        example: quisquam
+        example: eaque
         required: true
         schema:
           type: string

@@ -165,7 +165,7 @@ endpoints:
         name: id
         description: 'The ID of the edit.'
         required: true
-        example: quia
+        example: sint
         type: string
         custom: []
     queryParameters: []
@@ -236,7 +236,7 @@ endpoints:
         name: id
         description: 'The ID of the delete.'
         required: true
-        example: quisquam
+        example: eaque
         type: string
         custom: []
     queryParameters: []

@@ -15,7 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-      X-api-version: fuga
+      X-api-version: ut
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -23,28 +23,28 @@ endpoints:
         name: full_name
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
-        example: nysecsqfkvbsix
+        example: qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy
         type: string
         custom: []
       email:
         name: email
         description: validation.email.
         required: false
-        example: luella.rice@example.org
+        example: monica00@example.net
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: cum
+        example: vel
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: et
+        example: minima
         type: string
         custom: []
     responses:

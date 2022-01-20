@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Vehicle APi Documentation",
-        "_postman_id": "30fa4282-777b-4376-971a-e2fd1fc5f025",
+        "_postman_id": "3cca9fef-f2de-440b-8c0f-ddb8e316da22",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,12 +40,12 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "fuga"
+                                "value": "ut"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"nysecsqfkvbsix\",\"email\":\"luella.rice@example.org\",\"phone\":\"cum\",\"password\":\"et\"}"
+                            "raw": "{\"full_name\":\"qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy\",\"email\":\"monica00@example.net\",\"phone\":\"vel\",\"password\":\"minima\"}"
                         },
                         "description": "",
                         "auth": {
@@ -213,7 +213,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quia",
+                                    "value": "sint",
                                     "description": "The ID of the edit."
                                 }
                             ]
@@ -260,7 +260,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quisquam",
+                                    "value": "eaque",
                                     "description": "The ID of the delete."
                                 }
                             ]

@@ -48,14 +48,14 @@
 </a>
 <div class="tocify-wrapper">
             <img src="backend/assets/images/logo-icon.png" alt="logo" class="logo" style="padding-top: 10px;" width="230px"/>
-
+    
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                             <button type="button" class="lang-button" data-language-name="php">php</button>
                                             <button type="button" class="lang-button" data-language-name="python">python</button>
                     </div>
-
+    
     <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
@@ -65,15 +65,15 @@
                     <li class="tocify-item level-1" data-unique="introduction">
                         <a href="#introduction">Introduction</a>
                     </li>
-
+                                            
                                                                     </ul>
                                                 <ul id="tocify-header-1" class="tocify-header">
                     <li class="tocify-item level-1" data-unique="authenticating-requests">
                         <a href="#authenticating-requests">Authenticating requests</a>
                     </li>
-
+                                            
                                                 </ul>
-
+                    
                     <ul id="tocify-header-2" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="authentication">
                     <a href="#authentication">Authentication</a>
@@ -106,8 +106,8 @@
                     </li>
                                                     </ul>
                             </ul>
-
-
+        
+                        
             </div>
 
             <ul class="toc-footer" id="toc-footer">
@@ -130,14 +130,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://103.123.8.225:8091</code></pre>
+<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
         <h1 id="authentication">Authentication</h1>
 
-
+    
 
             <h2 id="authentication-POSTapi-v1-register">User Registration</h2>
 
@@ -155,12 +155,12 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "X-api-version: fuga" \
+    --header "X-api-version: ut" \
     --data "{
-    \"full_name\": \"nysecsqfkvbsix\",
-    \"email\": \"luella.rice@example.org\",
-    \"phone\": \"cum\",
-    \"password\": \"et\"
+    \"full_name\": \"qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy\",
+    \"email\": \"monica00@example.net\",
+    \"phone\": \"vel\",
+    \"password\": \"minima\"
 }"
 </code></pre></div>
 
@@ -173,14 +173,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "X-api-version": "fuga",
+    "X-api-version": "ut",
 };
 
 let body = {
-    "full_name": "nysecsqfkvbsix",
-    "email": "luella.rice@example.org",
-    "phone": "cum",
-    "password": "et"
+    "full_name": "qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy",
+    "email": "monica00@example.net",
+    "phone": "vel",
+    "password": "minima"
 };
 
 fetch(url, {
@@ -198,13 +198,13 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'X-api-version' =&gt; 'fuga',
+            'X-api-version' =&gt; 'ut',
         ],
         'json' =&gt; [
-            'full_name' =&gt; 'nysecsqfkvbsix',
-            'email' =&gt; 'luella.rice@example.org',
-            'phone' =&gt; 'cum',
-            'password' =&gt; 'et',
+            'full_name' =&gt; 'qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy',
+            'email' =&gt; 'monica00@example.net',
+            'phone' =&gt; 'vel',
+            'password' =&gt; 'minima',
         ],
     ]
 );
@@ -218,15 +218,15 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
-    "full_name": "nysecsqfkvbsix",
-    "email": "luella.rice@example.org",
-    "phone": "cum",
-    "password": "et"
+    "full_name": "qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy",
+    "email": "monica00@example.net",
+    "phone": "vel",
+    "password": "minima"
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'X-api-version': 'fuga'
+  'X-api-version': 'ut'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -277,7 +277,7 @@ access-control-allow-origin: *
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"fuga"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"ut"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
     <h3>
@@ -307,7 +307,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="full_name"
                data-endpoint="POSTapi-v1-register"
-               value="nysecsqfkvbsix"
+               value="qsthxfrcmhzacasgpnqujasnvngustieuwkugqzobvpwyfmscomisy"
                data-component="body" hidden>
     <br>
 <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -317,7 +317,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1-register"
-               value="luella.rice@example.org"
+               value="monica00@example.net"
                data-component="body" hidden>
     <br>
 <p>validation.email.</p>
@@ -327,7 +327,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1-register"
-               value="cum"
+               value="vel"
                data-component="body" hidden>
     <br>
 
@@ -337,7 +337,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-register"
-               value="et"
+               value="minima"
                data-component="body" hidden>
     <br>
 
@@ -517,7 +517,7 @@ response.json()</code></pre></div>
 
         <h1 id="endpoints">Endpoints</h1>
 
-
+    
 
             <h2 id="endpoints-POSTapi-v1-vehicle-add">Add New Vehicle</h2>
 
@@ -930,7 +930,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/quia" \
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/sint" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
@@ -946,7 +946,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/quia"
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/sint"
 );
 
 const headers = {
@@ -973,7 +973,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://103.123.8.225:8091/api/v1/vehicle/edit/quia',
+    'http://103.123.8.225:8091/api/v1/vehicle/edit/sint',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -997,7 +997,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/quia'
+url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/sint'
 payload = {
     "manufacturer": "Toyota",
     "model": "74CUG",
@@ -1083,7 +1083,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="quia"
+               value="sint"
                data-component="url" hidden>
     <br>
 <p>The ID of the edit.</p>
@@ -1155,7 +1155,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/quisquam" \
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/eaque" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
@@ -1163,7 +1163,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/quisquam"
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/eaque"
 );
 
 const headers = {
@@ -1181,7 +1181,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://103.123.8.225:8091/api/v1/vehicle/delete/quisquam',
+    'http://103.123.8.225:8091/api/v1/vehicle/delete/eaque',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1198,7 +1198,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/quisquam'
+url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/eaque'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -1277,16 +1277,16 @@ response.json()</code></pre></div>
                 <input type="text"
                name="id"
                data-endpoint="POSTapi-v1-vehicle-delete--id-"
-               value="quisquam"
+               value="eaque"
                data-component="url" hidden>
     <br>
 <p>The ID of the delete.</p>
             </p>
                     </form>
 
+    
 
-
-
+        
     </div>
     <div class="dark-box">
                     <div class="lang-selector">
