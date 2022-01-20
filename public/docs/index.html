@@ -98,14 +98,14 @@
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-all">
                         <a href="#endpoints-POSTapi-v1-vehicle-all">Get All Vehicles</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-view--id-">
+                        <a href="#endpoints-POSTapi-v1-vehicle-view--id-">View Single Vehicle</a>
+                    </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-edit--id-">
                         <a href="#endpoints-POSTapi-v1-vehicle-edit--id-">Edit Vehicle</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-delete--id-">
                         <a href="#endpoints-POSTapi-v1-vehicle-delete--id-">Delete Vehicle</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-vehicle-view--id-">
-                        <a href="#endpoints-POSTapi-v1-vehicle-view--id-">View Single Vehicle</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -158,21 +158,12 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-<<<<<<< HEAD
-    --header "X-api-version: nihil" \
+    --header "X-api-version: in" \
     --data "{
-    \"full_name\": \"yoficzjwq\",
-    \"email\": \"otha79@example.org\",
-    \"phone\": \"sequi\",
-    \"password\": \"non\"
-=======
-    --header "X-api-version: reprehenderit" \
-    --data "{
-    \"full_name\": \"uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv\",
-    \"email\": \"jhauck@example.org\",
-    \"phone\": \"sint\",
-    \"password\": \"et\"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+    \"full_name\": \"jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm\",
+    \"email\": \"reichel.zander@example.com\",
+    \"phone\": \"debitis\",
+    \"password\": \"veniam\"
 }"
 </code></pre></div>
 
@@ -185,25 +176,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-<<<<<<< HEAD
-    "X-api-version": "nihil",
+    "X-api-version": "in",
 };
 
 let body = {
-    "full_name": "yoficzjwq",
-    "email": "otha79@example.org",
-    "phone": "sequi",
-    "password": "non"
-=======
-    "X-api-version": "reprehenderit",
-};
-
-let body = {
-    "full_name": "uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv",
-    "email": "jhauck@example.org",
-    "phone": "sint",
-    "password": "et"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+    "full_name": "jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm",
+    "email": "reichel.zander@example.com",
+    "phone": "debitis",
+    "password": "veniam"
 };
 
 fetch(url, {
@@ -221,23 +201,13 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-<<<<<<< HEAD
-            'X-api-version' =&gt; 'nihil',
+            'X-api-version' =&gt; 'in',
         ],
         'json' =&gt; [
-            'full_name' =&gt; 'yoficzjwq',
-            'email' =&gt; 'otha79@example.org',
-            'phone' =&gt; 'sequi',
-            'password' =&gt; 'non',
-=======
-            'X-api-version' =&gt; 'reprehenderit',
-        ],
-        'json' =&gt; [
-            'full_name' =&gt; 'uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv',
-            'email' =&gt; 'jhauck@example.org',
-            'phone' =&gt; 'sint',
-            'password' =&gt; 'et',
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+            'full_name' =&gt; 'jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm',
+            'email' =&gt; 'reichel.zander@example.com',
+            'phone' =&gt; 'debitis',
+            'password' =&gt; 'veniam',
         ],
     ]
 );
@@ -251,26 +221,15 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
-<<<<<<< HEAD
-    "full_name": "yoficzjwq",
-    "email": "otha79@example.org",
-    "phone": "sequi",
-    "password": "non"
-=======
-    "full_name": "uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv",
-    "email": "jhauck@example.org",
-    "phone": "sint",
-    "password": "et"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+    "full_name": "jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm",
+    "email": "reichel.zander@example.com",
+    "phone": "debitis",
+    "password": "veniam"
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-<<<<<<< HEAD
-  'X-api-version': 'nihil'
-=======
-  'X-api-version': 'reprehenderit'
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+  'X-api-version': 'in'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -321,11 +280,7 @@ access-control-allow-origin: *
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-<<<<<<< HEAD
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"nihil"}'
-=======
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"reprehenderit"}'
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"in"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
     <h3>
@@ -355,11 +310,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="full_name"
                data-endpoint="POSTapi-v1-register"
-<<<<<<< HEAD
-               value="yoficzjwq"
-=======
-               value="uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+               value="jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm"
                data-component="body" hidden>
     <br>
 <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -369,11 +320,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1-register"
-<<<<<<< HEAD
-               value="otha79@example.org"
-=======
-               value="jhauck@example.org"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+               value="reichel.zander@example.com"
                data-component="body" hidden>
     <br>
 <p>validation.email.</p>
@@ -383,11 +330,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1-register"
-<<<<<<< HEAD
-               value="sequi"
-=======
-               value="sint"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+               value="debitis"
                data-component="body" hidden>
     <br>
 
@@ -397,11 +340,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-register"
-<<<<<<< HEAD
-               value="non"
-=======
-               value="et"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+               value="veniam"
                data-component="body" hidden>
     <br>
 
@@ -980,411 +919,6 @@ response.json()</code></pre></div>
         </p>
                 </form>
 
-            <h2 id="endpoints-POSTapi-v1-vehicle-edit--id-">Edit Vehicle</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>This will edit vehicle data</p>
-
-<span id="example-requests-POSTapi-v1-vehicle-edit--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-<<<<<<< HEAD
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/1" \
-=======
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam" \
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
-    --data "{
-    \"manufacturer\": \"Toyota\",
-    \"model\": \"74CUG\",
-    \"vin\": \"754454\",
-    \"first_registration\": \"2020-12-12\",
-    \"kilometers_stand\": 40
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-<<<<<<< HEAD
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/1"
-=======
-    "http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "Authorization": "Bearer &amp;lt;token&amp;gt;",
-};
-
-let body = {
-    "manufacturer": "Toyota",
-    "model": "74CUG",
-    "vin": "754454",
-    "first_registration": "2020-12-12",
-    "kilometers_stand": 40
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-<<<<<<< HEAD
-    'http://103.123.8.225:8091/api/v1/vehicle/edit/1',
-=======
-    'http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam',
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer &lt;token&gt;',
-        ],
-        'json' =&gt; [
-            'manufacturer' =&gt; 'Toyota',
-            'model' =&gt; '74CUG',
-            'vin' =&gt; '754454',
-            'first_registration' =&gt; '2020-12-12',
-            'kilometers_stand' =&gt; 40,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-<<<<<<< HEAD
-url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/1'
-=======
-url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/ipsam'
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-payload = {
-    "manufacturer": "Toyota",
-    "model": "74CUG",
-    "vin": "754454",
-    "first_registration": "2020-12-12",
-    "kilometers_stand": 40
-}
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer &amp;lt;token&amp;gt;'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-vehicle-edit--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;success&quot;: true,
-    &quot;message&quot;: &quot;User address successfully updated&quot;,
-    &quot;code&quot;: 200,
-    &quot;data&quot;: []
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-vehicle-edit--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-vehicle-edit--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-vehicle-edit--id-"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-vehicle-edit--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-vehicle-edit--id-"></code></pre>
-</span>
-<form id="form-POSTapi-v1-vehicle-edit--id-" data-method="POST"
-      data-path="api/v1/vehicle/edit/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer \u003Ctoken\u003E"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-vehicle-edit--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-vehicle-edit--id-"
-                    onclick="tryItOut('POSTapi-v1-vehicle-edit--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-vehicle-edit--id-"
-                    onclick="cancelTryOut('POSTapi-v1-vehicle-edit--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-vehicle-edit--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/vehicle/edit/{id}</code></b>
-        </p>
-                <p>
-            <label id="auth-POSTapi-v1-vehicle-edit--id-" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1-vehicle-edit--id-"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-<<<<<<< HEAD
-               value="1"
-=======
-               value="ipsam"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-               data-component="url" hidden>
-    <br>
-<p>It will be the id of vehicle in database.</p>
-            </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>manufacturer</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="manufacturer"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="Toyota"
-               data-component="body" hidden>
-    <br>
-<p>Name of manufacturer.</p>
-        </p>
-                <p>
-            <b><code>model</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="model"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="74CUG"
-               data-component="body" hidden>
-    <br>
-<p>Model number of vehicle.</p>
-        </p>
-                <p>
-            <b><code>vin</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="vin"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="754454"
-               data-component="body" hidden>
-    <br>
-<p>Identification number of vehicle.</p>
-        </p>
-                <p>
-            <b><code>first_registration</code></b>&nbsp;&nbsp;<small>date</small>     <i>optional</i> &nbsp;
-                <input type="text"
-               name="first_registration"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="2020-12-12"
-               data-component="body" hidden>
-    <br>
-<p>Date format should be YYYY-mm-dd.</p>
-        </p>
-                <p>
-            <b><code>kilometers_stand</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-                <input type="number"
-               name="kilometers_stand"
-               data-endpoint="POSTapi-v1-vehicle-edit--id-"
-               value="40"
-               data-component="body" hidden>
-    <br>
-<p>How much vehicles can drive.</p>
-        </p>
-        </form>
-
-            <h2 id="endpoints-POSTapi-v1-vehicle-delete--id-">Delete Vehicle</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>This will delete data from database</p>
-
-<span id="example-requests-POSTapi-v1-vehicle-delete--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-<<<<<<< HEAD
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/1" \
-=======
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/ullam" \
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-<<<<<<< HEAD
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/1"
-=======
-    "http://103.123.8.225:8091/api/v1/vehicle/delete/ullam"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "Authorization": "Bearer &amp;lt;token&amp;gt;",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-<<<<<<< HEAD
-    'http://103.123.8.225:8091/api/v1/vehicle/delete/1',
-=======
-    'http://103.123.8.225:8091/api/v1/vehicle/delete/ullam',
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer &lt;token&gt;',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-<<<<<<< HEAD
-url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/1'
-=======
-url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/ullam'
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer &amp;lt;token&amp;gt;'
-}
-
-response = requests.request('POST', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-vehicle-delete--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;success&quot;: true,
-    &quot;message&quot;: &quot;Vehicle successfully deleted&quot;,
-    &quot;code&quot;: 200,
-    &quot;data&quot;: []
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-vehicle-delete--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-vehicle-delete--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-vehicle-delete--id-"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-vehicle-delete--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-vehicle-delete--id-"></code></pre>
-</span>
-<form id="form-POSTapi-v1-vehicle-delete--id-" data-method="POST"
-      data-path="api/v1/vehicle/delete/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer \u003Ctoken\u003E"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-vehicle-delete--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-vehicle-delete--id-"
-                    onclick="tryItOut('POSTapi-v1-vehicle-delete--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-vehicle-delete--id-"
-                    onclick="cancelTryOut('POSTapi-v1-vehicle-delete--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-vehicle-delete--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/vehicle/delete/{id}</code></b>
-        </p>
-                <p>
-            <label id="auth-POSTapi-v1-vehicle-delete--id-" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1-vehicle-delete--id-"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="POSTapi-v1-vehicle-delete--id-"
-<<<<<<< HEAD
-               value="1"
-               data-component="url" hidden>
-    <br>
-<p>It will be the id of vehicle in database.</p>
-            </p>
-                    </form>
-
             <h2 id="endpoints-POSTapi-v1-vehicle-view--id-">View Single Vehicle</h2>
 
 <p>
@@ -1526,9 +1060,374 @@ response.json()</code></pre></div>
                name="id"
                data-endpoint="POSTapi-v1-vehicle-view--id-"
                value="1"
-=======
-               value="ullam"
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+               data-component="url" hidden>
+    <br>
+<p>It will be the id of vehicle in database.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-v1-vehicle-edit--id-">Edit Vehicle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This will edit vehicle data</p>
+
+<span id="example-requests-POSTapi-v1-vehicle-edit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --data "{
+    \"manufacturer\": \"Toyota\",
+    \"model\": \"74CUG\",
+    \"vin\": \"754454\",
+    \"first_registration\": \"2020-12-12\",
+    \"kilometers_stand\": 40
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://103.123.8.225:8091/api/v1/vehicle/edit/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+};
+
+let body = {
+    "manufacturer": "Toyota",
+    "model": "74CUG",
+    "vin": "754454",
+    "first_registration": "2020-12-12",
+    "kilometers_stand": 40
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://103.123.8.225:8091/api/v1/vehicle/edit/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+        ],
+        'json' =&gt; [
+            'manufacturer' =&gt; 'Toyota',
+            'model' =&gt; '74CUG',
+            'vin' =&gt; '754454',
+            'first_registration' =&gt; '2020-12-12',
+            'kilometers_stand' =&gt; 40,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://103.123.8.225:8091/api/v1/vehicle/edit/1'
+payload = {
+    "manufacturer": "Toyota",
+    "model": "74CUG",
+    "vin": "754454",
+    "first_registration": "2020-12-12",
+    "kilometers_stand": 40
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-vehicle-edit--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;User address successfully updated&quot;,
+    &quot;code&quot;: 200,
+    &quot;data&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-vehicle-edit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-vehicle-edit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-vehicle-edit--id-"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-vehicle-edit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-vehicle-edit--id-"></code></pre>
+</span>
+<form id="form-POSTapi-v1-vehicle-edit--id-" data-method="POST"
+      data-path="api/v1/vehicle/edit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer \u003Ctoken\u003E"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-vehicle-edit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-vehicle-edit--id-"
+                    onclick="tryItOut('POSTapi-v1-vehicle-edit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-vehicle-edit--id-"
+                    onclick="cancelTryOut('POSTapi-v1-vehicle-edit--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-vehicle-edit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/vehicle/edit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-vehicle-edit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-vehicle-edit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>It will be the id of vehicle in database.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>manufacturer</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="manufacturer"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="Toyota"
+               data-component="body" hidden>
+    <br>
+<p>Name of manufacturer.</p>
+        </p>
+                <p>
+            <b><code>model</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="model"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="74CUG"
+               data-component="body" hidden>
+    <br>
+<p>Model number of vehicle.</p>
+        </p>
+                <p>
+            <b><code>vin</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="vin"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="754454"
+               data-component="body" hidden>
+    <br>
+<p>Identification number of vehicle.</p>
+        </p>
+                <p>
+            <b><code>first_registration</code></b>&nbsp;&nbsp;<small>date</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="first_registration"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="2020-12-12"
+               data-component="body" hidden>
+    <br>
+<p>Date format should be YYYY-mm-dd.</p>
+        </p>
+                <p>
+            <b><code>kilometers_stand</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="kilometers_stand"
+               data-endpoint="POSTapi-v1-vehicle-edit--id-"
+               value="40"
+               data-component="body" hidden>
+    <br>
+<p>How much vehicles can drive.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-v1-vehicle-delete--id-">Delete Vehicle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This will delete data from database</p>
+
+<span id="example-requests-POSTapi-v1-vehicle-delete--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://103.123.8.225:8091/api/v1/vehicle/delete/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://103.123.8.225:8091/api/v1/vehicle/delete/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://103.123.8.225:8091/api/v1/vehicle/delete/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-vehicle-delete--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Vehicle successfully deleted&quot;,
+    &quot;code&quot;: 200,
+    &quot;data&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-vehicle-delete--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-vehicle-delete--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-vehicle-delete--id-"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-vehicle-delete--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-vehicle-delete--id-"></code></pre>
+</span>
+<form id="form-POSTapi-v1-vehicle-delete--id-" data-method="POST"
+      data-path="api/v1/vehicle/delete/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer \u003Ctoken\u003E"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-vehicle-delete--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-vehicle-delete--id-"
+                    onclick="tryItOut('POSTapi-v1-vehicle-delete--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-vehicle-delete--id-"
+                    onclick="cancelTryOut('POSTapi-v1-vehicle-delete--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-vehicle-delete--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/vehicle/delete/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-vehicle-delete--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-vehicle-delete--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="POSTapi-v1-vehicle-delete--id-"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>It will be the id of vehicle in database.</p>

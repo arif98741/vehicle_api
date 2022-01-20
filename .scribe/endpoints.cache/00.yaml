@@ -15,11 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-<<<<<<< HEAD
-      X-api-version: nihil
-=======
-      X-api-version: reprehenderit
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+      X-api-version: in
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -27,44 +23,28 @@ endpoints:
         name: full_name
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
-<<<<<<< HEAD
-        example: yoficzjwq
-=======
-        example: uaouiukdtkukgujezhewplcnycgbakxdjulgzwcjrzpoxdtcvkihppryzqucrcqmyhylblblihtiiepcejqcspjvpnclqwrosznv
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+        example: jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm
         type: string
         custom: []
       email:
         name: email
         description: validation.email.
         required: false
-<<<<<<< HEAD
-        example: otha79@example.org
-=======
-        example: jhauck@example.org
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+        example: reichel.zander@example.com
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-<<<<<<< HEAD
-        example: sequi
-=======
-        example: sint
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+        example: debitis
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-<<<<<<< HEAD
-        example: non
-=======
-        example: et
->>>>>>> 457fbffeac42013df5d6c05911e9a9909a4ab99b
+        example: veniam
         type: string
         custom: []
     responses:
