@@ -22,84 +22,36 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class RegisterController extends BaseController
 {
     /**
      * User Registration
+     *
+     * @group Authentication
      * @header X-api-version
      * For registration, you should pass data and other parameters
-     * @version   v1.0.1
      * @param Request $request
      * @return JsonResponse|Response|void
+     * @version   v1.0.1
      */
     public function register(Request $request)
     {
-        $preRegistered = User::where([
+        User::where([
             'phone' => $request->phone,
         ])->first();
-
-        if ($preRegistered != null && $preRegistered->otp_verified == 0) {
-
-            $otpData = Otp::where([
-                'purpose' => 'register',
-                'purpose_id' => $preRegistered->id,
-
-            ])->select('sent', 'code', 'expiration')
-                ->orderBy('id', 'desc')
-                ->first();
-
-            $sentTime = $otpData->sent;
-            $nextSentTime = Carbon::createFromDate($sentTime)
-                ->addMinute(1)
-                ->format('Y-m-d H:i:s');
-            if (Carbon::now() < $nextSentTime) {
-
-
-                return $this->sendError('You can request otp after 1 minute', ['error' => 'Flood api request']);
-            }
-
-            $otp = rand(111111, 999999);
-            $message = "$otp. Sincerely Takecare";
-            $response = AppFacade::sendOtp($preRegistered->phone, $message);
-            if ($response == true) {
-
-                $data = [
-                    'sent' => Carbon::now(),
-                    'code' => $otp,
-                    'purpose' => 'register',
-                    'expiration' => Carbon::now()
-                        ->addMinute(10)
-                        ->format('Y-m-d H:i:s'),
-                    'purpose_id' => $preRegistered->id
-                ];
-                AppFacade::saveOtp($data);
-            }
-
-            User::where('id', $preRegistered->id)
-                ->update(['password' => Hash::make($request->password)]);
-
-            return $this->sendResponse([], 'Phone number already exist without verifying otp; Verify your account and login with your new password ');
-        } else if ($preRegistered != null && $preRegistered->otp_verified == 1) {
-            return $this->sendError('Phone number already registered');
-        }
 
         $validator = Validator::make($request->all(), [
             'full_name' => 'required|min:3|max:100',
             'email' => 'sometimes|email|unique:users',
-            'gender' => 'required',
-            'phone' => 'required',
-            'role' => 'required|int',
+            'phone' => 'required|unique:users',
             'password' => 'required',
         ]);
 
         if ($validator->fails()) {
             return $this->sendError('Data validation error', $validator->errors());
         }
-
 
         if (DataHelper::checkNumberValidity($request->phone) == false) {
             return $this->sendError('Invalid phone number', [
@@ -109,47 +61,18 @@ class RegisterController extends BaseController
             ]);
         }
 
-
-        if (!in_array($request->role, [3, 4])) {
-            return $this->sendError('Role must be 3 or 4; 3 Refers to provider and 4 refers to seeeker', [
-                'role' => [
-                    'role entry error'
-                ]
-            ]);
-        }
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $input['user_slug'] = Str::slug($input['full_name']) . rand(11111, 99999);
-        $input['role_id'] = $request->role;
 
         $user = User::create($input);
         //  $success['token'] = $user->createToken('MyApp')->accessToken; //this will be used on once
         if ($user) {
-
             $userData = User::find($user->id);
 
-            $otp = rand(111111, 999999);
-            $message = "$otp. Sincerely Takecare";
-            $response = AppFacade::sendOtp($userData->phone, $message);
-            if ($response == true) {
-
-                $data = [
-                    'sent' => Carbon::now(),
-                    'code' => $otp,
-                    'purpose' => 'register',
-                    'expiration' => Carbon::now()
-                        ->addMinute(10)
-                        ->format('Y-m-d H:i:s'),
-                    'purpose_id' => $userData->id
-                ];
-
-
-                AppFacade::saveOtp($data);
-                $success['user'] = $userData;
+            $success['user'] = $userData;
+            if ($userData) {
                 return $this->sendResponse($success, 'User register successful. Please check otp');
             } else {
-                $success['user'] = $userData;
                 return $this->sendResponse($success, 'User register successful. Failed to send otp');
             }
         }
@@ -158,29 +81,47 @@ class RegisterController extends BaseController
 
     /**
      * Login api
-     * @param Request $request
+     *
+     * @group Authentication
+     * @bodyParam phone string required Phone number. Example: 017XXXXXXXX
+     * @bodyParam password string required Password of user. Example: test@example.com 
      * @return JsonResponse|Response
-     * @response  {'hello'}
-     * @responseFile storage/responses/users.get.json
+     * @response 200 {
+     * "success": true,
+     * "message": "User login successfully.",
+     * "code": 200,
+     * "data": {
+     * "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGU2MjkzYjk3NjgxMzgyMjM4OTIxYjQzNTlkYzRkN2YxNWJjODc5MDdjMTFjY2JkM2I0YzM3ODlmNjQyMDBkOTM0YjhmODNiYzgyNzkwNmEiLCJpYXQiOjE2NDI2NzM4NTguNjU1MzE5LCJuYmYiOjE2NDI2NzM4NTguNjU1MzI0LCJleHAiOjE2NDM5Njk4NTguNjQ4NTAxLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.O5NNZdmSoqbwK2-wWg6rrAFtWaUUe9JnybMtuoHJBReohF0ois9N9-x7CzOPuX4aKmE61LlPsM6DbIm-yidvqfGOT73mVYoREwu2mISiqTUqsbu8mnq6Nsq6Z_rj21VbOp2-DqkWh86PPI5kpf-t_-pt1QlLAwveTVpefbnmUmfc49m-_aOnXDM2H6QKhXt9zVqlkj2tgFjKgfISqLGJ_iWxUvaHzCSNDMvp7K1Cu620rT5VXCBzDi5NIXuHaCQ7KOzoMT5m5Upb-kG0TjERWogVPUjP8sY4H5AY3PYGkmZfjaRFn6QDth2Fk1fl1-DQffDFsUzuzLvfnbplLr6LfHJnAJFUvsbQpYd_F8-yOcP0JmMn-_Q8P2gtLxD4kL_ofy4cPxi66h6Apc3IeN-7bqd059lmo2uBn_mAZYUdpT8Zo83PeM2ShioUlpUXCCtqnmN4N6R3w2whZfp0Qm-9-9Hy9uGbVb5eNS24rN1XZ27JveT7LRSMU213wqdiKIOOhBXTr3frz2MzXDEk7Fisx9BkzvrHBHbV0ES2mm2zZgha3GqTXw1qH7ENr_W4BClsJL0ArT_a-oifyBFIi_QNKzeNPz439hnSy6YLRKD-3O35ZizIh4u2i7kYpwm25gnxp01zj9PG4Mg0BVrP8OlSuZJyfPslXWmmtg6_NEEh1BY",
+     * "user": {
+     * "id": 4,
+     * "full_name": "Ariful Islam",
+     * "email": null,
+     * "phone": "01750840217",
+     * "email_verified_at": null,
+     * "last_login": null,
+     * "created_at": "2022-01-20T09:38:29.000000Z",
+     * "updated_at": "2022-01-20T09:38:29.000000Z"
+     * }
+     * }
+     * }
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password, 'otp_verified' => 1])) {
+
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
-
-            $tokenName = '';
-            if ($user->role_id == 1) {
-                $tokenName = 'TakeCareApp';
-            } else if ($user->role_id == 3 || $user->role_id == 4) {
-                $tokenName = 'UserToken';
-            }
-
+            $tokenName = 'UserToken';
             $success['token'] = $user->createToken($tokenName)->accessToken;
             $success['user'] = $user;
 
             return $this->sendResponse($success, 'User login successfully.');
         } else {
-            return $this->sendError('Unauthorised.', ['error' => 'Username or password not matched']);
+            return $this->sendError('Unauthorised.', ['error' => 'Username or password not matched'], '401');
         }
     }
 

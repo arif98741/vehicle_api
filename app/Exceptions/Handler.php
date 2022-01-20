@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -44,8 +47,23 @@ class Handler extends ExceptionHandler
                 return response()->json([
                     'message' => 'Api endpoint does not exist',
                     'code' => 404
-                ],404);
+                ], 404);
             }
         });
+    }
+
+    /**
+     * @param $request
+     * @param AuthenticationException $exception
+     * @return \Illuminate\Http\JsonResponse|RedirectResponse|Response
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.', 'code' => 403], 403);
+        }
+
+        return redirect()->guest(route('login'));
     }
 }

@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -21,11 +20,7 @@ Route::group([
     Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::resource('/user', 'UserController')->except(['show']);
 
-    Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
-        Route::resource('/service-category', 'ServiceCategoryController');
-    });
 
-    Route::resource('/service', 'ServiceController');
 
 });
 

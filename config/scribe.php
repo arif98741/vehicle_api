@@ -9,7 +9,7 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => 'Takecare Web Api Documentation',
+    'title' => 'Vehicle APi Documentation',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
@@ -21,11 +21,6 @@ return [
      */
     'base_url' => 'http://127.0.0.1:8000',
 
-    /*
-     * Tell Scribe what routes to generate documentation for.
-     * Each group contains rules defining which routes should be included ('match', 'include' and 'exclude' sections)
-     * and settings which should be applied to them ('apply' section).
-     */
     'routes' => [
         [
             /*

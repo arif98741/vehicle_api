@@ -18,9 +18,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 /**
- * This is base controller for showing response as return
- * status codes
- * /**
  * 200 success
  * 201 created
  * 210 already exist
@@ -55,9 +52,9 @@ class BaseController extends Controller
         $response = [
             'success' => true,
             'message' => $message,
+            'code' => $code,
             'data' => $result,
         ];
-
 
         return response()->json($response, $code);
     }
@@ -74,6 +71,7 @@ class BaseController extends Controller
     {
         $response = [
             'success' => false,
+            'code' => $code,
             'message' => $error,
         ];
 

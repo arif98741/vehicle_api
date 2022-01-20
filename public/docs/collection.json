@@ -9,14 +9,14 @@
         }
     ],
     "info": {
-        "name": "Takecare Web Api Documentation",
-        "_postman_id": "930e39e8-2ed8-42d1-ae7b-1982302e9978",
+        "name": "Vehicle APi Documentation",
+        "_postman_id": "a60ddbc0-78eb-41e6-be79-b059d3b811ef",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
+            "name": "Authentication",
             "description": "",
             "item": [
                 {
@@ -40,12 +40,12 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "sit"
+                                "value": "aut"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"xyxqaiiutldoztmckchdnnxvbjmdpdzusvnrrmzrmmxyfbqaiellgqiwesubqubsritiskdepyxwokqcemcwhxtzqgmktmxlvjgg\",\"email\":\"lind.delta@example.org\",\"gender\":\"ut\",\"phone\":\"eveniet\",\"role\":15,\"password\":\"possimus\"}"
+                            "raw": "{\"full_name\":\"kfmrqhilcvllzzboxqqfzaakvcfwuhmywzjfggzxfguelaxtdhuoq\",\"email\":\"noemie.walker@example.net\",\"phone\":\"libero\",\"password\":\"optio\"}"
                         },
                         "description": "",
                         "auth": {
@@ -74,97 +74,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "verify otp for user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/register\/verify-otp",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/register\/verify-otp"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":\"numquam\",\"otp\":2}"
+                            "raw": "{\"phone\":\"017XXXXXXXX\",\"password\":\"test@example.com\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Send Otp Again",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/register\/resend-otp",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/register\/resend-otp"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"phone\":\"quam\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/v1\/specialities",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/specialities",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/specialities"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -172,44 +85,112 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"success\": true,\n\"message\": \"User login successfully.\",\n\"code\": 200,\n\"data\": {\n\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGU2MjkzYjk3NjgxMzgyMjM4OTIxYjQzNTlkYzRkN2YxNWJjODc5MDdjMTFjY2JkM2I0YzM3ODlmNjQyMDBkOTM0YjhmODNiYzgyNzkwNmEiLCJpYXQiOjE2NDI2NzM4NTguNjU1MzE5LCJuYmYiOjE2NDI2NzM4NTguNjU1MzI0LCJleHAiOjE2NDM5Njk4NTguNjQ4NTAxLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.O5NNZdmSoqbwK2-wWg6rrAFtWaUUe9JnybMtuoHJBReohF0ois9N9-x7CzOPuX4aKmE61LlPsM6DbIm-yidvqfGOT73mVYoREwu2mISiqTUqsbu8mnq6Nsq6Z_rj21VbOp2-DqkWh86PPI5kpf-t_-pt1QlLAwveTVpefbnmUmfc49m-_aOnXDM2H6QKhXt9zVqlkj2tgFjKgfISqLGJ_iWxUvaHzCSNDMvp7K1Cu620rT5VXCBzDi5NIXuHaCQ7KOzoMT5m5Upb-kG0TjERWogVPUjP8sY4H5AY3PYGkmZfjaRFn6QDth2Fk1fl1-DQffDFsUzuzLvfnbplLr6LfHJnAJFUvsbQpYd_F8-yOcP0JmMn-_Q8P2gtLxD4kL_ofy4cPxi66h6Apc3IeN-7bqd059lmo2uBn_mAZYUdpT8Zo83PeM2ShioUlpUXCCtqnmN4N6R3w2whZfp0Qm-9-9Hy9uGbVb5eNS24rN1XZ27JveT7LRSMU213wqdiKIOOhBXTr3frz2MzXDEk7Fisx9BkzvrHBHbV0ES2mm2zZgha3GqTXw1qH7ENr_W4BClsJL0ArT_a-oifyBFIi_QNKzeNPz439hnSy6YLRKD-3O35ZizIh4u2i7kYpwm25gnxp01zj9PG4Mg0BVrP8OlSuZJyfPslXWmmtg6_NEEh1BY\",\n\"user\": {\n\"id\": 4,\n\"full_name\": \"Ariful Islam\",\n\"email\": null,\n\"phone\": \"01750840217\",\n\"email_verified_at\": null,\n\"last_login\": null,\n\"created_at\": \"2022-01-20T09:38:29.000000Z\",\n\"updated_at\": \"2022-01-20T09:38:29.000000Z\"\n}\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Add New Vehicle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vehicle\/add",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/vehicle\/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"manufacturer\":\"Toyota\",\"model\":\"74CUG\",\"vin\":\"754454\",\"first_registration\":\"2020-12-12\",\"kilometers_stand\":40}"
+                        },
+                        "description": "This will add new vehicle to database"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"Vehicle address successfully added\",\n \"code\": 201,\n \"data\": []\n }",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/service\/single\/{id}",
+                    "name": "Get All Vehicles",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/service\/single\/:id",
+                            "path": "api\/v1\/vehicle\/all",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/service\/single\/:id",
+                            "raw": "{{baseUrl}}\/api\/v1\/vehicle\/all"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This will select and fetched all vehicles' data from database"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{{\n\"success\": true,\n\"message\": \"Fetched vehicles\",\n\"code\": 200,\n\"data\": [\n{\n\"id\": 2,\n\"manufacturer\": \"27575\",\n\"model\": \"28588\",\n\"vin\": \"45678d\",\n\"first_registration\": \"0222-01-20\",\n\"kilometers_stand\": 654564,\n\"created_at\": \"2022-01-20T09:44:16.000000Z\",\n\"updated_at\": \"2022-01-20T10:03:33.000000Z\"\n},\n{\n\"id\": 3,\n\"manufacturer\": \"Toyota\",\n\"model\": \"285TC\",\n\"vin\": \"96876\",\n\"first_registration\": \"1997-01-20\",\n\"kilometers_stand\": 40,\n\"created_at\": \"2022-01-20T09:44:32.000000Z\",\n\"updated_at\": \"2022-01-20T09:44:32.000000Z\"\n},\n{\n\"id\": 4,\n\"manufacturer\": \"BMW\",\n\"model\": \"BM54\",\n\"vin\": \"78654F\",\n\"first_registration\": \"1997-01-20\",\n\"kilometers_stand\": 140,\n\"created_at\": \"2022-01-20T09:44:55.000000Z\",\n\"updated_at\": \"2022-01-20T09:44:55.000000Z\"\n},\n{\n\"id\": 5,\n\"manufacturer\": \"BMW\",\n\"model\": \"BM754\",\n\"vin\": \"23456B\",\n\"first_registration\": \"2022-01-20\",\n\"kilometers_stand\": 180,\n\"created_at\": \"2022-01-20T09:45:18.000000Z\",\n\"updated_at\": \"2022-01-20T09:45:18.000000Z\"\n},\n{\n\"id\": 6,\n\"manufacturer\": \"Audi\",\n\"model\": \"AUD78541\",\n\"vin\": \"854694\",\n\"first_registration\": \"2022-01-20\",\n\"kilometers_stand\": 180,\n\"created_at\": \"2022-01-20T09:45:32.000000Z\",\n\"updated_at\": \"2022-01-20T09:45:32.000000Z\"\n}\n]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit Vehicle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vehicle\/edit\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/vehicle\/edit\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "qui",
-                                    "description": "The ID of the single."
+                                    "value": "dolores",
+                                    "description": "The ID of the edit."
                                 }
                             ]
                         },
-                        "method": "GET",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -218,150 +199,45 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
                             }
                         ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/v1\/service\/all",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/service\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/service\/all"
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"manufacturer\":\"Toyota\",\"model\":\"74CUG\",\"vin\":\"754454\",\"first_registration\":\"2020-12-12\",\"kilometers_stand\":40}"
                         },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "This will edit vehicle data"
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"success\": true,\n\"message\": \"User address successfully updated\",\n\"code\": 200,\n\"data\": []\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/service\/categories",
+                    "name": "Delete Vehicle",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/service\/categories",
+                            "path": "api\/v1\/vehicle\/delete\/:id",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/service\/categories"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/v1\/service\/category\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/service\/category\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/service\/category\/:id",
+                            "raw": "{{baseUrl}}\/api\/v1\/vehicle\/delete\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "cupiditate",
-                                    "description": "The ID of the category."
+                                    "value": "accusamus",
+                                    "description": "The ID of the delete."
                                 }
                             ]
                         },
-                        "method": "GET",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -370,1024 +246,23 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "This will delete data from database"
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"success\": true,\n\"message\": \"Vehicle successfully deleted\",\n\"code\": 200,\n\"data\": []\n}",
                             "name": ""
                         }
                     ]
-                },
-                {
-                    "name": "Get All Providers",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/list",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/list"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/v1\/user\/list-by-role",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/list-by-role",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/list-by-role"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"role_name\":\"labore\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/v1\/user\/roles",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/roles",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/roles"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Get All Provider by Role",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "3",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Get All User all Address data",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/address\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/address\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"quia\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User Address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/address\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/address\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"minus\",\"district\":\"ut\",\"city\":\"praesentium\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User Address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/address\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/address\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"molestiae\",\"district\":\"ducimus\",\"city\":\"odit\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User Address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/address\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/address\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"est\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Get All User all saved address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/saved-address\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/saved-address\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"cupiditate\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User saved address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/saved-address\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/saved-address\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"beneficiary_name\":\"saepe\",\"user_id\":\"saepe\",\"district\":\"molestias\",\"city\":\"voluptatem\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User saved address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/saved-address\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/saved-address\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"aliquam\",\"user_id\":\"nihil\",\"beneficiary_name\":\"illo\",\"district\":\"nam\",\"city\":\"ea\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User saved address",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/saved-address\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/saved-address\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"quia\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Get All Providers",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/service\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/service\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"quis\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/service\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/service\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"dolor\",\"service_id\":\"labore\",\"service_price\":29071.2}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/service\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/service\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"magnam\",\"user_id\":\"non\",\"service_id\":\"beatae\",\"service_price\":149.444280215}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/service\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/service\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"consequatur\",\"user_id\":\"magnam\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Get All Providers",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/professional-data\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/professional-data\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"saepe\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/professional-data\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/professional-data\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"illum\",\"license_no\":\"et\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/professional-data\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/professional-data\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"doloribus\",\"user_id\":\"occaecati\",\"license_no\":\"ratione\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/professional-data\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/professional-data\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"assumenda\",\"user_id\":\"et\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Get All Providers",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/academic\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/academic\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"aut\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User Academic Info",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/academic\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/academic\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":42997.962409,\"institute\":\"ullam\",\"major\":\"est\",\"passing_year\":\"xmloijbxxappevorqcedbzkqmvjaopqvyaghwmuubliuhwpciqvorjcazchubqdpghjclceqhnuxiilzxjrixdcgqmjtsavwourykjxjuexsbbwhcwjkbhephgkhmkqevwwlhngdlhxosicltgfzpqrxqymgmknubsatroyllldrzizuipabkiuurtpwwvomelaskcxivxmnalovgmzkmutepzzhkqenknljtpzhgukutrzdyvghoqqvmjfwwolubgreaopjtxizgpslfuewmjhksrqdmdfxjxfixosqliplsynvufgwpusgjwzayuaanahdshqhnuwwiqbjjxhdsfuqjnpicxsjzdzxtarflvuvfhoafeedsyvqhehnvaajdxctqgrooeakxpekpjkygpszcxwhazywijalsfhavmixorzslofufukvfhnehfkahphvjirsyghdapydrnhbjuapsdgqsnmovewcowkwwprpjgmhqwzczmhzjtiubncrjseugmsrtwfajpvssajwjfnjflfqunmluqaznhzmecuvmixhleczmhwqtjxudgkulpttaotyvuqabkvoladxpptoypsxtjbgngulucftzxbgkunvegciyqytxmywyykmmzxudubbewxywcnbjceoylqefivexmmrhqoalphouuudgkofpbaawdipycofwnkzddlfgjsvkhlvigrnxmogfikikqhuuwkjrgwebwqcznsvzwtpxgciyfmtnhssxnencconfzcctkcpmnxbzhnouzewloxoloafwyxxcxhmxrhyacpfurgqysbbeohwtapxnjrviqmfbrtqpqogbqjyjcxrfpmxaovdtviyehundpimisllrvbmwsxgnumilnoxqoatqyfbcuqrebposyksqqowfvo\",\"cgpa_grade\":\"sed\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User Academic info",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/academic\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/academic\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":1.75783377,\"user_id\":1.410234809,\"institute\":\"voluptatem\",\"major\":\"omnis\",\"passing_year\":\"opmawjejempqqdtrwbozhizwnpsspifcftgrlanldfwtxqgqfdxrchurmjfpfdslnxvaitmhpzfuatndpaiaufdgxegxkknlfaqqbcytpenxqosatzfivbfpugyfjmxtefwdqanpafqbpkyyiqgkespetcezumbkicbyrcvzinscejtfluyjqgholbknoutvbdvkasyilqhtpalphxqdvilcqdeshwhbgyaanunhxrnlkltfcjuwtwbdkcorftuafizrtjoeapykrglgrfnkndhissnjbshtmghndmsbentzexbulzywzljjlvebnqeeqcmhhiiqyxzifflwhtgafzjjxgveknlnpksdzsviokzaaeepohryienqtscrlohjdsmcfhlhgdvelmtnutqbkdhyvnbqfssswshlqrernpmztxijnjegvidqihhotcxbwlkwhybmdicanfwifzasarmvwtqiajzoaawyqpbvlmbhfhgysqedrutofykvnwnvlrupxqsfullptmsulebpcgfnctvprrtifapyaqsnqvdpozebvwzxmogygrgtucluhcsqmwwzjvmfewn\",\"cgpa_grade\":\"aspernatur\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User Service",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/academic\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/academic\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"provident\",\"user_id\":\"sint\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Get All User all Other info data",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/other-info\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/other-info\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"id\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add User Other info",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/other-info\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/other-info\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":7.1703}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Edit User Other INfo",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/other-info\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/other-info\/edit"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":9.97884,\"user_id\":0.852033}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete User Other INfo",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/other-info\/delete",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/other-info\/delete"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"id\":\"aperiam\",\"user_id\":\"commodi\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/v1\/user\/user-speciality\/all",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/user-speciality\/all",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/user-speciality\/all"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"iusto\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/v1\/user\/user-speciality\/add",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user\/user-speciality\/add",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user\/user-speciality\/add"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":\"omnis\",\"speciality_id\":18}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
                 }
             ]
         }
