@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://103.123.8.225:8091',
+    'base_url' => 'http://103.123.8.225:8091', //change
 
     'routes' => [
         [
