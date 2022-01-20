@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://127.0.0.1:8000'
+    url: 'http://103.123.8.225:8091'
 paths:
   /api/v1/register:
     post:
@@ -30,10 +30,38 @@ paths:
           in: header
           name: X-api-version
           description: ''
-          example: aut
+          example: fuga
           schema:
             type: string
-      responses: {  }
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  code: 404
+                  message: 'Invalid phone number'
+                  data:
+                    phone:
+                      - 'provided phone number is invalid'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Invalid phone number'
+                  data:
+                    type: object
+                    example:
+                      phone:
+                        - 'provided phone number is invalid'
       tags:
         - Authentication
       requestBody:
@@ -46,19 +74,19 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-                  example: kfmrqhilcvllzzboxqqfzaakvcfwuhmywzjfggzxfguelaxtdhuoq
+                  example: nysecsqfkvbsix
                 email:
                   type: string
                   description: validation.email.
-                  example: noemie.walker@example.net
+                  example: luella.rice@example.org
                 phone:
                   type: string
                   description: ''
-                  example: libero
+                  example: cum
                 password:
                   type: string
                   description: ''
-                  example: optio
+                  example: et
               required:
                 - full_name
                 - phone
@@ -358,7 +386,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the edit.'
-        example: dolores
+        example: quia
         required: true
         schema:
           type: string
@@ -420,7 +448,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the delete.'
-        example: accusamus
+        example: quisquam
         required: true
         schema:
           type: string

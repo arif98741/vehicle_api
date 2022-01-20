@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://127.0.0.1:8000',
+    'base_url' => 'http://103.123.8.225:8091',
 
     'routes' => [
         [
@@ -57,7 +57,7 @@ return [
              * The route can be referenced by name or path here. Wildcards are supported.
              */
             'exclude' => [
-                // '/health', 'admin.*'
+                '/health', 'admin.*'
             ],
 
             /*
@@ -82,7 +82,7 @@ return [
                      * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
                      * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
                      */
-                    'methods' => ['GET'],
+                    'methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 
                     /*
                      * Laravel config variables which should be set for the API call.

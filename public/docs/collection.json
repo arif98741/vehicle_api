@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/127.0.0.1:8000"
+            "value": "http:\/\/103.123.8.225:8091"
         }
     ],
     "info": {
         "name": "Vehicle APi Documentation",
-        "_postman_id": "a60ddbc0-78eb-41e6-be79-b059d3b811ef",
+        "_postman_id": "30fa4282-777b-4376-971a-e2fd1fc5f025",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,19 +40,47 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "aut"
+                                "value": "fuga"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"kfmrqhilcvllzzboxqqfzaakvcfwuhmywzjfggzxfguelaxtdhuoq\",\"email\":\"noemie.walker@example.net\",\"phone\":\"libero\",\"password\":\"optio\"}"
+                            "raw": "{\"full_name\":\"nysecsqfkvbsix\",\"email\":\"luella.rice@example.org\",\"phone\":\"cum\",\"password\":\"et\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"success\":false,\"code\":404,\"message\":\"Invalid phone number\",\"data\":{\"phone\":[\"provided phone number is invalid\"]}}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Login api",
@@ -185,7 +213,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "dolores",
+                                    "value": "quia",
                                     "description": "The ID of the edit."
                                 }
                             ]
@@ -232,7 +260,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "accusamus",
+                                    "value": "quisquam",
                                     "description": "The ID of the delete."
                                 }
                             ]
