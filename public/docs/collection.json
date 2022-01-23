@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Vehicle APi Documentation",
-        "_postman_id": "617455f8-4916-40c6-8cfb-998d81ecdcbf",
+        "_postman_id": "4fa622a0-62da-49ae-bc1f-a89406279fb3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,12 +40,12 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "in"
+                                "value": "eos"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm\",\"email\":\"reichel.zander@example.com\",\"phone\":\"debitis\",\"password\":\"veniam\"}"
+                            "raw": "{\"full_name\":\"zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga\",\"email\":\"lorenz55@example.net\",\"phone\":\"excepturi\",\"password\":\"nesciunt\"}"
                         },
                         "description": "",
                         "auth": {

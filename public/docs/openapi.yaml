@@ -30,7 +30,7 @@ paths:
           in: header
           name: X-api-version
           description: ''
-          example: in
+          example: eos
           schema:
             type: string
       responses:
@@ -74,19 +74,19 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-                  example: jfgjqqsgcyonumoyevkufewsmsfldyraiufyuerrkfezqgimhnydzlpjffwtstxhczwjkncbcjkvczvtpurdpzaofhzm
+                  example: zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga
                 email:
                   type: string
                   description: validation.email.
-                  example: reichel.zander@example.com
+                  example: lorenz55@example.net
                 phone:
                   type: string
                   description: ''
-                  example: debitis
+                  example: excepturi
                 password:
                   type: string
                   description: ''
-                  example: veniam
+                  example: nesciunt
               required:
                 - full_name
                 - phone
