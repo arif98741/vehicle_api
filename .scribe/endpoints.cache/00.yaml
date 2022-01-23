@@ -15,7 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-      X-api-version: eos
+      X-api-version: fugit
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -23,28 +23,28 @@ endpoints:
         name: full_name
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
-        example: zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga
+        example: ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc
         type: string
         custom: []
       email:
         name: email
         description: validation.email.
         required: false
-        example: lorenz55@example.net
+        example: deckow.sarai@example.com
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: excepturi
+        example: laudantium
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: nesciunt
+        example: impedit
         type: string
         custom: []
     responses:

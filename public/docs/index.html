@@ -139,7 +139,12 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
         <p>This documentation aims to provide all the information you need to work with our API.</p>
-        <p>Error Codes:</p>
+        <aside>As you scroll, you'll see code examples for working with the API in different programming languages in
+            the dark area to the right (or as part of the content on mobile).
+            You can switch the language used with the tabs at the top right (or from the nav menu at the top left on
+            mobile).
+        </aside>
+        <h3>Error Codes</h3>
         <ul>
 
             <li>200 success</li>
@@ -161,11 +166,6 @@
             <li>504 gateway timeout</li>
 
         </ul>
-        <aside>As you scroll, you'll see code examples for working with the API in different programming languages in
-            the dark area to the right (or as part of the content on mobile).
-            You can switch the language used with the tabs at the top right (or from the nav menu at the top left on
-            mobile).
-        </aside>
         <blockquote>
             <p>Base URL</p>
         </blockquote>
@@ -192,12 +192,12 @@
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "X-api-version: eos" \
+    --header "X-api-version: fugit" \
     --data "{
-    \"full_name\": \"zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga\",
-    \"email\": \"lorenz55@example.net\",
-    \"phone\": \"excepturi\",
-    \"password\": \"nesciunt\"
+    \"full_name\": \"ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc\",
+    \"email\": \"deckow.sarai@example.com\",
+    \"phone\": \"laudantium\",
+    \"password\": \"impedit\"
 }"
 </code></pre></div>
 
@@ -210,14 +210,14 @@
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "X-api-version": "eos",
+    "X-api-version": "fugit",
 };
 
 let body = {
-    "full_name": "zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga",
-    "email": "lorenz55@example.net",
-    "phone": "excepturi",
-    "password": "nesciunt"
+    "full_name": "ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc",
+    "email": "deckow.sarai@example.com",
+    "phone": "laudantium",
+    "password": "impedit"
 };
 
 fetch(url, {
@@ -235,13 +235,13 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'X-api-version' =&gt; 'eos',
+            'X-api-version' =&gt; 'fugit',
         ],
         'json' =&gt; [
-            'full_name' =&gt; 'zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga',
-            'email' =&gt; 'lorenz55@example.net',
-            'phone' =&gt; 'excepturi',
-            'password' =&gt; 'nesciunt',
+            'full_name' =&gt; 'ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc',
+            'email' =&gt; 'deckow.sarai@example.com',
+            'phone' =&gt; 'laudantium',
+            'password' =&gt; 'impedit',
         ],
     ]
 );
@@ -255,15 +255,15 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
-    "full_name": "zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga",
-    "email": "lorenz55@example.net",
-    "phone": "excepturi",
-    "password": "nesciunt"
+    "full_name": "ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc",
+    "email": "deckow.sarai@example.com",
+    "phone": "laudantium",
+    "password": "impedit"
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'X-api-version': 'eos'
+  'X-api-version': 'fugit'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -314,7 +314,7 @@ access-control-allow-origin: *
               data-authed="0"
               data-hasfiles="0"
               data-isarraybody="0"
-              data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"eos"}'
+              data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"fugit"}'
               autocomplete="off"
               onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
             <h3>
@@ -344,7 +344,7 @@ access-control-allow-origin: *
                 <input type="text"
                        name="full_name"
                        data-endpoint="POSTapi-v1-register"
-                       value="zenkobufwnvnvdqdkhprvazkwfmkygcrmupctbcdsgsmfrga"
+                       value="ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc"
                        data-component="body" hidden>
                 <br>
             <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -354,7 +354,7 @@ access-control-allow-origin: *
                 <input type="text"
                        name="email"
                        data-endpoint="POSTapi-v1-register"
-                       value="lorenz55@example.net"
+                       value="deckow.sarai@example.com"
                        data-component="body" hidden>
                 <br>
             <p>validation.email.</p>
@@ -364,7 +364,7 @@ access-control-allow-origin: *
                 <input type="text"
                        name="phone"
                        data-endpoint="POSTapi-v1-register"
-                       value="excepturi"
+                       value="laudantium"
                        data-component="body" hidden>
                 <br>
 
@@ -374,7 +374,7 @@ access-control-allow-origin: *
                 <input type="text"
                        name="password"
                        data-endpoint="POSTapi-v1-register"
-                       value="nesciunt"
+                       value="impedit"
                        data-component="body" hidden>
                 <br>
 

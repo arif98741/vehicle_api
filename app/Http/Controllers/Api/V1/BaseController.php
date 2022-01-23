@@ -15,7 +15,6 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 
 /**
  * 200 success
@@ -45,7 +44,7 @@ class BaseController extends Controller
      * @param $result
      * @param $message
      * @param int $code
-     * @return Response
+     * @return JsonResponse
      */
     public function sendResponse($result, $message, $code = 200)
     {
