@@ -90,11 +90,11 @@ class VehicleController extends BaseController
      * Neues Fahrzeug hinzufügen
      *
      * Dadurch wird der Datenbank ein neues Fahrzeug hinzugefügt
-     * @bodyParam herstellerin string required Name of herstellerin. Example: Toyota
-     * @bodyParam modell string required modell number of vehicle. Example: 74CUG
-     * @bodyParam fin string required Identification number of vehicle. Example: 754454
-     * @bodyParam erste_registrierung date Date format should be YYYY-mm-dd Example: 2020-12-12
-     * @bodyParam kilometerstand int How much vehicles can drive. Example: 40
+     * @bodyParam herstellerin string required Name der Herstellerin. Example: Toyota
+     * @bodyParam modell string required modell Nummer des Fahrzeugs. Example: 74CUG
+     * @bodyParam fin string required Identifikationsnummer des Fahrzeugs. Example: 754454
+     * @bodyParam erste_registrierung date Das Datumsformat sollte JJJJ-MM-TT sein Example: 2020-12-12
+     * @bodyParam kilometerstand int Wie viele Fahrzeuge sind gefahren. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
@@ -134,7 +134,7 @@ class VehicleController extends BaseController
      * Einzelfahrzeug anzeigen
      *
      * Dies zeigt ein einzelnes Fahrzeug
-     * @urlParam id int required It will be the id of vehicle in database. Example: 1
+     * @urlParam id int required Es wird die ID des Fahrzeugs in der Datenbank sein. Example: 1
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
@@ -169,12 +169,12 @@ class VehicleController extends BaseController
      * Fahrzeug bearbeiten
      *
      * Dadurch werden Fahrzeugdaten bearbeitet
-     * @urlParam id int required It will be the id of vehicle in database. Example: 1
-     * @bodyParam herstellerin string required Name of herstellerin. Example: Toyota
-     * @bodyParam modell string required modell number of vehicle. Example: 74CUG
-     * @bodyParam fin string required Identification number of vehicle. Example: 754454
-     * @bodyParam erste_registrierung date Date format should be YYYY-mm-dd. Example: 2020-12-12
-     * @bodyParam kilometerstand int How much vehicles can drive. Example: 40
+     * @urlParam id int required Es wird die ID des Fahrzeugs in der Datenbank sein. Example: 1
+     * @bodyParam herstellerin string required Name der Herstellerin. Example: Toyota
+     * @bodyParam modell string required modell Nummer des Fahrzeugs. Example: 74CUG
+     * @bodyParam fin string required Identifikationsnummer des Fahrzeugs. Example: 754454
+     * @bodyParam erste_registrierung date Das Datumsformat sollte JJJJ-MM-TT sein Example: 2020-12-12
+     * @bodyParam kilometerstand int Wie viele Fahrzeuge sind gefahren. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
@@ -214,7 +214,7 @@ class VehicleController extends BaseController
      * Fahrzeug löschen
      *
      * Dadurch werden Daten aus der Datenbank gelöscht
-     * @urlParam id int required It will be the id of vehicle in database. Example: 1
+     * @urlParam id int required Es wird die ID des Fahrzeugs in der Datenbank sein. Example: 1
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
