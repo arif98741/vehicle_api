@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -10,66 +11,66 @@ use Illuminate\Support\Facades\Validator;
 class VehicleController extends BaseController
 {
     /**
-     * Get All Vehicles
+     * Holen Sie sich alle Fahrzeuge
      *
-     * This will select and fetched all vehicles' data from database
+     * Dadurch werden alle Fahrzeugdaten aus der Datenbank ausgewählt und abgerufen
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
      * @response 200{{
      * "success": true,
-     * "message": "Fetched vehicles",
+     * "message": "Abgeholte Fahrzeuge",
      * "code": 200,
      * "data": [
      * {
      * "id": 2,
-     * "manufacturer": "27575",
-     * "model": "28588",
-     * "vin": "45678d",
-     * "first_registration": "0222-01-20",
-     * "kilometers_stand": 654564,
-     * "created_at": "2022-01-20T09:44:16.000000Z",
-     * "updated_at": "2022-01-20T10:03:33.000000Z"
+     * "herstellerin": "27575",
+     * "modell": "28588",
+     * "fin": "45678d",
+     * "erste_registrierung": "0222-01-20",
+     * "kilometerstand": 654564,
+     * "erstellt_am": "2022-01-20T09:44:16.000000Z",
+     * "aktualisiert_am": "2022-01-20T10:03:33.000000Z"
      * },
      * {
      * "id": 3,
-     * "manufacturer": "Toyota",
-     * "model": "285TC",
-     * "vin": "96876",
-     * "first_registration": "1997-01-20",
-     * "kilometers_stand": 40,
-     * "created_at": "2022-01-20T09:44:32.000000Z",
-     * "updated_at": "2022-01-20T09:44:32.000000Z"
+     * "herstellerin": "Toyota",
+     * "modell": "285TC",
+     * "fin": "96876",
+     * "erste_registrierung": "1997-01-20",
+     * "kilometerstand": 40,
+     * "erstellt_am": "2022-01-20T09:44:32.000000Z",
+     * "aktualisiert_am": "2022-01-20T09:44:32.000000Z"
      * },
      * {
      * "id": 4,
-     * "manufacturer": "BMW",
-     * "model": "BM54",
-     * "vin": "78654F",
-     * "first_registration": "1997-01-20",
-     * "kilometers_stand": 140,
-     * "created_at": "2022-01-20T09:44:55.000000Z",
-     * "updated_at": "2022-01-20T09:44:55.000000Z"
+     * "herstellerin": "BMW",
+     * "modell": "BM54",
+     * "fin": "78654F",
+     * "erste_registrierung": "1997-01-20",
+     * "kilometerstand": 140,
+     * "erstellt_am": "2022-01-20T09:44:55.000000Z",
+     * "aktualisiert_am": "2022-01-20T09:44:55.000000Z"
      * },
      * {
      * "id": 5,
-     * "manufacturer": "BMW",
-     * "model": "BM754",
-     * "vin": "23456B",
-     * "first_registration": "2022-01-20",
-     * "kilometers_stand": 180,
-     * "created_at": "2022-01-20T09:45:18.000000Z",
-     * "updated_at": "2022-01-20T09:45:18.000000Z"
+     * "herstellerin": "BMW",
+     * "modell": "BM754",
+     * "fin": "23456B",
+     * "erste_registrierung": "2022-01-20",
+     * "kilometerstand": 180,
+     * "erstellt_am": "2022-01-20T09:45:18.000000Z",
+     * "aktualisiert_am": "2022-01-20T09:45:18.000000Z"
      * },
      * {
      * "id": 6,
-     * "manufacturer": "Audi",
-     * "model": "AUD78541",
-     * "vin": "854694",
-     * "first_registration": "2022-01-20",
-     * "kilometers_stand": 180,
-     * "created_at": "2022-01-20T09:45:32.000000Z",
-     * "updated_at": "2022-01-20T09:45:32.000000Z"
+     * "herstellerin": "Audi",
+     * "modell": "AUD78541",
+     * "fin": "854694",
+     * "erste_registrierung": "2022-01-20",
+     * "kilometerstand": 180,
+     * "erstellt_am": "2022-01-20T09:45:32.000000Z",
+     * "aktualisiert_am": "2022-01-20T09:45:32.000000Z"
      * }
      * ]
      * }
@@ -81,19 +82,19 @@ class VehicleController extends BaseController
         if ($vehicles->count() == 0) {
             return $this->sendError('No data found', []);
         } else {
-            return $this->sendResponse($vehicles, 'Fetched vehicles');
+            return $this->sendResponse($vehicles, 'Abgeholte Fahrzeuge');
         }
     }
 
     /**
-     * Add New Vehicle
+     * Neues Fahrzeug hinzufügen
      *
-     * This will add new vehicle to database
-     * @bodyParam manufacturer string required Name of manufacturer. Example: Toyota
-     * @bodyParam model string required Model number of vehicle. Example: 74CUG
-     * @bodyParam vin string required Identification number of vehicle. Example: 754454
-     * @bodyParam first_registration date Date format should be YYYY-mm-dd Example: 2020-12-12
-     * @bodyParam kilometers_stand int How much vehicles can drive. Example: 40
+     * Dadurch wird der Datenbank ein neues Fahrzeug hinzugefügt
+     * @bodyParam herstellerin string required Name of herstellerin. Example: Toyota
+     * @bodyParam modell string required modell number of vehicle. Example: 74CUG
+     * @bodyParam fin string required Identification number of vehicle. Example: 754454
+     * @bodyParam erste_registrierung date Date format should be YYYY-mm-dd Example: 2020-12-12
+     * @bodyParam kilometerstand int How much vehicles can drive. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
@@ -107,44 +108,46 @@ class VehicleController extends BaseController
     public function add(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'manufacturer' => 'required',
-            'model' => 'required|unique:vehicles',
-            'vin' => 'required|unique:vehicles',
-            'first_registration' => 'sometimes',
-            'kilometers_stand' => 'sometimes',
+            'herstellerin' => 'required',
+            'modell' => 'required|unique:vehicles',
+            'fin' => 'required|unique:vehicles',
+            'erste_registrierung' => 'sometimes',
+            'kilometerstand' => 'sometimes',
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Data validation error', $validator->errors(), 210);
+            return $this->sendError('Datenüberprüfungsfehler', $validator->errors(), 210);
         }
 
 
         $data = $validator->validated();
+        $data['erstellt_am'] = Carbon::now();
+        $data['aktualisiert_am'] = Carbon::now();
         if (Vehicle::create($data)) {
-            return $this->sendResponse([], 'Vehicle address successfully added', 201);
+            return $this->sendResponse([], 'Fahrzeugadresse erfolgreich hinzugefügt', 201);
         } else {
-            return $this->sendError([], 'Failed to insert');
+            return $this->sendError([], 'Fehler beim Einfügen');
         }
     }
 
     /**
-     * View Single Vehicle
+     * Einzelfahrzeug anzeigen
      *
-     * This will show single vehicle
+     * Dies zeigt ein einzelnes Fahrzeug
      * @urlParam id int required It will be the id of vehicle in database. Example: 1
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
      * @response 200 {
      * "success": true,
-     * "message": "Vehicle fetched",
+     * "message": "Fahrzeug abgeholt",
      * "code": 200,
      * "data": {
      * "id": 2,
-     * "manufacturer": "27575",
-     * "model": "28588",
-     * "vin": "45678d",
-     * "first_registration": "0222-01-20",
+     * "herstellerin": "27575",
+     * "modell": "28588",
+     * "fin": "45678d",
+     * "erste_registrierung": "0222-01-20",
      */
     public function view(Request $request, $id)
     {
@@ -153,31 +156,31 @@ class VehicleController extends BaseController
             $vehicle = Vehicle::where([
                 'id' => $id,
             ])->first();
-            return $this->sendResponse($vehicle, 'Vehicle fetched', 200);
+            return $this->sendResponse($vehicle, 'Fahrzeug abgeholt', 200);
         } catch (QueryException $e) {
 
-            return $this->sendError([], 'Failed to update' . $e->getMessage(), 400);
+            return $this->sendError([], 'Fehler beim Aktualisieren' . $e->getMessage(), 400);
         }
 
 
     }
 
     /**
-     * Edit Vehicle
+     * Fahrzeug bearbeiten
      *
-     * This will edit vehicle data
+     * Dadurch werden Fahrzeugdaten bearbeitet
      * @urlParam id int required It will be the id of vehicle in database. Example: 1
-     * @bodyParam manufacturer string required Name of manufacturer. Example: Toyota
-     * @bodyParam model string required Model number of vehicle. Example: 74CUG
-     * @bodyParam vin string required Identification number of vehicle. Example: 754454
-     * @bodyParam first_registration date Date format should be YYYY-mm-dd. Example: 2020-12-12
-     * @bodyParam kilometers_stand int How much vehicles can drive. Example: 40
+     * @bodyParam herstellerin string required Name of herstellerin. Example: Toyota
+     * @bodyParam modell string required modell number of vehicle. Example: 74CUG
+     * @bodyParam fin string required Identification number of vehicle. Example: 754454
+     * @bodyParam erste_registrierung date Date format should be YYYY-mm-dd. Example: 2020-12-12
+     * @bodyParam kilometerstand int How much vehicles can drive. Example: 40
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
      * @response {
      * "success": true,
-     * "message": "User address successfully updated",
+     * "message": "Fahrzeug erfolgreich aktualisiert",
      * "code": 200,
      * "data": []
      * }
@@ -185,37 +188,39 @@ class VehicleController extends BaseController
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'manufacturer' => 'required',
-            'model' => 'required|unique:users,model,' . $id,
-            'vin' => 'required|unique:users,vin,' . $id,
-            'first_registration' => 'sometimes',
-            'kilometers_stand' => 'sometimes',
+            'herstellerin' => 'required',
+            'modell' => 'required|unique:users,modell,' . $id,
+            'fin' => 'required|unique:users,fin,' . $id,
+            'erste_registrierung' => 'sometimes',
+            'kilometerstand' => 'sometimes',
         ]);
 
         try {
+            $data = $request->all();
+            $data['aktualisiert_am'] = Carbon::now();
             Vehicle::where([
                 'id' => $id,
-            ])->update($request->all());
-            return $this->sendResponse([], 'User address successfully updated', 200);
+            ])->update($data);
+            return $this->sendResponse([], 'Fahrzeug erfolgreich aktualisiert', 200);
         } catch (QueryException $e) {
 
-            return $this->sendError([], 'Failed to update' . $e->getMessage(), 400);
+            return $this->sendError([], 'Fehler beim Aktualisieren' . $e->getMessage(), 400);
         }
 
 
     }
 
     /**
-     * Delete Vehicle
+     * Fahrzeug löschen
      *
-     * This will delete data from database
+     * Dadurch werden Daten aus der Datenbank gelöscht
      * @urlParam id int required It will be the id of vehicle in database. Example: 1
      * @header Authorization Bearer <token>
      * @header Content-Type application/json
      * @authenticated
      * @response {
      * "success": true,
-     * "message": "Vehicle successfully deleted",
+     * "message": "Fahrzeug erfolgreich gelöscht",
      * "code": 200,
      * "data": []
      * }
@@ -225,10 +230,10 @@ class VehicleController extends BaseController
         Vehicle::where([
             'id' => $id,
         ])->update([
-            'is_deleted' => 1
+            'ist_gelöscht' => 1
         ]);
 
-        return $this->sendResponse([], 'Vehicle successfully deleted');
+        return $this->sendResponse([], 'Fahrzeug erfolgreich gelöscht');
 
     }
 }

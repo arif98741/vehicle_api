@@ -15,13 +15,14 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('manufacturer');
-            $table->string('model');
-            $table->string('vin');
-            $table->date('first_registration')->nullable();
-            $table->integer('kilometers_stand')->nullable();
-            $table->tinyInteger('is_deleted')->default(0);
+            $table->string('herstellerin');
+            $table->string('modell');
+            $table->string('fin');
+            $table->date('erste_registrierung')->nullable();
+            $table->integer('kilometerstand')->nullable();
+            $table->tinyInteger('ist_gelöscht')->default(0);
             $table->timestamps();
+
 
         });
     }

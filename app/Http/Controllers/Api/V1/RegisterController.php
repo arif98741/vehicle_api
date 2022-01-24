@@ -50,7 +50,7 @@ class RegisterController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Data validation error', $validator->errors());
+            return $this->sendError('Datenüberprüfungsfehler', $validator->errors());
         }
 
         if (DataHelper::checkNumberValidity($request->phone) == false) {
@@ -138,7 +138,7 @@ class RegisterController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Data validation error', $validator->errors());
+            return $this->sendError('Datenüberprüfungsfehler', $validator->errors());
         }
 
         $userData = User::where([
@@ -208,7 +208,7 @@ class RegisterController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Data validation error', $validator->errors());
+            return $this->sendError('Datenüberprüfungsfehler', $validator->errors());
         }
 
         $userData = User::where([

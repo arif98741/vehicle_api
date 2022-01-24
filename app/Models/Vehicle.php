@@ -10,13 +10,15 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $fillable = [
-        'manufacturer',
-        'model',
-        'vin',
-        'first_registration',
-        'kilometers_stand',
+        'herstellerin',
+        'modell',
+        'fin',
+        'erste_registrierung',
+        'kilometerstand',
+        'erstellt_am',
+        'aktualisiert_am',
     ];
 
-    protected $hidden = ['is_deleted'];
+    protected $hidden = ['ist_gelöscht', 'created_at', 'updated_at'];
 
 }

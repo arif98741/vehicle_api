@@ -242,10 +242,9 @@ return [
      * Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
      */
     'intro_text' => <<<INTRO
-This documentation aims to provide all the information you need to work with our API.
+Diese Dokumentation soll alle Informationen bereitstellen, die Sie für die Arbeit mit unserer API benötigen
 
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<aside>Während Sie scrollen, sehen Sie im dunklen Bereich auf der rechten Seite Codebeispiele für die Arbeit mit der API in verschiedenen Programmiersprachen (oder als Teil des Inhalts auf Mobilgeräten). Sie können die verwendete Sprache mit den Registerkarten oben rechts ändern (oder über das Navigationsmenü oben links auf Mobilgeräten).</aside>
 INTRO
     ,
 

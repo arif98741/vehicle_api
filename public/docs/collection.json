@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Vehicle APi Documentation",
-        "_postman_id": "c85720bb-8f85-42cc-a81d-6f3dbc37f667",
+        "_postman_id": "ab8f6c66-1e04-4188-8e41-6c64b86fbe74",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,12 +40,12 @@
                             },
                             {
                                 "key": "X-api-version",
-                                "value": "fugit"
+                                "value": "nihil"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"ngufwcdwezsytcjqdsbhxhkxbeiaazgfwqqsgwgmtbqybufnsrchnbzeijwtaxgc\",\"email\":\"deckow.sarai@example.com\",\"phone\":\"laudantium\",\"password\":\"impedit\"}"
+                            "raw": "{\"full_name\":\"umwxrfirllmayuisyrvnitbfs\",\"email\":\"mraz.gloria@example.net\",\"phone\":\"debitis\",\"password\":\"iusto\"}"
                         },
                         "description": "",
                         "auth": {
@@ -69,7 +69,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "59"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -127,7 +127,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Add New Vehicle",
+                    "name": "Neues Fahrzeug hinzuf\u00fcgen",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -152,9 +152,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"manufacturer\":\"Toyota\",\"model\":\"74CUG\",\"vin\":\"754454\",\"first_registration\":\"2020-12-12\",\"kilometers_stand\":40}"
+                            "raw": "{\"herstellerin\":\"Toyota\",\"modell\":\"74CUG\",\"fin\":\"754454\",\"erste_registrierung\":\"2020-12-12\",\"kilometerstand\":40}"
                         },
-                        "description": "This will add new vehicle to database"
+                        "description": "Dadurch wird der Datenbank ein neues Fahrzeug hinzugef\u00fcgt"
                     },
                     "response": [
                         {
@@ -166,7 +166,7 @@
                     ]
                 },
                 {
-                    "name": "Get All Vehicles",
+                    "name": "Holen Sie sich alle Fahrzeuge",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -190,19 +190,19 @@
                             }
                         ],
                         "body": null,
-                        "description": "This will select and fetched all vehicles' data from database"
+                        "description": "Dadurch werden alle Fahrzeugdaten aus der Datenbank ausgew\u00e4hlt und abgerufen"
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{{\n\"success\": true,\n\"message\": \"Fetched vehicles\",\n\"code\": 200,\n\"data\": [\n{\n\"id\": 2,\n\"manufacturer\": \"27575\",\n\"model\": \"28588\",\n\"vin\": \"45678d\",\n\"first_registration\": \"0222-01-20\",\n\"kilometers_stand\": 654564,\n\"created_at\": \"2022-01-20T09:44:16.000000Z\",\n\"updated_at\": \"2022-01-20T10:03:33.000000Z\"\n},\n{\n\"id\": 3,\n\"manufacturer\": \"Toyota\",\n\"model\": \"285TC\",\n\"vin\": \"96876\",\n\"first_registration\": \"1997-01-20\",\n\"kilometers_stand\": 40,\n\"created_at\": \"2022-01-20T09:44:32.000000Z\",\n\"updated_at\": \"2022-01-20T09:44:32.000000Z\"\n},\n{\n\"id\": 4,\n\"manufacturer\": \"BMW\",\n\"model\": \"BM54\",\n\"vin\": \"78654F\",\n\"first_registration\": \"1997-01-20\",\n\"kilometers_stand\": 140,\n\"created_at\": \"2022-01-20T09:44:55.000000Z\",\n\"updated_at\": \"2022-01-20T09:44:55.000000Z\"\n},\n{\n\"id\": 5,\n\"manufacturer\": \"BMW\",\n\"model\": \"BM754\",\n\"vin\": \"23456B\",\n\"first_registration\": \"2022-01-20\",\n\"kilometers_stand\": 180,\n\"created_at\": \"2022-01-20T09:45:18.000000Z\",\n\"updated_at\": \"2022-01-20T09:45:18.000000Z\"\n},\n{\n\"id\": 6,\n\"manufacturer\": \"Audi\",\n\"model\": \"AUD78541\",\n\"vin\": \"854694\",\n\"first_registration\": \"2022-01-20\",\n\"kilometers_stand\": 180,\n\"created_at\": \"2022-01-20T09:45:32.000000Z\",\n\"updated_at\": \"2022-01-20T09:45:32.000000Z\"\n}\n]\n}",
+                            "body": "{{\n\"success\": true,\n\"message\": \"Abgeholte Fahrzeuge\",\n\"code\": 200,\n\"data\": [\n{\n\"id\": 2,\n\"herstellerin\": \"27575\",\n\"modell\": \"28588\",\n\"fin\": \"45678d\",\n\"erste_registrierung\": \"0222-01-20\",\n\"kilometerstand\": 654564,\n\"erstellt_am\": \"2022-01-20T09:44:16.000000Z\",\n\"aktualisiert_am\": \"2022-01-20T10:03:33.000000Z\"\n},\n{\n\"id\": 3,\n\"herstellerin\": \"Toyota\",\n\"modell\": \"285TC\",\n\"fin\": \"96876\",\n\"erste_registrierung\": \"1997-01-20\",\n\"kilometerstand\": 40,\n\"erstellt_am\": \"2022-01-20T09:44:32.000000Z\",\n\"aktualisiert_am\": \"2022-01-20T09:44:32.000000Z\"\n},\n{\n\"id\": 4,\n\"herstellerin\": \"BMW\",\n\"modell\": \"BM54\",\n\"fin\": \"78654F\",\n\"erste_registrierung\": \"1997-01-20\",\n\"kilometerstand\": 140,\n\"erstellt_am\": \"2022-01-20T09:44:55.000000Z\",\n\"aktualisiert_am\": \"2022-01-20T09:44:55.000000Z\"\n},\n{\n\"id\": 5,\n\"herstellerin\": \"BMW\",\n\"modell\": \"BM754\",\n\"fin\": \"23456B\",\n\"erste_registrierung\": \"2022-01-20\",\n\"kilometerstand\": 180,\n\"erstellt_am\": \"2022-01-20T09:45:18.000000Z\",\n\"aktualisiert_am\": \"2022-01-20T09:45:18.000000Z\"\n},\n{\n\"id\": 6,\n\"herstellerin\": \"Audi\",\n\"modell\": \"AUD78541\",\n\"fin\": \"854694\",\n\"erste_registrierung\": \"2022-01-20\",\n\"kilometerstand\": 180,\n\"erstellt_am\": \"2022-01-20T09:45:32.000000Z\",\n\"aktualisiert_am\": \"2022-01-20T09:45:32.000000Z\"\n}\n]\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "View Single Vehicle",
+                    "name": "Einzelfahrzeug anzeigen",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -234,19 +234,19 @@
                             }
                         ],
                         "body": null,
-                        "description": "This will show single vehicle"
+                        "description": "Dies zeigt ein einzelnes Fahrzeug"
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"success\": true,\n\"message\": \"Vehicle fetched\",\n\"code\": 200,\n\"data\": {\n\"id\": 2,\n\"manufacturer\": \"27575\",\n\"model\": \"28588\",\n\"vin\": \"45678d\",\n\"first_registration\": \"0222-01-20\",",
+                            "body": "{\n\"success\": true,\n\"message\": \"Fahrzeug abgeholt\",\n\"code\": 200,\n\"data\": {\n\"id\": 2,\n\"herstellerin\": \"27575\",\n\"modell\": \"28588\",\n\"fin\": \"45678d\",\n\"erste_registrierung\": \"0222-01-20\",",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Edit Vehicle",
+                    "name": "Fahrzeug bearbeiten",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -279,21 +279,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"manufacturer\":\"Toyota\",\"model\":\"74CUG\",\"vin\":\"754454\",\"first_registration\":\"2020-12-12\",\"kilometers_stand\":40}"
+                            "raw": "{\"herstellerin\":\"Toyota\",\"modell\":\"74CUG\",\"fin\":\"754454\",\"erste_registrierung\":\"2020-12-12\",\"kilometerstand\":40}"
                         },
-                        "description": "This will edit vehicle data"
+                        "description": "Dadurch werden Fahrzeugdaten bearbeitet"
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"success\": true,\n\"message\": \"User address successfully updated\",\n\"code\": 200,\n\"data\": []\n}",
+                            "body": "{\n\"success\": true,\n\"message\": \"Fahrzeug erfolgreich aktualisiert\",\n\"code\": 200,\n\"data\": []\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Delete Vehicle",
+                    "name": "Fahrzeug l\u00f6schen",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -325,13 +325,13 @@
                             }
                         ],
                         "body": null,
-                        "description": "This will delete data from database"
+                        "description": "Dadurch werden Daten aus der Datenbank gel\u00f6scht"
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"success\": true,\n\"message\": \"Vehicle successfully deleted\",\n\"code\": 200,\n\"data\": []\n}",
+                            "body": "{\n\"success\": true,\n\"message\": \"Fahrzeug erfolgreich gel\u00f6scht\",\n\"code\": 200,\n\"data\": []\n}",
                             "name": ""
                         }
                     ]
