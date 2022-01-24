@@ -14,7 +14,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Facades\AppFacade;
-use App\Helpers\DataHelper;
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
@@ -27,11 +26,11 @@ use Illuminate\Support\Facades\Validator;
 class RegisterController extends BaseController
 {
     /**
-     * User Registration
+     * Benutzer Registration
      *
      * @group Authentication
      * @header X-api-version
-     * For registration, you should pass data and other parameters
+     * Für die Registrierung sollten Sie Daten und andere Parameter übergeben
      * @param Request $request
      * @return JsonResponse|Response|void
      * @version   v1.0.1
@@ -53,13 +52,6 @@ class RegisterController extends BaseController
             return $this->sendError('Datenüberprüfungsfehler', $validator->errors());
         }
 
-        if (DataHelper::checkNumberValidity($request->phone) == false) {
-            return $this->sendError('Invalid phone number', [
-                'phone' => [
-                    'provided phone number is invalid'
-                ]
-            ]);
-        }
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
@@ -80,7 +72,7 @@ class RegisterController extends BaseController
     }
 
     /**
-     * Login api
+     * Anmelde-API
      *
      * @group Authentication
      * @bodyParam phone string required Phone number. Example: 017XXXXXXXX
@@ -88,7 +80,7 @@ class RegisterController extends BaseController
      * @return JsonResponse|Response
      * @response 200 {
      * "success": true,
-     * "message": "User login successfully.",
+     * "message": "Benutzeranmeldung erfolgreich..",
      * "code": 200,
      * "data": {
      * "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGU2MjkzYjk3NjgxMzgyMjM4OTIxYjQzNTlkYzRkN2YxNWJjODc5MDdjMTFjY2JkM2I0YzM3ODlmNjQyMDBkOTM0YjhmODNiYzgyNzkwNmEiLCJpYXQiOjE2NDI2NzM4NTguNjU1MzE5LCJuYmYiOjE2NDI2NzM4NTguNjU1MzI0LCJleHAiOjE2NDM5Njk4NTguNjQ4NTAxLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.O5NNZdmSoqbwK2-wWg6rrAFtWaUUe9JnybMtuoHJBReohF0ois9N9-x7CzOPuX4aKmE61LlPsM6DbIm-yidvqfGOT73mVYoREwu2mISiqTUqsbu8mnq6Nsq6Z_rj21VbOp2-DqkWh86PPI5kpf-t_-pt1QlLAwveTVpefbnmUmfc49m-_aOnXDM2H6QKhXt9zVqlkj2tgFjKgfISqLGJ_iWxUvaHzCSNDMvp7K1Cu620rT5VXCBzDi5NIXuHaCQ7KOzoMT5m5Upb-kG0TjERWogVPUjP8sY4H5AY3PYGkmZfjaRFn6QDth2Fk1fl1-DQffDFsUzuzLvfnbplLr6LfHJnAJFUvsbQpYd_F8-yOcP0JmMn-_Q8P2gtLxD4kL_ofy4cPxi66h6Apc3IeN-7bqd059lmo2uBn_mAZYUdpT8Zo83PeM2ShioUlpUXCCtqnmN4N6R3w2whZfp0Qm-9-9Hy9uGbVb5eNS24rN1XZ27JveT7LRSMU213wqdiKIOOhBXTr3frz2MzXDEk7Fisx9BkzvrHBHbV0ES2mm2zZgha3GqTXw1qH7ENr_W4BClsJL0ArT_a-oifyBFIi_QNKzeNPz439hnSy6YLRKD-3O35ZizIh4u2i7kYpwm25gnxp01zj9PG4Mg0BVrP8OlSuZJyfPslXWmmtg6_NEEh1BY",

@@ -100,7 +100,7 @@ class VehicleController extends BaseController
      * @authenticated
      * @response {
      *  "success": true,
-     *  "message": "Vehicle address successfully added",
+     *  "message": "Fahrzeugadresse erfolgreich hinzugefügt",
      *  "code": 201,
      *  "data": []
      *  }

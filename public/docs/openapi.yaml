@@ -9,7 +9,7 @@ servers:
 paths:
   /api/v1/register:
     post:
-      summary: 'User Registration'
+      summary: 'Benutzer Registration'
       description: ''
       parameters:
         -
@@ -30,38 +30,52 @@ paths:
           in: header
           name: X-api-version
           description: ''
-          example: nihil
+          example: rerum
           schema:
             type: string
       responses:
-        404:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  success: false
-                  code: 404
-                  message: 'Invalid phone number'
+                  success: true
+                  message: 'User register successful. Please check otp'
+                  code: 200
                   data:
-                    phone:
-                      - 'provided phone number is invalid'
+                    user:
+                      id: 6
+                      full_name: pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu
+                      email: trantow.elsa@example.org
+                      phone: quasi
+                      email_verified_at: null
+                      last_login: null
+                      created_at: '2022-01-24T12:15:58.000000Z'
+                      updated_at: '2022-01-24T12:15:58.000000Z'
                 properties:
                   success:
                     type: boolean
-                    example: false
-                  code:
-                    type: integer
-                    example: 404
+                    example: true
                   message:
                     type: string
-                    example: 'Invalid phone number'
+                    example: 'User register successful. Please check otp'
+                  code:
+                    type: integer
+                    example: 200
                   data:
                     type: object
                     example:
-                      phone:
-                        - 'provided phone number is invalid'
+                      user:
+                        id: 6
+                        full_name: pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu
+                        email: trantow.elsa@example.org
+                        phone: quasi
+                        email_verified_at: null
+                        last_login: null
+                        created_at: '2022-01-24T12:15:58.000000Z'
+                        updated_at: '2022-01-24T12:15:58.000000Z'
       tags:
         - Authentication
       requestBody:
@@ -74,19 +88,19 @@ paths:
                 full_name:
                   type: string
                   description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-                  example: umwxrfirllmayuisyrvnitbfs
+                  example: pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu
                 email:
                   type: string
                   description: validation.email.
-                  example: mraz.gloria@example.net
+                  example: trantow.elsa@example.org
                 phone:
                   type: string
                   description: ''
-                  example: debitis
+                  example: quasi
                 password:
                   type: string
                   description: ''
-                  example: iusto
+                  example: voluptatem
               required:
                 - full_name
                 - phone
@@ -94,7 +108,7 @@ paths:
       security: []
   /api/v1/login:
     post:
-      summary: 'Login api'
+      summary: Anmelde-API
       description: ''
       parameters:
         -
@@ -120,7 +134,7 @@ paths:
                 type: object
                 example:
                   success: true
-                  message: 'User login successfully.'
+                  message: 'Benutzeranmeldung erfolgreich..'
                   code: 200
                   data:
                     token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGU2MjkzYjk3NjgxMzgyMjM4OTIxYjQzNTlkYzRkN2YxNWJjODc5MDdjMTFjY2JkM2I0YzM3ODlmNjQyMDBkOTM0YjhmODNiYzgyNzkwNmEiLCJpYXQiOjE2NDI2NzM4NTguNjU1MzE5LCJuYmYiOjE2NDI2NzM4NTguNjU1MzI0LCJleHAiOjE2NDM5Njk4NTguNjQ4NTAxLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.O5NNZdmSoqbwK2-wWg6rrAFtWaUUe9JnybMtuoHJBReohF0ois9N9-x7CzOPuX4aKmE61LlPsM6DbIm-yidvqfGOT73mVYoREwu2mISiqTUqsbu8mnq6Nsq6Z_rj21VbOp2-DqkWh86PPI5kpf-t_-pt1QlLAwveTVpefbnmUmfc49m-_aOnXDM2H6QKhXt9zVqlkj2tgFjKgfISqLGJ_iWxUvaHzCSNDMvp7K1Cu620rT5VXCBzDi5NIXuHaCQ7KOzoMT5m5Upb-kG0TjERWogVPUjP8sY4H5AY3PYGkmZfjaRFn6QDth2Fk1fl1-DQffDFsUzuzLvfnbplLr6LfHJnAJFUvsbQpYd_F8-yOcP0JmMn-_Q8P2gtLxD4kL_ofy4cPxi66h6Apc3IeN-7bqd059lmo2uBn_mAZYUdpT8Zo83PeM2ShioUlpUXCCtqnmN4N6R3w2whZfp0Qm-9-9Hy9uGbVb5eNS24rN1XZ27JveT7LRSMU213wqdiKIOOhBXTr3frz2MzXDEk7Fisx9BkzvrHBHbV0ES2mm2zZgha3GqTXw1qH7ENr_W4BClsJL0ArT_a-oifyBFIi_QNKzeNPz439hnSy6YLRKD-3O35ZizIh4u2i7kYpwm25gnxp01zj9PG4Mg0BVrP8OlSuZJyfPslXWmmtg6_NEEh1BY
@@ -139,7 +153,7 @@ paths:
                     example: true
                   message:
                     type: string
-                    example: 'User login successfully.'
+                    example: 'Benutzeranmeldung erfolgreich..'
                   code:
                     type: integer
                     example: 200
@@ -212,7 +226,7 @@ paths:
                 type: object
                 example:
                   success: true
-                  message: 'Vehicle address successfully added'
+                  message: 'Fahrzeugadresse erfolgreich hinzugefügt'
                   code: 201
                   data: []
                 properties:
@@ -221,7 +235,7 @@ paths:
                     example: true
                   message:
                     type: string
-                    example: 'Vehicle address successfully added'
+                    example: 'Fahrzeugadresse erfolgreich hinzugefügt'
                   code:
                     type: integer
                     example: 201

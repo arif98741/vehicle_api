@@ -80,10 +80,10 @@
                 </li>
                                     <ul id="tocify-subheader-authentication" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-register">
-                        <a href="#authentication-POSTapi-v1-register">User Registration</a>
+                        <a href="#authentication-POSTapi-v1-register">Benutzer Registration</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-login">
-                        <a href="#authentication-POSTapi-v1-login">Login api</a>
+                        <a href="#authentication-POSTapi-v1-login">Anmelde-API</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -141,7 +141,7 @@
 
     
 
-            <h2 id="authentication-POSTapi-v1-register">User Registration</h2>
+            <h2 id="authentication-POSTapi-v1-register">Benutzer Registration</h2>
 
 <p>
 </p>
@@ -157,12 +157,12 @@
     "http://103.123.8.225:8091/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "X-api-version: nihil" \
+    --header "X-api-version: rerum" \
     --data "{
-    \"full_name\": \"umwxrfirllmayuisyrvnitbfs\",
-    \"email\": \"mraz.gloria@example.net\",
-    \"phone\": \"debitis\",
-    \"password\": \"iusto\"
+    \"full_name\": \"pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu\",
+    \"email\": \"trantow.elsa@example.org\",
+    \"phone\": \"quasi\",
+    \"password\": \"voluptatem\"
 }"
 </code></pre></div>
 
@@ -175,14 +175,14 @@
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "X-api-version": "nihil",
+    "X-api-version": "rerum",
 };
 
 let body = {
-    "full_name": "umwxrfirllmayuisyrvnitbfs",
-    "email": "mraz.gloria@example.net",
-    "phone": "debitis",
-    "password": "iusto"
+    "full_name": "pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu",
+    "email": "trantow.elsa@example.org",
+    "phone": "quasi",
+    "password": "voluptatem"
 };
 
 fetch(url, {
@@ -200,13 +200,13 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'X-api-version' =&gt; 'nihil',
+            'X-api-version' =&gt; 'rerum',
         ],
         'json' =&gt; [
-            'full_name' =&gt; 'umwxrfirllmayuisyrvnitbfs',
-            'email' =&gt; 'mraz.gloria@example.net',
-            'phone' =&gt; 'debitis',
-            'password' =&gt; 'iusto',
+            'full_name' =&gt; 'pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu',
+            'email' =&gt; 'trantow.elsa@example.org',
+            'phone' =&gt; 'quasi',
+            'password' =&gt; 'voluptatem',
         ],
     ]
 );
@@ -220,15 +220,15 @@ import json
 
 url = 'http://103.123.8.225:8091/api/v1/register'
 payload = {
-    "full_name": "umwxrfirllmayuisyrvnitbfs",
-    "email": "mraz.gloria@example.net",
-    "phone": "debitis",
-    "password": "iusto"
+    "full_name": "pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu",
+    "email": "trantow.elsa@example.org",
+    "phone": "quasi",
+    "password": "voluptatem"
 }
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'X-api-version': 'nihil'
+  'X-api-version': 'rerum'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -238,7 +238,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-POSTapi-v1-register">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -253,13 +253,20 @@ access-control-allow-origin: *
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;success&quot;: false,
-    &quot;code&quot;: 404,
-    &quot;message&quot;: &quot;Invalid phone number&quot;,
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;User register successful. Please check otp&quot;,
+    &quot;code&quot;: 200,
     &quot;data&quot;: {
-        &quot;phone&quot;: [
-            &quot;provided phone number is invalid&quot;
-        ]
+        &quot;user&quot;: {
+            &quot;id&quot;: 6,
+            &quot;full_name&quot;: &quot;pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu&quot;,
+            &quot;email&quot;: &quot;trantow.elsa@example.org&quot;,
+            &quot;phone&quot;: &quot;quasi&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;last_login&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T12:15:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T12:15:58.000000Z&quot;
+        }
     }
 }</code>
  </pre>
@@ -279,7 +286,7 @@ access-control-allow-origin: *
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"nihil"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-api-version":"rerum"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
     <h3>
@@ -309,7 +316,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="full_name"
                data-endpoint="POSTapi-v1-register"
-               value="umwxrfirllmayuisyrvnitbfs"
+               value="pmnasrcjlajnaciztjrwqchmnjmwglepjjauiansyopfvrvfqpidhadtkilkugjzjcwrahudqbmxtfzthu"
                data-component="body" hidden>
     <br>
 <p>Must be at least 3 characters. Must not be greater than 100 characters.</p>
@@ -319,7 +326,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1-register"
-               value="mraz.gloria@example.net"
+               value="trantow.elsa@example.org"
                data-component="body" hidden>
     <br>
 <p>validation.email.</p>
@@ -329,7 +336,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1-register"
-               value="debitis"
+               value="quasi"
                data-component="body" hidden>
     <br>
 
@@ -339,14 +346,14 @@ access-control-allow-origin: *
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1-register"
-               value="iusto"
+               value="voluptatem"
                data-component="body" hidden>
     <br>
 
         </p>
         </form>
 
-            <h2 id="authentication-POSTapi-v1-login">Login api</h2>
+            <h2 id="authentication-POSTapi-v1-login">Anmelde-API</h2>
 
 <p>
 </p>
@@ -437,7 +444,7 @@ response.json()</code></pre></div>
 
 <code class="language-json">{
     &quot;success&quot;: true,
-    &quot;message&quot;: &quot;User login successfully.&quot;,
+    &quot;message&quot;: &quot;Benutzeranmeldung erfolgreich..&quot;,
     &quot;code&quot;: 200,
     &quot;data&quot;: {
         &quot;token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGU2MjkzYjk3NjgxMzgyMjM4OTIxYjQzNTlkYzRkN2YxNWJjODc5MDdjMTFjY2JkM2I0YzM3ODlmNjQyMDBkOTM0YjhmODNiYzgyNzkwNmEiLCJpYXQiOjE2NDI2NzM4NTguNjU1MzE5LCJuYmYiOjE2NDI2NzM4NTguNjU1MzI0LCJleHAiOjE2NDM5Njk4NTguNjQ4NTAxLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.O5NNZdmSoqbwK2-wWg6rrAFtWaUUe9JnybMtuoHJBReohF0ois9N9-x7CzOPuX4aKmE61LlPsM6DbIm-yidvqfGOT73mVYoREwu2mISiqTUqsbu8mnq6Nsq6Z_rj21VbOp2-DqkWh86PPI5kpf-t_-pt1QlLAwveTVpefbnmUmfc49m-_aOnXDM2H6QKhXt9zVqlkj2tgFjKgfISqLGJ_iWxUvaHzCSNDMvp7K1Cu620rT5VXCBzDi5NIXuHaCQ7KOzoMT5m5Upb-kG0TjERWogVPUjP8sY4H5AY3PYGkmZfjaRFn6QDth2Fk1fl1-DQffDFsUzuzLvfnbplLr6LfHJnAJFUvsbQpYd_F8-yOcP0JmMn-_Q8P2gtLxD4kL_ofy4cPxi66h6Apc3IeN-7bqd059lmo2uBn_mAZYUdpT8Zo83PeM2ShioUlpUXCCtqnmN4N6R3w2whZfp0Qm-9-9Hy9uGbVb5eNS24rN1XZ27JveT7LRSMU213wqdiKIOOhBXTr3frz2MzXDEk7Fisx9BkzvrHBHbV0ES2mm2zZgha3GqTXw1qH7ENr_W4BClsJL0ArT_a-oifyBFIi_QNKzeNPz439hnSy6YLRKD-3O35ZizIh4u2i7kYpwm25gnxp01zj9PG4Mg0BVrP8OlSuZJyfPslXWmmtg6_NEEh1BY&quot;,
@@ -629,7 +636,7 @@ response.json()</code></pre></div>
 
 <code class="language-json">{
     &quot;success&quot;: true,
-    &quot;message&quot;: &quot;Vehicle address successfully added&quot;,
+    &quot;message&quot;: &quot;Fahrzeugadresse erfolgreich hinzugef&uuml;gt&quot;,
     &quot;code&quot;: 201,
     &quot;data&quot;: []
 }</code>
