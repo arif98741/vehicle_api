@@ -75,8 +75,8 @@ class RegisterController extends BaseController
      * Anmelde-API
      *
      * @group Authentication
-     * @bodyParam phone string required Phone number. Example: 017XXXXXXXX
-     * @bodyParam password string required Password of user. Example: test@example.com
+     * @bodyParam phone string required Telefonnummer. Example: 017XXXXXXXX
+     * @bodyParam password string required Passwort des Benutzers. Example: test@example.com
      * @return JsonResponse|Response
      * @response 200 {
      * "success": true,
