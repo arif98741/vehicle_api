@@ -25,7 +25,7 @@ this will run your project on local ip address
 
 ## [Postman Collection](https://raw.githubusercontent.com/arif98741/vehicle_api/german/Vehicle%20Api%20Postman%20collection.json)
 
-## [Postman Domentation](https://documenter.getpostman.com/view/3992456/UVXojtBR)
+## [Postman Documentation](https://documenter.getpostman.com/view/3992456/UVXojtBR)
 
 
 
