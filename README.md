@@ -23,6 +23,6 @@ v. Run project by running command
 this will run your project on local ip address 
 > http://127.0.0.1:8000
 
-[Postman Collection](https://duckduckgo.com).
+[Postman Collection](https://raw.githubusercontent.com/arif98741/vehicle_api/german/Vehicle%20Api%20Postman%20collection.json).
 
 
