@@ -2,7 +2,7 @@
 
 i. git clone https://github.com/arif98741/vehicle_api.git <br>
 ii. copy **_.env.example_** to new one named **_.env_** <br>
-iii. create a new database called named vehicle_api and changed connection details in **.env** file
+iii. create a new database called named **vehicle_api** and changed connection details in **.env** file
 
 > _DB_CONNECTION=mysql <br>
 DB_HOST=127.0.0.1 <br>
