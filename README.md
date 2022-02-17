@@ -18,6 +18,10 @@ iv. run composer to install composer dependencies <br>
 > **composer install**
 
 v. Run project by running command
+> **php artisan config:cache**
+> 
+> **php artisan migrate**
+> 
 > **php artisan serve**
 
 this will run your project on local ip address 
@@ -26,6 +30,4 @@ this will run your project on local ip address
 ## [Postman Collection](https://raw.githubusercontent.com/arif98741/vehicle_api/german/Vehicle%20Api%20Postman%20collection.json)
 
 ## [Postman Documentation](https://documenter.getpostman.com/view/3992456/UVXojtBR)
-
-
 
