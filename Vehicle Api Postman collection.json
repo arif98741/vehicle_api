@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "04f40610-ef50-454c-b144-67b11c135341",
+		"name": "Vin-API",
+		"description": "**This should be modified**\n\nBase Url Live : [http://103.123.8.225:8091/](http://103.123.8.225:8091/docs)**api/v1**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "01750840217",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login = Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ariful Islam",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "arif@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "c_password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base}}/api/{{api_version}}/login",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Nov 2021 19:08:03 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Nov 2021 19:08:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMzQ4OTRlOTkxMzk2MTk4NzlmMjVjYTNjZmUwYTZlM2MxYjIwNDExNmNjOWJmNjE3YjViZTQ3MjFjNjg1N2RjNDRjZmFiMjk1NTM3ZDAzYTQiLCJpYXQiOjE2MzgyOTkyODMuOTU3MzMxLCJuYmYiOjE2MzgyOTkyODMuOTU3MzM2LCJleHAiOjE2Njk4MzUyODMuOTUyODAyLCJzdWIiOiI3Iiwic2NvcGVzIjpbXX0.Gng1jC6-uIdN8VaYBw6Wr_kEkeQVGRMfai3uOs0BN4D_4yc4JHB689CtNfP-2ZaUO_zEsEoZhoqbVt_5TQYT2Qr8g9mvQ3BIXBb1n3-vzwy4jB7vW_tNTdhM5aKg-OodbeQOjAKvDz6UDQQlKu0Ho-3Y8r9HyEVuMjQbmFiJ202x4adz7_ZtCZeqHiMQaq-a5BMRal0TjTGsd9cmB2fEB7-Fdh4AVd4YbmhIUzE9XjeHur6ZNgbcFygH9kgX11Y3QyJ0qD4L4dQSrTSYFPAg25qIkQCat64eQs4ZbFqKXOXINkGIb8TjBs6QJw206nd7JgoD4yIhqg9RW61P6XK_v_HbDxtkcP3jKvHnDyE1BDLJEAWNbbt0CXp6N8pGbVpSpoHCA_Pf3JqGuwBM8oRZ-wQPxNAIzeJ1dGFNZpQvYn9BjlUu6jhuDOY3IpJaCquIFIQkCylE049R2GPOWGi4MgOMnz5GubFiTnn66Vvy0LEV6QTJhxtL5RolLfHtLDCSr8Dfy0PzZJQOddsKPpn-_23ifFF6yILGjep05YS2BJCSlhlqIU-PGgQF2vnsUG0CLsED9ZYtT3joVQKxuNUIHt9NltzG-n-uGKCUG0hlSQM__f3oA85PhCWwZ1iQSTIKc-IDlKZCDFxlvFtFz4F7rZrberkY6HQqMuXtRROeJvs\",\n        \"name\": \"Ariful Islam\"\n    },\n    \"message\": \"User login successfully.\"\n}"
+						},
+						{
+							"name": "Login Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ariful Islam",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "arif@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "c_password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base}}/api/{{api_version}}/login",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Nov 2021 19:08:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Nov 2021 19:08:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Unauthorised.\",\n    \"data\": {\n        \"error\": \"Unauthorised\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "Ariful Islam",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01750840217",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/register",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "Ariful Islam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Arif",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "arifsofg@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "c_password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01750840219",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base}}/api/{{api_version}}/register",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"api",
+										"{{api_version}}",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Dec 2021 19:05:55 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Dec 2021 19:05:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "60"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"User register successful. Please check otp\",\n    \"data\": {\n        \"user\": {\n            \"id\": 3,\n            \"first_name\": \"Ariful Islam\",\n            \"last_name\": \"Arif\",\n            \"email\": \"arifsofg@gmail.com\",\n            \"phone\": \"01750840219\",\n            \"gender\": null,\n            \"role\": null,\n            \"user_slug\": \"ariful-islam82463\",\n            \"profile_photo\": null,\n            \"email_verified_at\": null,\n            \"otp_verified\": 0,\n            \"documents_verified\": 0,\n            \"last_login\": null,\n            \"created_at\": \"2021-12-14T19:05:52.000000Z\",\n            \"updated_at\": \"2021-12-14T19:05:52.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Add Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "herstellerin",
+									"value": "Audiffff",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "AUD78541fffff",
+									"type": "text"
+								},
+								{
+									"key": "fin",
+									"value": "854694fffff",
+									"type": "text"
+								},
+								{
+									"key": "erste_registrierung",
+									"value": "2022-01-20",
+									"type": "text"
+								},
+								{
+									"key": "kilometerstand",
+									"value": "180",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/vehicle/add",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"vehicle",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "herstellerin",
+									"value": "27575",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "28588",
+									"type": "text"
+								},
+								{
+									"key": "fin",
+									"value": "45678d",
+									"type": "text"
+								},
+								{
+									"key": "erste_registrierung",
+									"value": "222-01-20",
+									"type": "text"
+								},
+								{
+									"key": "kilometerstand",
+									"value": "654564",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/vehicle/edit/1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"vehicle",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/vehicle/all",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"vehicle",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Single Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "manufacturer",
+									"value": "27575",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "28588",
+									"type": "text"
+								},
+								{
+									"key": "vin",
+									"value": "45678d",
+									"type": "text"
+								},
+								{
+									"key": "first_registration",
+									"value": "222-01-20",
+									"type": "text"
+								},
+								{
+									"key": "kilometers_stand",
+									"value": "654564",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/vehicle/view/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"vehicle",
+								"view",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "manufacturer",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "vin",
+									"value": "87878",
+									"type": "text"
+								},
+								{
+									"key": "first_registration",
+									"value": "6345",
+									"type": "text"
+								},
+								{
+									"key": "kilometers_stand",
+									"value": "654564",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/{{api_version}}/vehicle/delete/1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"vehicle",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODYwNjViMzQxZDk3ZjI2NzRhMGYzNmQ5ZGIyN2ZkMmQ2YTYzNWEwMmUyODQxYjJhZTZlNDM4Yjc4YjljNDIzNmYxZWNkYjNjZjZhNjE3ZTQiLCJpYXQiOjE2NDI2NzkxNjAuNTQxMDgxLCJuYmYiOjE2NDI2NzkxNjAuNTQxMDg2LCJleHAiOjE2NDM5NzUxNjAuNTM1NTM4LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.EeVuI3DpaiFe-1CDWQ6-PCpNTvobO3jyYZ6NkWT9kGbHmfgS26kXZo4g3Plk0E3t_GauBQcig7TIye8yUQlY-wxSqe6CoaW81slOqy-97CQceEGEOAxMDkzkwZLUAalZfDmYqA8Y78EDvD0IB-w8XYPVgvjBh-rCFrEMFK4fvsSIeuHUK9UMb8jf_Dml7HtRGZE7GOKnE7jfKyP03nOWeZ4AGeD26ypg_kPWXav2a59ykFyvnS_xuFVAjo_1y90-pWVMiSOCJ_Tb0KoJCS0vK67u2VPXiODvgEIhgZ5O2v93m5fApfgQ4x485RNGyjTdPJlnFzicxzMDyoI5U3zvJP2gZIgT6PRvmWHIfKO5FM5WKSgCyjJ0iwbcKNJZP2UcubvJiDaQA6pO4myKLPAUOn1diXg5PC8VX4ja1hP-UXYidGPp3mddkf7ZM11RxIMXNQxOlqWKP5izErBxarq8wOJ9SCieCLdcnXKXJbW9ffXdWA08zZ_5lli_83hPDyFEvQyHg25FGpnIboOTmZxJjDWd0u_szlxTHS4_LA8vWHdJGN-maVmVKPRc5mO-VHy8QS8n_P-XlWcn_qItqIhJpAmss-f7Em1vEH1jqlZ5MJU-isFeoVnSocIxn5VZtNZxrN4p0lZROpVL8x91xlPxwYkJke2WjTCqhfiQS8_Wu3Y"
+		},
+		{
+			"key": "authTokenDevServer",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGI4YjZlMzVmYTBiM2Y5ZGU1NmE5ZDc0ZDM2ZmVmZTg5ZDY2MzgyYzIzNTEwYjdjZDQ2MWNlNzcwNGNjYTRkNDFhYmU5YTMwZWFjZDY1NTIiLCJpYXQiOjE2NDAwNTk0NzguOTQyNjU5LCJuYmYiOjE2NDAwNTk0NzguOTQyNjY2LCJleHAiOjE2NzE1OTU0NzguOTMyMzIsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.VKi1KZV5ev7LBUFNtX0xBcx39LIpEP_MRIReKRUuPKEoPZv6XpbgER7A3qqP5-anbX-LmiJoSgVYiRGNBg98R-0Zjv5wwjDlMRlS-fbIgp93eqsd3HmQ6cSRCz_q6jccOZKedktdy6TioJCs7SosyaYafqex2kufw46sEpYSYxbLz51fQpQ8yY8Q1328Fy5dEXzVjPOIdj9BRBdiHfs1vb7yUteVT0W6pFkasl2OX6n0LXqY9W6K6f1BRWgZYHGAG8bCHJlAE_SC2nP5mc-sKqNd5oyMqV3Y9SQ6JTzmO92l7RBVlDMFDEOTQRxMnwU0DHqWtNlyJt62ht-0M2Yuk98678gl06F8-PRYyrMsH0C2oLonQd4KkZRdKrViJHdslyyNQXUhc_mqpYzbjB-8a4DjSHxlGR_rUTDWmE0QT-9hIWu1k5kZyDgJquBm2gfjmZcJ8n3L9c2KV50VjL-r4ORGejCwd8T4sXvpEsQChO24XN9RQDAukovJt364DHdFafTIsRKGLjy0xEYtavmT4PeBysDIv2KcVCQjX8K9EOINGSWlD23Rif6vWOGE5mP62RtevTIHL0MHB0GnUQ4Qyzq36dlODeShFAdejp_OIJKDimZjIAdFzDehhHwzaMdrDPF0r0RgycwRuNLgH589H0yT4PeL2M3ZG3dJBVoEk5Y"
+		},
+		{
+			"key": "api_version",
+			"value": "v1",
+			"type": "string"
+		}
+	]
+}
